@@ -1,10 +1,11 @@
 class PicturesController < ApplicationController
+  before_action :set_picture, only: [:show, :edit, :update, :destroy]
   def new
   	@picture = Picture.new
   end
 
   def show
-  	 @picture = Picture.find(params[:id])
+  	 
   end
 
   def index
@@ -25,7 +26,7 @@ class PicturesController < ApplicationController
    end
 
    def edit
-    @picture = Picture.find(params[:id])
+    
    end
 
     def update
@@ -41,7 +42,6 @@ class PicturesController < ApplicationController
   end
 
   def destroy
-   @picture = Picture.find(params[:id])
     if @picture.present?
       @picture.destroy
     end
@@ -49,6 +49,10 @@ class PicturesController < ApplicationController
   end
 
 private
+
+  def set_picture
+    @picture=Picture.find(params[:id])
+  end
 
   def  picture_params
   	params.require(:picture).permit(:title, :description,  :image)
