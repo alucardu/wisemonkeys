@@ -1,3 +1,4 @@
 
 	<%= @picture.title  %>
 	<%= @picture.description %>
+	<%= image_tag(@picture.image_url, :width => 200) if @picture.image.present? %>
