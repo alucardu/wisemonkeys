@@ -25,7 +25,7 @@ class PicturesController < ApplicationController
    end
 
    def edit
-
+    @picture = Picture.find(params[:id])
    end
 
     def update
@@ -41,11 +41,11 @@ class PicturesController < ApplicationController
   end
 
   def destroy
-    @picture.destroy
-    respond_to do |format|
-      format.html { redirect_to :back }
-      format.json { head :no_content }
+   @picture = Picture.find(params[:id])
+    if @picture.present?
+      @picture.destroy
     end
+    redirect_to root_url
   end
 
 private
