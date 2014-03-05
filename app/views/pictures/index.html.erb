@@ -2,6 +2,7 @@
 	<tr>
 		<td ><%= picture.title  %></td>
 		<td ><%= picture.description  %></td>
+		<td> <%= image_tag(picture.image_url, :width => 200) if picture.image.present? %></td>
 	</tr>
 <%  end %>
 
