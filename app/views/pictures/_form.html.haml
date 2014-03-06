@@ -1,0 +1,22 @@
+
+#attend-match
+  %h1 Wedstrijden
+  #attend-button
+    #container-add-art
+    
+  = form_for @picture, :html => {:multipart => true} do |f|
+    .field
+      %label{:for => "title-art"} 
+        %span Titel
+      = f.text_field :title, :placeholder => 'voer titel in'
+      = f.file_field :image
+
+    .field
+      %label{:for => "story-art"} 
+        %span Omschrijving
+        van uw kunst
+      = f.text_area :description, :placeholder => 'voer beschrijving in'
+
+    .btn
+      = f.submit "Upload Picture"
+
