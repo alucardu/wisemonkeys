@@ -13,16 +13,13 @@ class PicturesController < ApplicationController
   end
 
   def create
-       @picture = Picture.new(picture_params)
+      @picture = Picture.new(picture_params)
 
-      respond_to do |format|
        if @picture.save
-          format.html { redirect_to @picture, notice: 'Picture was successfully created.' }
-          format.json { render action: 'index', status: :created, location: @picture }
+         redirect_to @picture, notice: 'Picture was successfully created.'   
        else
-          render "new"
+         render "new" 
        end
-     end
    end
 
    def edit
@@ -30,15 +27,11 @@ class PicturesController < ApplicationController
    end
 
     def update
-    respond_to do |format|
       if @picture.update(picture_params)
-        format.html { redirect_to @picture, notice: 'Picture was successfully updated.' }
-        format.json { head :no_content }
+        redirect_to @picture, notice: 'Picture was successfully updated.' 
       else
-        format.html { render action: 'edit' }
-        format.json { render json: @picture.errors, status: :unprocessable_entity }
+        render action: 'edit' 
       end
-    end
   end
 
   def destroy
