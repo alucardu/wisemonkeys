@@ -19,8 +19,8 @@ subject { page }
   describe "New page" do
   	before {visit pictures_new_path}
   	it {should have_content("Picture Upload")}
-  	it {should have_content("Title")}
-  	it {should have_content("Description")}
+  	it {should have_content("Titel")}
+  	it {should have_content("Omschrijving")}
   end
 
   it "create an art item" do
