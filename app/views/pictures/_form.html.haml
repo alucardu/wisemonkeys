@@ -1,15 +1,17 @@
 
 #attend-match
   %h1 Wedstrijden
-  #attend-button
-    #container-add-art
+  
     
   = form_for @picture, :html => {:multipart => true} do |f|
+    #attend-button
+      #container-add-art
+        = f.file_field :image
+
     .field
       %label{:for => "title-art"} 
         %span Titel
       = f.text_field :title, :placeholder => 'voer titel in'
-      = f.file_field :image
 
     .field
       %label{:for => "story-art"} 

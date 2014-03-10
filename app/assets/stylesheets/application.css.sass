@@ -31,7 +31,7 @@ body
     #container-add-art
       float: left
       border: 1px solid grey
-      background-image: url('../images/add-art.png')
+      background-image: url('add-art.png')
     .error
       display: inline-block
       float: left
@@ -40,6 +40,10 @@ body
 
 
   form
+    float: left
+    width: 100%
+
+  .field
     float: left
 
   label
@@ -52,7 +56,10 @@ body
     padding: 5px
     margin-bottom: 25px
 
-#attend-button input[type="file"]
+  .btn
+    float: left
+
+#attend-match input[type="file"]
   -webkit-appearance: none 
   height: 175px
   width: 125px
