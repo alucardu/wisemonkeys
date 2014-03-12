@@ -5,11 +5,12 @@
   = form_for @picture, :html => {:multipart => true} do |f|
     #attend-button
       #container-add-art
-        = f.file_field :image
         %img(id='prev_img' src='')
+        = f.file_field :image
 
     .field
       %label{:for => "title-art"} 
+
         %span Titel
       = f.text_field :title, :placeholder => 'Voer titel in'
 

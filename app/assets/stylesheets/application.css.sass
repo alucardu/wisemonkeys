@@ -22,9 +22,6 @@ body,html
   font-family: 'Muli', sans-serif
   background: $lime-green
 
-body
-  text-align: center
-
 div, input, textarea
   @include border5px
   border: none
@@ -34,8 +31,9 @@ div, input, textarea
   padding: 20px
   border: 10px solid $dark-green
   width: 30%
-  display: inline-block
+  
   background-color: $light-grey
+  margin: 0 auto
   h1
     width: 100%
     text-align: center
@@ -46,17 +44,19 @@ div, input, textarea
     border: 1px solid $lighter-grey
     #container-add-art
       float: left
-      border: 1px solid $light-grey
+      border: 4px solid $light-grey
       background-image: url('add-art.png')
       background-repeat: no-repeat
+      position: relative
       input
         float: left
-        border-radius: 5px
       img
         border-width: 0px
         float: left
-        width: 150px
-        height: 200px
+        width: 100%
+        height: 100%
+        position: absolute
+        left: 0
     .error
       display: inline-block
       float: left
@@ -65,7 +65,7 @@ div, input, textarea
 
 
   form
-    float: left
+    display: inline-block
     width: 100%
 
   label
