@@ -32,7 +32,12 @@ body
       float: left
       border: 1px solid grey
       background-image: url('add-art.png')
+      background-repeat: no-repeat
+      input
+        float: left
       img
+        border-width: 0px
+        float: left
         width: 150px
         height: 200px
     .error
@@ -51,16 +56,16 @@ body
 
   label
     float: left
+  .field
+    input, textarea
+      clear: both
+      float: left
+      width: 200px
+      padding: 5px
+      margin-bottom: 25px
 
-  input, textarea
-    clear: both
-    float: left
-    width: 200px
-    padding: 5px
-    margin-bottom: 25px
-
-  .btn
-    float: left
+    .btn
+      float: left
 
 #attend-match input[type="file"]
   -webkit-appearance: none 
