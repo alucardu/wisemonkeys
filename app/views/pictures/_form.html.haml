@@ -1,4 +1,3 @@
-
 #attend-match
   %h1 Wedstrijden
   
@@ -7,6 +6,7 @@
     #attend-button
       #container-add-art
         = f.file_field :image
+        %img(id='prev_img' src='#')
 
     .field
       %label{:for => "title-art"} 
@@ -22,3 +22,15 @@
     .btn
       = f.submit "Upload Picture"
 
+:javascript
+  var $input = $('#container-add-art input');
+  $input.on('change', function(){
+    var input = $input[0];
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function(evt) {
+        $('#prev_img').attr('src', evt.target.result);
+      };
+      reader.readAsDataURL(input.files[0]);
+    }
+  });
