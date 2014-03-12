@@ -1,4 +1,12 @@
+@import "compass/css3"
 
+@mixin border5px
+  border-radius: 5px
+
+$light-grey: #F7F7F7
+$lighter-grey: #E9E9E9
+$lime-green: #67F784
+$dark-green: #38EA6D
 
 .error
   background-color: #ff0000
@@ -11,16 +19,23 @@
 body,html
   height: 100%
   width: 100%
+  font-family: 'Muli', sans-serif
+  background: $lime-green
 
 body
   text-align: center
 
+div, input, textarea
+  @include border5px
+  border: none
+
 #attend-match
   margin-top: 20px
   padding: 20px
-  border: 2px solid #000
+  border: 10px solid $dark-green
   width: 30%
   display: inline-block
+  background-color: $light-grey
   h1
     width: 100%
     text-align: center
@@ -28,13 +43,15 @@ body
   #attend-button
     margin-right: 50px
     float: left
+    border: 1px solid $lighter-grey
     #container-add-art
       float: left
-      border: 1px solid grey
+      border: 1px solid $light-grey
       background-image: url('add-art.png')
       background-repeat: no-repeat
       input
         float: left
+        border-radius: 5px
       img
         border-width: 0px
         float: left
@@ -51,21 +68,29 @@ body
     float: left
     width: 100%
 
-  .field
-    float: left
-
   label
     float: left
+
   .field
+    float: left
+    width: 40%
     input, textarea
       clear: both
       float: left
-      width: 200px
-      padding: 5px
+      width: 100%
+      padding: 10px
       margin-bottom: 25px
+      border: 2px solid $lighter-grey
+      &:focus
+        border: 2px solid $dark-green
+        outline: 0
 
-    .btn
-      float: left
+    #btn
+      background-color: #67F784
+      border: 5px solid #38EA6D
+
+    textarea
+      height: 150px
 
 #attend-match input[type="file"]
   -webkit-appearance: none 

@@ -11,16 +11,14 @@
     .field
       %label{:for => "title-art"} 
         %span Titel
-      = f.text_field :title, :placeholder => 'voer titel in'
+      = f.text_field :title, :placeholder => 'Voer titel in'
 
-    .field
       %label{:for => "story-art"} 
         %span Omschrijving
         van uw kunst
-      = f.text_area :description, :placeholder => 'voer beschrijving in'
+      = f.text_area :description, :placeholder => 'Voer beschrijving in'
 
-    .btn
-      = f.submit "Upload Picture"
+      = f.submit "Doe mee", :id => "btn"
 
 :javascript
   var $input = $('#container-add-art input');
