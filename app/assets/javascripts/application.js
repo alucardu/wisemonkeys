@@ -14,3 +14,15 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+
+  
+  if ( 
+    $("#prev_img:empty").hide());
+  
+  else {
+    $("#prev_img").show();
+  }
+
+});
