@@ -1,4 +1,9 @@
 @import "compass/css3"
+@import "companimation"
+@import "companimation/preset/fade/fadeIn"
+@import "companimation/preset/fade/fadeInUp"
+@import "companimation/preset/bounce/bounceIn"
+@import "companimation/preset/filters/blurInDown"
 
 @mixin border5px
   border-radius: 5px
@@ -9,7 +14,9 @@ $lime-green: #67F784
 $dark-green: #38EA6D
 
 .field_with_errors
-  input
+  @extend %fadeIn
+  @include animation-duration( 2s )
+  input, textarea
     border: 2px solid #ff0000!important
 
 .succes
@@ -31,7 +38,6 @@ div, input, textarea
   padding: 20px
   border: 10px solid $dark-green
   width: 30%
-  
   background-color: $light-grey
   margin: 0 auto
   h1
@@ -41,22 +47,27 @@ div, input, textarea
   #attend-button
     margin-right: 50px
     float: left
-    border: 1px solid $lighter-grey
     #container-add-art
       float: left
-      border: 4px solid $light-grey
+      width: 129px
       background-image: url('add-art.png')
+      border: 2px solid $lighter-grey
       background-repeat: no-repeat
       position: relative
+      #menu 
+        display: none
+      .field_with_errors
+        float: left
+        margin: -2px
+        border: 2px solid #ff0000!important
       input
         float: left
       img
-        border-width: 0px
         float: left
-        width: 100%
-        height: 100%
         position: absolute
         left: 0
+        height: 175px
+        width: 125px
     .error
       display: inline-block
       float: left
