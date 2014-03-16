@@ -3,9 +3,9 @@
   
     
   = form_for @picture, :html => {:multipart => true} do |f|
-    #attend-button
+    #container-attend
       %span Afbeelding
-      #container-add-art 
+      #container-btn
         %img(id='prev_img' src='')
         = f.file_field :image
 

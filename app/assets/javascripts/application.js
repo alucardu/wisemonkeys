@@ -26,7 +26,7 @@ $(document).ready(function(){
   });
 
   // Preview functie.
-  var $input = $('#container-add-art input');
+  var $input = $('#container-btn input');
   $input.on('change', function(){
     var input = $input[0];
     if (input.files && input.files[0]) {

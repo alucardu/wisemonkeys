@@ -1,3 +1,4 @@
+// Imports
 @import "compass/css3"
 @import "compass/css3/box-sizing"
 
@@ -7,21 +8,23 @@
 @import "companimation/preset/bounce/bounceIn"
 @import "companimation/preset/filters/blurInDown"
 
+// Mixins
 @mixin border5px
   border-radius: 5px
 
-$light-grey: #F7F7F7
-$lighter-grey: #E9E9E9
-$lime-green: #67F784
-$dark-green: #38EA6D
+@mixin field_with_errors
+  @extend %fadeIn
+  @include animation-duration( 2s )
+  border: 2px solid #ff0000
 
-.succes
-  background: #00ff06
-  color: #fff
+// Variables
+$light-grey:    #F7F7F7
+$lighter-grey:  #E9E9E9
+$lime-green:    #67F784
+$dark-green:    #38EA6D
 
+// General stuff
 body,html
-  height: 100%
-  width: 100%
   font-family: 'Muli', sans-serif
   background: $lime-green
 
@@ -40,23 +43,23 @@ div, input, textarea
     width: 100%
     text-align: center
 
-  #attend-button
+  #container-attend
     margin-right: 50px
     float: left
-    #container-add-art
+    #container-btn
       float: left
       width: 125px
       background-image: url('add-art.png')
       border: 2px solid $lighter-grey
-      background-repeat: no-repeat
       position: relative
       .field_with_errors
         float: left
         margin: -2px
-        border: 2px solid #ff0000!important
+        @include field_with_errors
       input
         float: left
       img
+        @include border5px
         float: left
         position: absolute
         left: 0
@@ -74,10 +77,8 @@ div, input, textarea
     float: left
     width: 40%
     .field_with_errors
-      @extend %fadeIn
-      @include animation-duration( 2s )
       input, textarea
-        border: 2px solid #ff0000
+        @include field_with_errors
     input, textarea
       clear: both
       float: left
@@ -91,8 +92,8 @@ div, input, textarea
         outline: 0
 
     #btn
-      background-color: #67F784
-      border: 5px solid #38EA6D
+      background-color: $lime-green
+      border: 5px solid $dark-green
 
     textarea
       height: 150px
