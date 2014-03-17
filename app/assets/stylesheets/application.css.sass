@@ -39,9 +39,20 @@ div, input, textarea
   width: 30%
   background-color: $light-grey
   margin: 0 auto
+  & input[type="file"]
+    -webkit-appearance: none 
+    height: 175px
+    width: 125px
+    opacity: 0
+    cursor: pointer
   h1
     width: 100%
     text-align: center
+  form
+    display: inline-block
+    width: 100%
+  label
+    float: left
 
   #container-attend
     margin-right: 50px
@@ -56,22 +67,11 @@ div, input, textarea
         float: left
         margin: -2px
         @include field_with_errors
-      input
-        float: left
       img
         @include border5px
-        float: left
         position: absolute
-        left: 0
         height: 175px
         width: 125px
-
-  form
-    display: inline-block
-    width: 100%
-
-  label
-    float: left
 
   .field
     float: left
@@ -97,10 +97,3 @@ div, input, textarea
 
     textarea
       height: 150px
-
-#attend-match input[type="file"]
-  -webkit-appearance: none 
-  height: 175px
-  width: 125px
-  opacity: 0
-  cursor: pointer
