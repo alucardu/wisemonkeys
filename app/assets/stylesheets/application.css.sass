@@ -40,6 +40,8 @@ div, input, textarea
   background-color: $light-grey
   margin: 0 auto
   & input[type="file"]
+    position: relative
+    z-index: 2
     -webkit-appearance: none 
     height: 175px
     width: 125px
@@ -70,6 +72,9 @@ div, input, textarea
       img
         @include border5px
         position: absolute
+        z-index: 1
+        top: 0
+        left: 0
         height: 175px
         width: 125px
 

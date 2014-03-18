@@ -25,6 +25,10 @@ $(document).ready(function(){
     $("#prev_img").fadeIn();
   });
 
+  $("#prev_img").load(function() {
+    $("#img_cache").hide();
+  });
+
   // Preview functie.
   var $input = $('#container-btn input');
   $input.on('change', function(){
