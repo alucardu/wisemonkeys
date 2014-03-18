@@ -48,6 +48,6 @@ private
   end
 
   def  picture_params
-  	params.require(:picture).permit(:title, :description,  :image)
+  	params.require(:picture).permit(:title, :description,  :image, :image_cache)
   end
 end

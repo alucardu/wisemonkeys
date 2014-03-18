@@ -8,6 +8,8 @@
       #container-btn
         %img(id='prev_img' src='')
         = f.file_field :image
+        = f.hidden_field :image_cache, :value => @picture.image_cache
+        = image_tag(@picture.image_url, :width => 200)
 
     .field
       %label{:for => "title-art"} 
