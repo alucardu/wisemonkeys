@@ -66,6 +66,8 @@ div, input, textarea
       border: 2px solid $lighter-grey
       position: relative
       .field_with_errors
+        position: relative
+        z-index: 3
         float: left
         margin: -2px
         @include field_with_errors
@@ -75,7 +77,7 @@ div, input, textarea
         z-index: 1
         top: 0
         left: 0
-        height : 175px
+        height: 175px
         width: 125px
 
   .field
