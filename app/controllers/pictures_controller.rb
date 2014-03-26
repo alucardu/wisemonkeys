@@ -12,6 +12,11 @@ class PicturesController < ApplicationController
   	@pictures = Picture.all
   end
 
+  def upvote
+    @picture = Picture.find(params[:id])
+    @picture.votes.create
+  end
+
   def create
       @picture = Picture.new(picture_params)
 
