@@ -8,7 +8,7 @@ set :scm, :git
 set :format, :pretty
 set :log_level, :info
 
-set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+set :linked_dirs, %w{tmp/pids tmp/sockets log public/uploads}
 
 set :default_env, { path: "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH" }
 set :keep_releases, 5
