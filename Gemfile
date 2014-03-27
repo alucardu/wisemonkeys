@@ -28,8 +28,15 @@ gem 'compass-rails'
 
 gem 'companimation'
 
+gem 'quiet_assets'
+
 group :development do
 	gem 'sqlite3'
+	gem 'capistrano'
+	gem 'capistrano-rails'
+	gem 'capistrano-bundler'
+	gem 'capistrano-rbenv', github: 'capistrano/rbenv'
+
 end
 
 group :production, :test do
