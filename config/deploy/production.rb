@@ -15,4 +15,4 @@ server '188.226.217.39:18192', user: 'deploy', roles: %w{web app db}
 set :deploy_to, "/home/deploy/wisemonkeys/production"
 
 set :rails_env, 'production'       # If the environment differs from the stage name
-set :branch, 'master'
+set :branch, 'production'
