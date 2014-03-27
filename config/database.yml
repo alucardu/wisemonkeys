@@ -21,6 +21,16 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
+  database: dbproductionwisemonkeys
+  pool: 5
+  username: postgres
+  password: postgres
+  host: localhost
+
+staging:
+  adapter: postgresql
+  encoding: unicode
+  database: dbpstagingwisemonkeys
   pool: 5
   username: postgres
   password: postgres
