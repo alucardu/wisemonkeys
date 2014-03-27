@@ -15,6 +15,7 @@ class PicturesController < ApplicationController
   def upvote
     @picture = Picture.find(params[:id])
     @picture.votes.create
+    redirect_to root_path
   end
 
   def create
