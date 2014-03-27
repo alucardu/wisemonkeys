@@ -8,6 +8,10 @@ class PicturesController < ApplicationController
   	 
   end
 
+  def voteresults
+      @pictures = Picture.all
+  end
+
   def index
   	@pictures = Picture.all
   end

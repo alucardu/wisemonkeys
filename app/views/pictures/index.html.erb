@@ -1,6 +1,6 @@
 <h1>Kunst Uploaden</h1>
 <%= link_to 'Klik om kunst te uploaden', new_picture_path %></br>
-<% @pictures.each do |picture| %>
+<% @pictures.shuffle.each do |picture| %>
 	<tr>
 		<td ><%= link_to picture.title, picture  %></td>
 		<td ><%= picture.description  %></td>
