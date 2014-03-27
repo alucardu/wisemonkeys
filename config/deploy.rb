@@ -1,5 +1,5 @@
 # config valid only for Capistrano 3.1
-set :rbenv_ruby '2.1.1p76'
+set :rbenv_ruby, '2.1.1'
 set :application, 'wisemonkeys'
 set :repo_url, 'git@github.com:cvandermeer/wisemonkeys.git'
 
