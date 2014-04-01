@@ -2,7 +2,7 @@ Wisemonkeys::Application.routes.draw do
 get "pictures/new"
 resources :pictures do
   member do
-    post 'upvote'
+get 'upvote'
   end
 end
 get '/voteresults' => 'pictures#voteresults'

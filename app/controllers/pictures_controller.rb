@@ -19,7 +19,7 @@ class PicturesController < ApplicationController
   def upvote
     @picture = Picture.find(params[:id])
     @picture.votes.create
-    redirect_to root_path
+    render text: @picture.votes.count
   end
 
   def create
@@ -51,13 +51,13 @@ class PicturesController < ApplicationController
     redirect_to root_url
   end
 
-private
+  private
 
-  def set_picture
-    @picture=Picture.find(params[:id])
-  end
+    def set_picture
+      @picture=Picture.find(params[:id])
+    end
 
-  def  picture_params
-  	params.require(:picture).permit(:title, :description,  :image, :image_cache)
-  end
+    def  picture_params
+    	params.require(:picture).permit(:title, :description,  :image, :image_cache)
+    end
 end
