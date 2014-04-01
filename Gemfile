@@ -18,10 +18,6 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'carrierwave'
 
-gem 'rspec-rails'
-
-gem 'capybara'
-
 gem 'haml-rails'
 
 gem 'compass-rails'
@@ -32,7 +28,12 @@ group :development do
 	gem 'sqlite3'
 end
 
-group :production, :test do
+group :development, :test do
+	gem 'capybara'
+	gem 'rspec-rails', '~> 3.0.0.beta'
+end
+
+group :production do
 	gem 'pg'
 end
 
