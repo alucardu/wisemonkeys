@@ -8,7 +8,6 @@ feature 'Upload a picture' do
     visit pictures_path
     expect(page).to have_content('Kunst Uploaden')
     expect(page).to have_link('Klik om kunst te uploaden')
-    expect(page).to have_button('Vote')
   end
 
   scenario 'Upload picture form' do
@@ -27,7 +26,7 @@ feature 'Upload a picture' do
     within('#new_picture') do
       fill_in 'picture_title', with: 'kunst'
       fill_in 'picture_description', with: 'Dit is mooie kunst'
-      attach_file :image, ('app/assets/images/art.jpg')
+      attach_file 'picture_image', File.join(Rails.root, 'spec', 'images', 'art.jpg')
     end
 
     click_button 'Doe mee'
@@ -35,6 +34,7 @@ feature 'Upload a picture' do
     visit pictures_path
     expect(page).to have_content 'kunst'
     expect(page).to have_content 'Dit is mooie kunst'
+    expect(page).to have_link('Vote')  
   end
 
 end
