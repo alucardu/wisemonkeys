@@ -1,6 +1,11 @@
 Wisemonkeys::Application.routes.draw do
 get "pictures/new"
-resources :pictures
+resources :pictures do
+  member do
+get 'upvote'
+  end
+end
+get '/voteresults' => 'pictures#voteresults'
 root 'pictures#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

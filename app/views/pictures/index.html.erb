@@ -1,9 +1,10 @@
 <h1>Kunst Uploaden</h1>
 <%= link_to 'Klik om kunst te uploaden', new_picture_path %></br>
-<% @pictures.each do |picture| %>
+<% @pictures.shuffle.each do |picture| %>
 	<tr>
 		<td ><%= link_to picture.title, picture  %></td>
 		<td ><%= picture.description  %></td>
-		<td> <%= link_to image_tag(picture.image_url, :width => 200) , picture if picture.image.present?  %></td>
+		<td> <%= link_to image_tag(picture.image_url, :height => 180, :width => 200) , picture if picture.image.present?  %></td>
+		<td> <%= link_to 'Vote', upvote_picture_path(picture), :remote => true, "data-type" => :json  %>  </td>
 	</tr>
 <%  end %>
