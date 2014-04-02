@@ -18,6 +18,8 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'carrierwave'
 
+gem 'carrierwave_direct'
+
 gem 'haml-rails'
 
 gem 'compass-rails'
