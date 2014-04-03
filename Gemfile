@@ -34,7 +34,7 @@ group :development do
 	gem 'capistrano-rails'
 	gem 'capistrano-bundler'
 	gem 'capistrano-rbenv', github: 'capistrano/rbenv'
-
+	gem 'guard-rspec'
 end
 
 group :development, :test do
