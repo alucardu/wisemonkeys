@@ -1,4 +1,6 @@
 Wisemonkeys::Application.routes.draw do
+  resources :competitions
+
 get "pictures/new"
 resources :pictures do
   member do

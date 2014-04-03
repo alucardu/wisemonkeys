@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @competition.title
+%p
+  %b Description:
+  = @competition.description
+%p
+  %b Prize:
+  = @competition.prize
+%p
+  %b Deadline:
+  = @competition.deadline
+
+= link_to 'Edit', edit_competition_path(@competition)
+\|
+= link_to 'Back', competitions_path
