@@ -1,0 +1,5 @@
+%ul
+  - @pictures.each do |picture|
+    %li
+      = link_to picture.title, picture
+      \- #{pluralize(picture.votes.count, "vote" )}

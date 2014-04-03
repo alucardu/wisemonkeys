@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140318084930) do
+ActiveRecord::Schema.define(version: 20140326144857) do
 
   create_table "pictures", force: true do |t|
     t.string   "title"
@@ -20,6 +20,12 @@ ActiveRecord::Schema.define(version: 20140318084930) do
     t.datetime "updated_at"
     t.string   "image"
     t.string   "image_cache"
+  end
+
+  create_table "votes", force: true do |t|
+    t.integer  "picture_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

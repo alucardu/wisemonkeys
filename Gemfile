@@ -18,9 +18,7 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'carrierwave'
 
-gem 'rspec-rails'
-
-gem 'capybara'
+gem 'carrierwave_direct'
 
 gem 'haml-rails'
 
@@ -39,7 +37,12 @@ group :development do
 
 end
 
-group :production, :test do
+group :development, :test do
+	gem 'capybara'
+	gem 'rspec-rails', '~> 3.0.0.beta'
+end
+
+group :production do
 	gem 'pg'
 end
 
