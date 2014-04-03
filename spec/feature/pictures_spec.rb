@@ -1,13 +1,13 @@
 require 'spec_helper'
 
-feature 'Upload a picture' do
+feature 'Pictures' do
 
   include CarrierWaveDirect::Test::CapybaraHelpers
 
   scenario 'Showing all pictures' do
     visit pictures_path
     expect(page).to have_content('Kunst Uploaden')
-    expect(page).to have_link('Klik om kunst te uploaden')
+    expect(page).to have_link('Klik om mee te doen!')
   end
 
   scenario 'Upload picture form' do
@@ -16,6 +16,11 @@ feature 'Upload a picture' do
     expect(page).to have_content('Titel')
     expect(page).to have_content('Omschrijving')
     expect(page).to have_button('Doe mee')
+  end
+
+  scenario 'Voting' do
+    visit pictures_path
+    expect(page).to have_content('Stem mee')
   end
 
   scenario 'Filling in the pictures form' do
@@ -33,8 +38,7 @@ feature 'Upload a picture' do
 
     visit pictures_path
     expect(page).to have_content 'kunst'
-    expect(page).to have_content 'Dit is mooie kunst'
-    expect(page).to have_link('Vote')  
+    expect(page).to have_content 'Dit is mooie kunst' 
   end
 
 end
