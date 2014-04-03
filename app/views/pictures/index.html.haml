@@ -23,5 +23,5 @@
       // = button_to '+1', upvote_picture_path(picture), method: :post
       // = link_to 'Vote', upvote_picture_path(picture), :remote => true, "data-type" => :json
 
-      = link_to "Vote", upvote_picture_path(picture), :remote => true, "data-type" => :json do
+      = link_to upvote_picture_path(picture), :remote => true, "data-type" => :json do
         = image_tag(picture.image_url, :width => 200)
