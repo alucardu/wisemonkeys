@@ -1,0 +1,27 @@
+%h1 Kunst Uploaden
+
+= link_to 'Klik om mee te doen!', new_picture_path
+
+#container-vote
+  #btn
+    Stem mee
+
+#container-art-bg
+
+#container-art
+  #container-thanks
+    %p Bedankt voor het stemmen
+
+  %h1 Kies één
+  - @pictures.shuffle.each do |picture|
+    .art 
+      = link_to picture.title, picture
+      // = picture.description
+      // = image_tag(picture.image_url, :width => 200)
+      // , picture if picture.image.present?
+      // = pluralize(picture.votes.count, "vote" )
+      // = button_to '+1', upvote_picture_path(picture), method: :post
+      // = link_to 'Vote', upvote_picture_path(picture), :remote => true, "data-type" => :json
+
+      = link_to "Vote", upvote_picture_path(picture), :remote => true, "data-type" => :json do
+        = image_tag(picture.image_url, :width => 200)
