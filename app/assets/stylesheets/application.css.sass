@@ -1,12 +1,17 @@
 // Imports
 @import "compass/css3"
 @import "compass/css3/box-sizing"
+@import "compass/css3/box-shadow"
+@import "compass/reset"
 
 @import "companimation"
 @import "companimation/preset/fade/fadeIn"
 @import "companimation/preset/fade/fadeInUp"
 @import "companimation/preset/bounce/bounceIn"
 @import "companimation/preset/filters/blurInDown"
+// Stuff
+div
+  @include box-sizing(border-box)
 
 // Mixins
 @mixin border5px
@@ -18,19 +23,58 @@
   border: 2px solid #ff0000
 
 // Variables
+$black:         #000000
+$white:         #FFFFFF
+$dark-grey:     #D0D0D0
 $light-grey:    #F7F7F7
-$lighter-grey:  #E9E9E9
+$grey:          #E9E9E9
 $lime-green:    #67F784
 $dark-green:    #38EA6D
 
 // General stuff
 body,html
   font-family: 'Muli', sans-serif
-  background: $lime-green
+  background: $light-grey
 
 div, input, textarea
   @include border5px
   border: none
+
+#header
+  font-size: 0.9em
+  background: $white
+  border-bottom: 1px solid $dark-grey
+  display: inline-block
+  width: 100%
+  height: 70px
+  @include box-shadow($grey 0px 1px 0px)
+  padding: 0px 90px
+  &>div
+    height: 50px
+    min-width: 55px
+    padding: 25px 20px
+  a
+    vertical-align: middle
+    display: table-cell
+    color: $black
+    text-decoration: none
+  #logo
+    float: left
+    margin-right: 120px
+  #menu
+    float: left
+    border-left: 1px solid $grey
+  #login, #register, #facebook, #twitter
+    float: right
+  #login
+    border-right: 1px solid $grey
+    background: url(icon-login.png) no-repeat 15px 22px
+    a
+      padding-left: 37px
+  #facebook
+    border-right: 1px solid $grey
+  #twitter
+    border-right: 1px solid $grey
 
 #attend-match
   margin-top: 20px
@@ -63,7 +107,7 @@ div, input, textarea
       float: left
       width: 125px
       background-image: url('add-art.png')
-      border: 2px solid $lighter-grey
+      border: 2px solid $grey
       position: relative
       .field_with_errors
         position: relative
@@ -92,7 +136,7 @@ div, input, textarea
       width: 100%
       padding: 10px
       margin-bottom: 25px
-      border: 2px solid $lighter-grey
+      border: 2px solid $grey
       @include box-sizing(border-box)
       &:focus
         border: 2px solid $dark-green
