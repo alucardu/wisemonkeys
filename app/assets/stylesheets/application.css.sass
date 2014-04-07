@@ -54,8 +54,6 @@ div, input, textarea
     min-width: 55px
     padding: 25px 20px
   a
-    vertical-align: middle
-    display: table-cell
     color: $black
     text-decoration: none
   #logo
@@ -64,6 +62,30 @@ div, input, textarea
   #menu
     float: left
     border-left: 1px solid $grey
+    border-right: 1px solid $grey
+    &>a
+      display: inline-block
+      height: 46px
+    ul
+      position: absolute
+      width: 330px
+      z-index: 2
+      margin-left: -260px
+      background-color: $white
+      padding: 0px 20px
+      @include box-sizing(border-box)
+      li
+        border-bottom: 1px solid $grey
+        width: 100%
+        float: left
+        a
+          display: inline-block
+          width: 100%
+          padding: 30px 0px
+          &:hover
+            color: $lime-green 
+        &:last-child
+          background: url(icon-close.png) no-repeat 275px 32px
   #login, #register, #facebook, #twitter
     float: right
   #login

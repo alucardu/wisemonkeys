@@ -12,7 +12,7 @@ $(document).ready ->
     return
 
   
-  # Preview functie.
+ #  Preview functie.
   $input = $("#container-btn input")
   $input.on "change", ->
     input = $input[0]
@@ -43,4 +43,9 @@ $(document).ready ->
     $("#container-art, #container-art-bg").fadeOut()
     return
 
+  $("#menu ul").hide()
+  $("#menu").hover ->
+    $("#menu ul").stop().slideToggle(350)
   return
+
+return
