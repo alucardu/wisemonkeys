@@ -2,6 +2,13 @@ jQuery ($) ->
   
 $(document).ready ->
 
+  $container = $("#container")  
+  $container.imagesLoaded ->
+    $container.masonry
+      itemSelector: ".item"
+      gutter: 0
+    return
+
   
   $("#prev_img").hide()  if $("#prev_img").attr("src", "")
   $("#prev_img").load ->
