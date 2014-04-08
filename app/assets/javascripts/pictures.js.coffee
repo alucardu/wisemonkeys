@@ -1,18 +1,19 @@
-jQuery ($) ->
-  
+jQuery ($) ->  
   
 $(document).ready ->
+
+  
   $("#prev_img").hide()  if $("#prev_img").attr("src", "")
   $("#prev_img").load ->
     $("#prev_img").fadeIn()
     return
 
+ 
   $("#prev_img").load ->
     $("#img_cache").hide()
     return
-
   
- #  Preview functie.
+  # Preview functie.
   $input = $("#container-btn input")
   $input.on "change", ->
     input = $input[0]
@@ -43,9 +44,10 @@ $(document).ready ->
     $("#container-art, #container-art-bg").fadeOut()
     return
 
-  $("#menu ul").hide()
-  $("#menu").hover ->
-    $("#menu ul").stop().slideToggle(350)
+  $("#header ul , #bg-overlay").hide()
+  $("#header div").hover ->
+    $(this).find("ul").stop().slideToggle(350)
+    $("#bg-overlay").stop().fadeToggle(350)
   return
 
 return

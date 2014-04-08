@@ -3,10 +3,12 @@
   %head
     %title Wisemonkeys
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
-    %link{href: "http://fonts.googleapis.com/css?family=Muli:400,300italic", rel: "stylesheet", type: "text/css"}/
+    // %link{href: "http://fonts.googleapis.com/css?family=Muli:400,300italic", rel: "stylesheet", type: "text/css"}/
     = javascript_include_tag "application", "data-turbolinks-track" => true
+    = javascript_include_tag "masonry.pkgd.js", "data-turbolinks-track" => true
     = csrf_meta_tags
   %body
+    #bg-overlay
     #header
       #logo
         %a{:href => "/"}
@@ -32,4 +34,17 @@
         = image_tag 'icon-facebook.png'
       #login
         %a{:href => "google.com"} Inloggen
-    = yield
+        %ul
+          %li 
+            Gebruikersnaam of email adres
+          %li
+            %input 
+          %li 
+            Wachtwoord
+          %li
+            %input 
+          %li 
+            %a{:href => "/"}Wachtwoord vergeten?
+            %button Inloggen
+    #container-content
+      = yield
