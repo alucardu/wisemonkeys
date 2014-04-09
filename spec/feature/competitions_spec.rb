@@ -15,15 +15,15 @@ feature 'Competitions' do
 
 		within ('#new_competition') do
 			fill_in 'competition_title', with: 'Kunstwedstrijd'
-      			fill_in 'competition_description', with: 'Dit is een Kunstwedstrijd'
-      			fill_in 'competition_prize', with: '500 euro'
-      			fill_in 'competition_deadline', with: '5 juni'
-   		end
+      fill_in 'competition_description', with: 'Dit is een Kunstwedstrijd'
+      fill_in 'competition_prize', with: '500 euro'
+      fill_in 'competition_deadline', with: '5 juni'
+   	end
 
-   		click_button 'Wedstrijd aanmaken'
-	    	visit competitions_path
-	   	expect(page).to have_content ('Kunstwedstrijd')
-	   end
+   	click_button 'Wedstrijd aanmaken'
+	  visit competitions_path
+	  expect(page).to have_content ('Kunstwedstrijd')
+	end
 end
 
 
