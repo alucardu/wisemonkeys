@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140403102407) do
+ActiveRecord::Schema.define(version: 20140409092139) do
 
   create_table "competitions", force: true do |t|
     t.string   "title"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20140403102407) do
     t.datetime "updated_at"
     t.string   "image"
     t.string   "image_cache"
+    t.integer  "competition_id"
   end
 
   create_table "votes", force: true do |t|

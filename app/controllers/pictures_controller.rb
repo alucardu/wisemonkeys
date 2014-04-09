@@ -1,7 +1,7 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
   def new
-  	@picture = Picture.new
+  	@picture = Picture.new(:competition_id => params[:competition_id])
   end
 
   def show
@@ -58,6 +58,6 @@ class PicturesController < ApplicationController
     end
 
     def  picture_params
-    	params.require(:picture).permit(:title, :description,  :image, :image_cache)
+    	params.require(:picture).permit(:title, :description,  :image, :image_cache, :competition_id)
     end
 end
