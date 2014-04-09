@@ -23,6 +23,9 @@ feature 'Competitions' do
    	click_button 'Wedstrijd aanmaken'
 	  visit competitions_path
 	  expect(page).to have_content ('Kunstwedstrijd')
+	  expect(page).to have_content ('Dit is een Kunstwedstrijd')
+	  expect(page).to have_content ('500 euro')
+	  expect(page).to have_content ('2014-06-05 00:00:00 UTC')
 	end
 end
 

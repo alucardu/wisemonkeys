@@ -1,7 +1,8 @@
 Wisemonkeys::Application.routes.draw do
   resources :competitions
 
-get "pictures/new"
+get 'pictures/new'
+get 'competitions/new'
 resources :pictures do
   member do
 get 'upvote'
