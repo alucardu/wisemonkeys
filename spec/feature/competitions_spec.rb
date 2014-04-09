@@ -55,7 +55,6 @@ feature 'Competitions' do
     click_link 'Kunstwedstrijd'
 
     expect(page).to have_content 'kunst'
-    expect(page).to have_content 'Dit is mooie kunst'
   end 
 end
 
