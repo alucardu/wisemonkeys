@@ -1,24 +1,22 @@
 %h1 Wedstrijden
 
-%table
-  %tr
-    %th Title
-    %th Description
-    %th Prize
-    %th Deadline
-    %th
-    %th
-    %th
-
-  - @competitions.each do |competition|
+.start-match
+  %table
     %tr
-      %td= link_to competition.title, competition
-      %td= competition.description
-      %td= competition.prize
-      %td= competition.deadline
-      %td= link_to 'Edit', edit_competition_path(competition)
-      %td= link_to 'Destroy', competition, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %th Title
+      %th Description
+      %th Prize
+      %th Deadline
 
-%br
+    - @competitions.each do |competition|
+      %tr
+        %td= link_to competition.title, competition
+        %td= competition.description
+        %td= competition.prize
+        %td= competition.deadline
+        %td= link_to 'Edit', edit_competition_path(competition)
+        %td= link_to 'Destroy', competition, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-= link_to 'Nieuwe wedstrijd aanmaken', new_competition_path
+  %br
+
+  = link_to 'Nieuwe wedstrijd aanmaken', new_competition_path

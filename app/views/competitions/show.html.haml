@@ -1,21 +1,28 @@
 %p#notice= notice
 
-%p
-  %b Title:
-  = @competition.title
-%p
-  %b Description:
-  = @competition.description
-%p
-  %b Prize:
-  = @competition.prize
-%p
-  %b Deadline:
-  = @competition.deadline
-%p
+#match-info
+  %h1
+    = @competition.title
+  %p
+    %b Description:
+    = @competition.description
+  %p
+    %b Prize:
+    = @competition.prize
+  %p
+    %b Deadline:
+    = @competition.deadline
+
+#container.js-masonry
   - @competition.pictures.each do |picture|
-    = picture.title
-    = image_tag(picture.image_url, :width => 200)
+    .item
+      = link_to picture do
+        = image_tag(picture.image_url)
+      = link_to picture.title, picture, :class => "art-name"
+      -# %span
+        -# %div
+          -# %p
+            -# \ #{pluralize(picture.votes.count, "" )}
 
 = link_to 'Klik om mee te doen!', new_picture_path(:competition_id => @competition)
 

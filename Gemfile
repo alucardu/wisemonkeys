@@ -28,6 +28,8 @@ gem 'companimation'
 
 gem 'quiet_assets'
 
+gem 'jquery-turbolinks'
+
 group :development do
 	gem 'sqlite3'
 	gem 'capistrano'
