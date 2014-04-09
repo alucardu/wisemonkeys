@@ -1,12 +1,16 @@
 // Imports
 @import "compass/css3"
-@import "compass/css3/box-sizing"
+@import "compass/reset"
 
 @import "companimation"
 @import "companimation/preset/fade/fadeIn"
 @import "companimation/preset/fade/fadeInUp"
 @import "companimation/preset/bounce/bounceIn"
 @import "companimation/preset/filters/blurInDown"
+
+// Stuff
+div, a
+  @include box-sizing(border-box)
 
 // Mixins
 @mixin border5px
@@ -18,19 +22,162 @@
   border: 2px solid #ff0000
 
 // Variables
+$black:         #000000
+$white:         #FFFFFF
+$darkest-grey:  #999999
+$dark-grey:     #D0D0D0
 $light-grey:    #F7F7F7
-$lighter-grey:  #E9E9E9
+$grey:          #E9E9E9
 $lime-green:    #67F784
 $dark-green:    #38EA6D
 
 // General stuff
+
+h1
+  font-size: 2em
+  padding-bottom: 30px
+
 body,html
   font-family: 'Muli', sans-serif
-  background: $lime-green
+  background: $light-grey
 
 div, input, textarea
   @include border5px
   border: none
+
+#container-content
+  padding: 30px 90px
+  margin-top: 70px
+
+.item
+  width: 24%
+  margin-bottom: 10px
+  margin-right: 1%
+  border-right: 1px solid $dark-grey
+  border-bottom: 1px solid $dark-grey
+  a img
+    width: 100%
+  .art-name
+    font-size: 1.5em
+    display: inline-block
+    float: left
+    padding: 30px 20px
+    text-decoration: none
+    color: $black
+    width: 80%
+    &:hover
+      color: $lime-green
+  span
+    @include box-sizing(border-box)
+    padding: 30px 3px
+    text-align: center
+    float: right
+    width: 20%
+    height: 50px
+    border-left: 1px solid $dark-grey
+    p
+      background: $lime-green
+      display: inline-block
+      border-radius: 50px
+      padding-top: 7px
+      height: 23px
+      width: 30px
+      color: $white      
+
+#bg-overlay
+  background: rgba(153, 153, 153, 0.5)
+  position: absolute
+  top: 0
+  left: 0
+  z-index: 1
+  width: 100%
+  height: 100%
+
+#header
+  position: fixed
+  z-index: 2
+  top: 0
+  font-size: 0.9em
+  background: $white
+  border-bottom: 1px solid $dark-grey
+  display: inline-block
+  width: 100%
+  height: 70px
+  @include box-shadow($grey 0px 1px 0px)
+  padding: 0px 90px
+  &>div
+    height: 50px
+    min-width: 55px
+    padding: 25px 20px
+    position: relative
+  a
+    color: $black
+    text-decoration: none
+  #logo
+    padding-left: 0px
+    float: left
+    margin-right: 120px
+  #menu
+    float: left
+    border-left: 1px solid $grey
+    border-right: 1px solid $grey
+    &>a
+      display: inline-block
+      height: 46px
+    ul
+      position: absolute
+      width: 330px
+      z-index: 2
+      margin-left: -260px
+      background-color: $white
+      padding: 0px 20px
+      @include box-sizing(border-box)
+      li
+        border-bottom: 1px solid $grey
+        width: 100%
+        float: left
+        a
+          display: inline-block
+          width: 100%
+          padding: 30px 0px
+          &:hover
+            color: $lime-green 
+        &:last-child
+          background: url(icon-close.png) no-repeat 275px 32px
+  #login, #register, #facebook, #twitter
+    float: right
+  #login
+    border-right: 1px solid $grey
+    background: url(icon-login.png) no-repeat 15px 22px
+    button
+      padding: 20px
+      background: $darkest-grey
+      float: right
+      color: $white
+      border: none
+      margin-top: -15px
+    &>a
+      height: 46px
+      display: inline-block
+      padding-left: 37px
+    input
+      font-style: italic
+      border: 1px solid $grey
+      padding: 20px
+      margin-bottom: 30px
+      margin-top: 15px
+      width: 100%
+      @include box-sizing(border-box)
+    ul
+      @include box-sizing(border-box)
+      background: $white
+      width: 350px
+      padding: 20px
+      position: absolute
+  #facebook
+    border-right: 1px solid $grey
+  #twitter
+    border-right: 1px solid $grey
 
 #attend-match
   margin-top: 20px
@@ -63,7 +210,7 @@ div, input, textarea
       float: left
       width: 125px
       background-image: url('add-art.png')
-      border: 2px solid $lighter-grey
+      border: 2px solid $grey
       position: relative
       .field_with_errors
         position: relative
@@ -92,7 +239,7 @@ div, input, textarea
       width: 100%
       padding: 10px
       margin-bottom: 25px
-      border: 2px solid $lighter-grey
+      border: 2px solid $grey
       @include box-sizing(border-box)
       &:focus
         border: 2px solid $dark-green

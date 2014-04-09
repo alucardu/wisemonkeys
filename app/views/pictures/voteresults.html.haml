@@ -1,5 +1,11 @@
-%ul
+%h1 Stemresultaten
+#container.js-masonry
   - @pictures.each do |picture|
-    %li
-      = link_to picture.title, picture
-      \- #{pluralize(picture.votes.count, "vote" )}
+    .item
+      = link_to picture do
+        = image_tag(picture.image_url)
+      = link_to picture.title, picture, :class => "art-name"
+      %span
+        %div
+          %p
+            \ #{pluralize(picture.votes.count, "" )}

@@ -1,21 +1,150 @@
-%h1 Kunst Uploaden
+#container.js-masonry
+  .item
+    = image_tag 'popart.jpg'
+    %h2 Popart
+    %span
+      = image_tag 'icon-plus.png'
 
-= link_to 'Klik om mee te doen!', new_picture_path
 
-#container-vote
-  #btn
-    Stem mee
+  .item
+    = image_tag 'dali.jpg'
+    %h2 Popart
+    %span
+      = image_tag 'icon-plus.png'
+  
+  .item
+    = image_tag 'abstracter.jpg'
+    %h2 Popart
+    %span
+      = image_tag 'icon-plus.png'
 
-#container-art-bg
+  .item
+    = image_tag 'fingerpaint.jpg'
+    %h2 Popart
+    %span
+      = image_tag 'icon-plus.png'
 
-#container-art
-  #container-thanks
-    %p Bedankt voor het stemmen
 
-  %h1 Kies één
-  - @pictures.shuffle.each do |picture|
-    .art 
-      = link_to picture.title, picture
+  .item
+    = image_tag 'impresionisme.jpg'
+    %h2 Popart
+    %span
+      = image_tag 'icon-plus.png'
+  .item
+    = image_tag 'flowers.jpg'
+    %h2 Popart
+    %span
+      = image_tag 'icon-plus.png'
+
+  .item
+    = image_tag 'vangogh.jpg'
+    %h2 Popart
+    %span
+      = image_tag 'icon-plus.png'
+  .item
+    = image_tag 'popart.jpg'
+    %h2 Popart
+    %span
+      = image_tag 'icon-plus.png'
+
+  .item
+    = image_tag 'abstracter.jpg'
+    %h2 Popart
+    %span
+      = image_tag 'icon-plus.png'
+
+
+  .item
+    = image_tag 'fingerpaint.jpg'
+    %h2 Popart
+    %span
+      = image_tag 'icon-plus.png'
+
+  .item
+    = image_tag 'dali.jpg'
+    %h2 Popart
+    %span
+      = image_tag 'icon-plus.png'
+
+  .item
+    = image_tag 'flowers.jpg'
+    %h2 Popart
+    %span
+      = image_tag 'icon-plus.png'
+
+
+  .item
+    = image_tag 'vangogh.jpg'
+    %h2 Popart
+    %span
+      = image_tag 'icon-plus.png'
+
+  .item
+    = image_tag 'impresionisme.jpg'
+    %h2 Popart
+    %span
+      = image_tag 'icon-plus.png'
+  .item
+    = image_tag 'popart.jpg'
+    %h2 Popart
+    %span
+      = image_tag 'icon-plus.png'
+
+  .item
+    = image_tag 'abstracter.jpg'
+    %h2 Popart
+    %span
+      = image_tag 'icon-plus.png'
+
+  .item
+    = image_tag 'dali.jpg'
+    %h2 Popart
+    %span
+      = image_tag 'icon-plus.png'
+
+  .item
+    = image_tag 'fingerpaint.jpg'
+    %h2 Popart
+    %span
+      = image_tag 'icon-plus.png'
+
+  .item
+    = image_tag 'flowers.jpg'
+    %h2 Popart
+    %span
+      = image_tag 'icon-plus.png'
+
+  .item
+    = image_tag 'impresionisme.jpg'
+    %h2 Popart
+    %span
+      = image_tag 'icon-plus.png'
+
+  .item
+    = image_tag 'vangogh.jpg'
+    %h2 Popart
+    %span
+      = image_tag 'icon-plus.png'
+
+ 
+-# %h1 Kunst Uploaden
+
+-# = link_to 'Klik om mee te doen!', new_picture_path
+
+-# #container-vote
+  -# #btn
+    -# Stem mee
+
+-# #container-art-bg
+
+-# #container-art
+  -# #container-thanks
+    -# %p Bedankt voor het stemmen
+
+  -# %h1 Kies één
+  -# - @pictures.shuffle.each do |picture|
+    -# .art 
+      -# = link_to picture.title, picture
       // = picture.description
       // = image_tag(picture.image_url, :width => 200)
       // , picture if picture.image.present?
@@ -23,5 +152,5 @@
       // = button_to '+1', upvote_picture_path(picture), method: :post
       // = link_to 'Vote', upvote_picture_path(picture), :remote => true, "data-type" => :json
 
-      = link_to upvote_picture_path(picture), :remote => true, "data-type" => :json do
-        = image_tag(picture.image_url, :width => 200)
+      -# = link_to upvote_picture_path(picture), :remote => true, "data-type" => :json do
+        -# = image_tag(picture.image_url, :width => 200)
