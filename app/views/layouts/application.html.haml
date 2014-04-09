@@ -3,7 +3,7 @@
   %head
     %title Wisemonkeys
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
-    // %link{href: "http://fonts.googleapis.com/css?family=Muli:400,300italic", rel: "stylesheet", type: "text/css"}/
+    %link{href: "http://fonts.googleapis.com/css?family=Muli:400,300italic", rel: "stylesheet", type: "text/css"}/
     = javascript_include_tag "masonry.pkgd.js", "data-turbolinks-track" => true
     = javascript_include_tag "imagesloaded.pkgd.js", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
@@ -24,6 +24,8 @@
           %li 
             %a{:href => "/"}Sponsoren
           %li 
+            = link_to 'Kunst bekijken', voteresults_path
+          %li 
             %a{:href => "/"}Contact opnemen
           %li 
             %a{:href => "/"}Menu sluiten
@@ -43,7 +45,7 @@
           %li 
             Wachtwoord
           %li
-            %input 
+            = password_field_tag 'password'
           %li 
             %a{:href => "/"}Wachtwoord vergeten?
             %button Inloggen
