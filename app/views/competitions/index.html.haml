@@ -12,11 +12,10 @@
 
   - @competitions.each do |competition|
     %tr
-      %td= competition.title
+      %td= link_to competition.title, competition
       %td= competition.description
       %td= competition.prize
       %td= competition.deadline
-      %td= link_to 'Show', competition
       %td= link_to 'Edit', edit_competition_path(competition)
       %td= link_to 'Destroy', competition, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
