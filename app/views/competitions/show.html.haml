@@ -14,11 +14,13 @@
     = @competition.deadline
 
 #container.js-masonry
-  - @competition.pictures.each do |picture|
+  - @competition.pictures.shuffle.each do |picture|
     .item
       = link_to picture do
         = image_tag(picture.image_url)
       = link_to picture.title, picture, :class => "art-name"
+      = pluralize(picture.votes.count, "vote" )
+      = link_to 'Vote', upvote_picture_path(picture), :remote => true, "data-type" => :json
       -# %span
         -# %div
           -# %p
