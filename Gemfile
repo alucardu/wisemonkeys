@@ -37,6 +37,7 @@ group :development do
 	gem 'capistrano-bundler'
 	gem 'capistrano-rbenv', github: 'capistrano/rbenv'
 	gem 'guard-rspec'
+	gem 'guard-livereload', require: false
 end
 
 group :development, :test do
