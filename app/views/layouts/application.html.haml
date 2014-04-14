@@ -39,11 +39,14 @@
       #facebook
         = image_tag 'icon-facebook.png'
       #login
+        - if signed_in? 
+          = link_to "Uitloggen", signout_path, method: "delete" 
+        - else
+          = link_to "Inloggen", signin_path
+          %ul
+            = render :partial => 'sessions/form'
         
-        = link_to 'Inloggen' new_session_path
         
-        %ul
-          = render :partial => 'sessions/form'
          
           
     #container-content
