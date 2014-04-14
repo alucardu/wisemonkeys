@@ -2,8 +2,3 @@
 <h1><%= @user.name %></h1> 
 <%= @user.email %>
 
-<% if signed_in? %>
-  <%= link_to "Sign out", signout_path, method: "delete" %>
-<% else %>
-
-<% end %>

@@ -31,7 +31,7 @@
             %a{:href => "/"}Menu sluiten
       #register
         - if signed_in? 
-          = link_to current_user.name, @user
+          = link_to current_user.name, current_user
         - else
           = link_to 'Registreren', new_user_path
       #twitter
