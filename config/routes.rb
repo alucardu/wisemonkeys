@@ -1,15 +1,21 @@
 Wisemonkeys::Application.routes.draw do
+  get "users/new"
   resources :competitions
+  resources :users
 
-get 'pictures/new'
-get 'competitions/new'
-resources :pictures do
-  member do
-get 'upvote'
+  get 'pictures/new'
+  get 'competitions/new'
+  resources :pictures do
+    member do
+  get 'upvote'
+    end
   end
-end
-get '/voteresults' => 'pictures#voteresults'
-root 'competitions#index'
+  get '/voteresults' => 'pictures#voteresults'
+  root 'competitions#index'
+  resources :sessions, only: [:new, :create, :destroy]
+  match '/signup',  to: 'users#new',            via: 'get'
+  match '/signin',  to: 'sessions#new',         via: 'get'
+  match '/signout', to: 'sessions#destroy',     via: 'delete'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
