@@ -1,26 +1,45 @@
 %p#notice= notice
 
 #match-info
-  %h1
-    = @competition.title
-  %p
-    %b Description:
-    = @competition.description
-  %p
-    %b Prize:
-    = @competition.prize
-  %p
-    %b Deadline:
-    = @competition.deadline
+  %div
+    %h1
+      = @competition.title
+    %p
+      %b Description:
+      = @competition.description
+    %p
+      %b Prize:
+      = @competition.prize
+    %p
+      %b Deadline:
+      = @competition.deadline
 
+  #btn-vote
+    Breng je stem uit!
+
+#container-art-bg
+  #container-art
+    %h1 Kies één
+    - @competition.pictures.shuffle.each do |picture|
+      .art
+        = link_to picture.title, picture, :class => "art-name"
+        = link_to upvote_picture_path(picture), :remote => true, "data-type" => :json do
+          = image_tag(picture.image_url)
+        -# = pluralize(picture.votes.count, "vote" )
+        -# %span
+          -# %div
+            -# %p
+              -# \ #{pluralize(picture.votes.count, "" )}
+    #container-thanks
+      %p Bedankt voor het stemmen, klik hier om te sluiten
+  
 #container.js-masonry
   - @competition.pictures.shuffle.each do |picture|
     .item
       = link_to picture do
         = image_tag(picture.image_url)
       = link_to picture.title, picture, :class => "art-name"
-      = pluralize(picture.votes.count, "vote" )
-      = link_to 'Vote', upvote_picture_path(picture), :remote => true, "data-type" => :json
+      -# = pluralize(picture.votes.count, "vote" )
       -# %span
         -# %div
           -# %p

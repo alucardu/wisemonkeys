@@ -6,7 +6,7 @@ $(document).ready ->
   $container.imagesLoaded ->
     $container.masonry
       itemSelector: ".item"
-      gutter: 0
+      gutter: 19
     return
 
   
@@ -14,7 +14,6 @@ $(document).ready ->
   $("#prev_img").load ->
     $("#prev_img").fadeIn()
     return
-
  
   $("#prev_img").load ->
     $("#img_cache").hide()
@@ -34,20 +33,20 @@ $(document).ready ->
     return
 
   $(".art").click ->
-    $(".art").parent().find(".art:lt(4)").fadeOut ->
+    $(".art").parent().find(".art:lt(3)").fadeOut ->
       $(this).remove()
       return
 
-  $("#container-art, #container-art-bg, .the-one, #container-thanks").hide()
+  $("#container-art, #container-art-bg, .the-one").hide()
   $(".art").hover ->
     $(this).find("img").stop().toggleClass "the-one"
     return
 
-  $("#container-vote").click ->
+  $("#btn-vote").click ->
     $("#container-art, #container-art-bg").fadeIn()
     return
 
-  $("#container-art-bg").click ->
+  $("#container-thanks").click ->
     $("#container-art, #container-art-bg").fadeOut()
     return
 
