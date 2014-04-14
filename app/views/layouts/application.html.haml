@@ -30,16 +30,15 @@
           %li 
             %a{:href => "/"}Menu sluiten
       #register
-        = link_to 'Registreren', new_user_path
-      #register
         - if signed_in? 
           = link_to current_user.name, @user
+        - else
+          = link_to 'Registreren', new_user_path
       #twitter
         = image_tag 'icon-twitter.png'
       #facebook
         = image_tag 'icon-facebook.png'
       #login
-        #register
         - if signed_in? 
           = link_to "Sign out", signout_path, method: "delete" 
         - else
