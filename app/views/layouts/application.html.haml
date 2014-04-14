@@ -36,6 +36,18 @@
       #facebook
         = image_tag 'icon-facebook.png'
       #login
-        
+        %a{:href => "google.com"} Inloggen
+        %ul
+          %li 
+            Gebruikersnaam of email adres
+          %li
+            %input 
+          %li 
+            Wachtwoord
+          %li
+            = password_field_tag 'password'
+          %li 
+            %a{:href => "/"}Wachtwoord vergeten?
+            %button Inloggen
     #container-content
       = yield
