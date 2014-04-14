@@ -6,7 +6,7 @@ $(document).ready ->
   $container.imagesLoaded ->
     $container.masonry
       itemSelector: ".item"
-      gutter: 19
+      gutter: 0
     return
 
   
