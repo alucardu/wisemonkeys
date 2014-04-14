@@ -39,9 +39,12 @@
       #facebook
         = image_tag 'icon-facebook.png'
       #login
-        - if signed_in? 
-          = link_to "Sign out", signout_path, method: "delete" 
-        - else
-          = link_to "Sign In", signin_path
+        
+        = link_to 'Inloggen' new_session_path
+        
+        %ul
+          = render :partial => 'sessions/form'
+         
+          
     #container-content
       = yield
