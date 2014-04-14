@@ -31,23 +31,18 @@
             %a{:href => "/"}Menu sluiten
       #register
         = link_to 'Registreren', new_user_path
+      #register
+        - if signed_in? 
+          = link_to current_user.name, @user
       #twitter
         = image_tag 'icon-twitter.png'
       #facebook
         = image_tag 'icon-facebook.png'
       #login
-        %a{:href => "google.com"} Inloggen
-        %ul
-          %li 
-            Gebruikersnaam of email adres
-          %li
-            %input 
-          %li 
-            Wachtwoord
-          %li
-            = password_field_tag 'password'
-          %li 
-            %a{:href => "/"}Wachtwoord vergeten?
-            %button Inloggen
+        #register
+        - if signed_in? 
+          = link_to "Sign out", signout_path, method: "delete" 
+        - else
+          = link_to "Sign In", signin_path
     #container-content
       = yield
