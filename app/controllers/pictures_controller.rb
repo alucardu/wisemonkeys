@@ -24,6 +24,7 @@ class PicturesController < ApplicationController
 
   def create
       @picture = Picture.new(picture_params)
+      @picture.user = current_user
 
        if @picture.save
          redirect_to @picture.competition, notice: 'Picture was successfully created.'   

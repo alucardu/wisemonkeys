@@ -25,6 +25,7 @@ class CompetitionsController < ApplicationController
   # POST /competitions.json
   def create
     @competition = Competition.new(competition_params)
+    @competition.user = current_user
 
     respond_to do |format|
       if @competition.save

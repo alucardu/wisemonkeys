@@ -3,4 +3,5 @@ class Picture < ActiveRecord::Base
 	validates_presence_of :title, :image, :description
 	belongs_to :competition
 	has_many :votes, dependent: :destroy
+	belongs_to :user
 end

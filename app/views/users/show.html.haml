@@ -1,0 +1,9 @@
+- provide(:title, @user.name)
+%h1
+  Gallerij van #{@user.name} 
+#container.js-masonry
+  - @user.pictures.each do |picture|
+    .item
+      = link_to picture do
+        = image_tag(picture.image_url)
+      = link_to picture.title, picture, :class => "art-name"

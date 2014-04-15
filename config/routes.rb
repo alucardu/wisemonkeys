@@ -1,7 +1,7 @@
 Wisemonkeys::Application.routes.draw do
   get "users/new"
   resources :competitions
-  resources :users
+  resources :users 
 
   get 'pictures/new'
   get 'competitions/new'
@@ -10,6 +10,7 @@ Wisemonkeys::Application.routes.draw do
   get 'upvote'
     end
   end
+  get '/mypictures' => 'pictures#mypictures'
   get '/voteresults' => 'pictures#voteresults'
   root 'competitions#index'
   resources :sessions, only: [:new, :create, :destroy]
