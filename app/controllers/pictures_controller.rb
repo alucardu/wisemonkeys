@@ -1,6 +1,7 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
   before_action :change, :only => [:edit, :update, :destroy]
+  before_action :signedin, :only => [:edit, :update, :destroy, :create]
 
   def new
   	@picture = Picture.new(:competition_id => params[:competition_id])
@@ -67,6 +68,12 @@ class PicturesController < ApplicationController
     def change
       unless current_user == @picture.user
         redirect_to @picture, notice: 'U bent niet gemachtigd'
+      end
+    end
+    
+    def signedin
+      unless signed_in?
+        redirect_to :back, notice: 'U bent niet gemachtigd'
       end
     end
 end

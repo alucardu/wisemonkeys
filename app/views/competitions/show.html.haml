@@ -46,9 +46,9 @@
         -# %div
           -# %p
             -# \ #{pluralize(picture.votes.count, "" )}
-
-= link_to 'Klik om mee te doen!', new_picture_path(:competition_id => @competition)
-
-= link_to 'Edit', edit_competition_path(@competition)
-\|
+- if current_user == @competition.user          
+  = link_to 'Klik om mee te doen!', new_picture_path(:competition_id => @competition)
+  \|
+  = link_to 'Edit', edit_competition_path(@competition)
+  \|
 = link_to 'Back', competitions_path

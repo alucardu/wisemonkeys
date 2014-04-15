@@ -1,5 +1,8 @@
 class CompetitionsController < ApplicationController
   before_action :set_competition, only: [:show, :edit, :update, :destroy]
+  before_action :change, :only => [:edit, :update, :destroy]
+  before_action :signedin, :only => [:edit, :update, :destroy, :create]
+
 
   # GET /competitions
   # GET /competitions.json
@@ -71,5 +74,17 @@ class CompetitionsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def competition_params
       params.require(:competition).permit(:title, :description, :prize, :deadline)
+    end
+
+    def change
+      unless current_user == @competition.user
+        redirect_to @competition, notice: 'U bent niet gemachtigd'
+      end
+    end
+
+    def signedin
+      unless signed_in?
+        redirect_to :back, notice: 'U bent niet gemachtigd'
+      end
     end
 end

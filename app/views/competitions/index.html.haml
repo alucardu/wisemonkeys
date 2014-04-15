@@ -7,6 +7,7 @@
       %th Description
       %th Prize
       %th Deadline
+      %th Eigenaar
 
     - @competitions.each do |competition|
       %tr
@@ -14,9 +15,12 @@
         %td= competition.description
         %td= competition.prize
         %td= competition.deadline
-        %td= link_to 'Edit', edit_competition_path(competition)
-        %td= link_to 'Destroy', competition, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= competition.user.name
+        - if current_user == competition.user 
+          %td= link_to 'Edit', edit_competition_path(competition)
+          %td= link_to 'Destroy', competition, :method => :delete, :data => { :confirm => 'Are you sure?' }
+          %td= link_to 'Nieuwe wedstrijd aanmaken', new_competition_path
 
   %br
 
-  = link_to 'Nieuwe wedstrijd aanmaken', new_competition_path
+  
