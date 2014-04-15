@@ -5,6 +5,8 @@
 	<%= @picture.user.name %>
 	<%= image_tag(@picture.image_url, :width => 200) if @picture.image.present? %>
 
-	<%= link_to 'Bewerken', edit_picture_path(@picture) %> |
-      <%= link_to 'Verwijderen', @picture, confirm: 'Weet je het zeker?', method: :delete %> |
-      <%= link_to 'Terug', :back %>
+	<% if current_user == @picture.user %>
+		<%= link_to 'Bewerken', edit_picture_path(@picture) %> |
+	      <%= link_to 'Verwijderen', @picture, confirm: 'Weet je het zeker?', method: :delete %> |
+	      <%= link_to 'Terug', :back %>
+	<% end %>
