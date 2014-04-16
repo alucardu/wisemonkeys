@@ -3,10 +3,12 @@
   %head
     %title Wisemonkeys
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = stylesheet_link_tag     "//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"
     // %link{href: "http://fonts.googleapis.com/css?family=Muli:400,300italic", rel: "stylesheet", type: "text/css"}/
     = javascript_include_tag "masonry.pkgd.js", "data-turbolinks-track" => true
     = javascript_include_tag "imagesloaded.pkgd.js", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
+    = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"
     = csrf_meta_tags
   %body
     #bg-overlay
@@ -45,9 +47,6 @@
           = link_to "Inloggen", signin_path
           %ul
             = render :partial => 'sessions/form'
-        
-        
-         
-          
+
     #container-content
       = yield
