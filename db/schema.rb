@@ -17,13 +17,13 @@ ActiveRecord::Schema.define(version: 20140416122935) do
     t.string   "title"
     t.string   "description"
     t.string   "prize"
-    t.string   "prize_2"
-    t.string   "prize_3"
     t.datetime "deadline"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
     t.datetime "deadline_signin"
+    t.string   "prize_2"
+    t.string   "prize_3"
   end
 
   create_table "pictures", force: true do |t|
