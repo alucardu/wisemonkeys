@@ -14,6 +14,8 @@
         %td= link_to competition.title, competition
         %td= competition.description
         %td= competition.prize
+        %td= competition.prize_2
+        %td= competition.prize_3
         %td= competition.deadline
         %td= competition.user.name
         - if current_user == competition.user 

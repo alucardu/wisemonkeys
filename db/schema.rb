@@ -11,16 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140415105343) do
+ActiveRecord::Schema.define(version: 20140416122935) do
 
   create_table "competitions", force: true do |t|
     t.string   "title"
     t.string   "description"
     t.string   "prize"
+    t.string   "prize_2"
+    t.string   "prize_3"
     t.datetime "deadline"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.datetime "deadline_signin"
   end
 
   create_table "pictures", force: true do |t|

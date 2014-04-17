@@ -320,14 +320,14 @@ div, input, textarea
   background-color: rgba(0, 0, 0, 0.5)
 
   #container-art
-    width: 50%
+    width: 95%
     left: 0
     right: 0
     margin: 0 auto
     z-index: 2
     padding: 20px
     background-color: $white
-    height: 395px 
+    height: 600px 
     overflow: hidden
     display: inline-block
     vertical-align: middle
@@ -357,3 +357,117 @@ div, input, textarea
       border: 5px solid $lime-green!important
     #container-thanks
       clear: both
+
+#wrapper
+  width: 700px
+  margin: auto
+  margin-top: 100px
+
+#content-left 
+  width: 300px
+  float: left
+
+  h3
+    font-family: 'Open Sans', sans-serif
+    font-size: 16px
+    font-weight: 500
+    margin: 20px 0 10px 0
+
+  input
+    width: 280px
+    height: 50px
+    padding: 0 0 0 20px
+
+  .borderFail
+    border: solid 5px #E80000
+
+  textarea
+    width: 260px
+    height: 150px
+    padding: 20px 20px 0 20px
+    line-height: 24px
+
+  input, textarea
+    font-family: 'Open Sans', sans-serif
+    font-size: 14px
+    border: 1px solid $darkest-grey
+
+#content-right 
+  width: 300px
+  float: right
+
+  h3
+    font-family: 'Open Sans', sans-serif
+    font-size: 16px
+    font-weight: 500
+    margin: 20px 0 10px 0
+  
+  input
+    width: 100%
+    height: 50px
+    padding: 0 0 0 20px
+    border: 1px solid $darkest-grey
+    @include box-sizing(border-box)
+
+  .borderFail
+    border: solid 5px #E80000
+
+  #sortable  
+    //list-style-type: none
+    margin: 0 
+    padding: 0 
+    width: 400px
+  
+  #sortable li  
+    margin: 0 5px 5px 5px 
+    padding: 10px 
+    font-size: 1.2em 
+    height: 72px
+    @include box-sizing(border-box)
+
+  html>body #sortable li  
+    height: 1.5em 
+    line-height: 1.2em
+  
+  .ui-state-default
+    background: #fff
+    // background-image: url('arrowUpDown.png')
+    background-repeat: no-repeat
+    background-position: 330px 13px
+    cursor: pointer
+
+  .ui-state-highlight
+    background: #fff
+    border: #fff 1px solid 
+    height: 1.5em 
+    line-height: 1.2em
+
+  .closetag
+    width: 10px
+    height: 10px
+    background: #E80000
+    float: right
+    margin: 0 -30px 0 0
+
+  #addPrise
+    font-size: 16px
+    font-family: 'Open sans', sans-serif
+    background: #333
+    color: #fff
+    font-weight: 400
+    width: 200px
+    padding: 10px
+    margin: 10px 0 0 10px
+    text-align: center
+    cursor: pointer
+
+
+#btn
+  width: 700px
+  clear: both
+
+  input
+    width: 280px
+    height: 50px
+    margin: 50px 0 0 400px
+    padding: 0 0 0 20px
