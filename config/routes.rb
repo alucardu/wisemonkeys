@@ -2,7 +2,6 @@ Wisemonkeys::Application.routes.draw do
   get "users/new"
   resources :competitions
   resources :users 
-
   get 'pictures/new'
   get 'competitions/new'
   resources :pictures do
@@ -11,8 +10,9 @@ Wisemonkeys::Application.routes.draw do
     end
   end
   get '/mypictures' => 'pictures#mypictures'
+  get '/homepage' => 'competitions#homepage'
   get '/voteresults' => 'pictures#voteresults'
-  root 'competitions#index'
+  root 'competitions#homepage'
   resources :sessions, only: [:new, :create, :destroy]
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
