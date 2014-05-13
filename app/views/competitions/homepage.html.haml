@@ -1,0 +1,80 @@
+%h1
+  Online kunst wedstrijden app SYNT
+
+#container-winners
+  #view
+    =image_tag("painting.jpg")
+  #container-elements
+    #prev
+    #container-bottom
+      #container-painter
+        =image_tag("profile.png")
+        %p
+          %span
+            Bart Hoekstra
+          %span
+            Paint artist
+        %a{:href => "/"}Portfolio
+
+      #container-painting
+        %p
+          %span
+            Chaos op het doek
+          %span
+            de diepging vinden tussen...
+    #next
+
+#container-newmatch
+  %p
+    Nieuwe wedstrijd
+  %h2
+    Dali Sunsut
+  =image_tag("logo_drenthe.png")
+  %p
+    Einde inschrijving: 14-08-2014
+  %a{:href => "/"}Doe mee!
+
+#container-search
+  %p
+    Overzicht Wedstrijden
+  %input{:name => "search", :value => "Zoeken op kunst/kunstenaar" }
+  %button{:name => "Zoeken", :value => "Zoeken"}Zoeken
+
+#search-results
+  #sponsor
+    %h2
+      Wedstrijd sponsor
+    =image_tag("friesmuseum.png")
+  #container.js-masonry
+    .item
+      =image_tag("painting.jpg")
+    .item
+      =image_tag("dali.jpg")
+    .item
+      =image_tag("fingerpaint.jpg")
+    .item
+      =image_tag("flowers.jpg")
+    .item
+      =image_tag("impresionisme.jpg")
+    .item
+      =image_tag("popart.jpg")
+    .item
+      =image_tag("vangogh.jpg")
+    .item
+      =image_tag("abstracter.jpg")
+    .item
+      =image_tag("painting.jpg")
+    .item
+      =image_tag("dali.jpg")
+    .item
+      =image_tag("fingerpaint.jpg")
+    .item
+      =image_tag("flowers.jpg")
+    .item
+      =image_tag("impresionisme.jpg")
+    .item
+      =image_tag("popart.jpg")
+    .item
+      =image_tag("vangogh.jpg")
+    .item
+      =image_tag("abstracter.jpg")
