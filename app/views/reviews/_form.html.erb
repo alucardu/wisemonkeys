@@ -1,0 +1,16 @@
+<%= form_for(:review, url: reviews_path) do |f| %>
+  <div class='field'>
+    <%= f.label :Naam %>
+    </br>
+    <%= f.text_field :name %>
+  </div>
+  <div class='field'>
+    <%= f.label :Feedback %>
+    </br>
+    <%= f.text_area :feedback %>
+  </div>
+  <div class='actions'>
+    </br>
+    <%= f.submit 'Verzenden', class: "btn" %>
+  </div>
+<% end %>

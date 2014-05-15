@@ -31,6 +31,7 @@ $light-grey:    #F7F7F7
 $grey:          #E9E9E9
 $lime-green:    #67F784
 $dark-green:    #38EA6D
+$blue:          #84d0f0
 
 // General stuff
 
@@ -685,3 +686,35 @@ div, input, textarea
       width: 19%
       img
         width: 100%
+
+#feedback
+  margin-right: 13px
+  position: absolute
+  right: 0
+  top: 50%
+  background-color: $light-grey
+  z-index: 10
+  cursor: pointer
+  p
+    color: $white
+    padding: 5px
+    background-color: $blue
+    width: 12px
+    float: right
+
+  #feedback-form
+    float: left
+    border: 5px solid $blue
+    width: 221px
+    padding: 5px 5px 0px 5px
+    input
+      border: 2px solid $blue
+      padding: 10px
+      width: 175px
+      margin-bottom: 15px
+    textarea
+      height: 150px
+      border: 2px solid $blue
+      padding: 10px
+    .btn
+      width: 200px

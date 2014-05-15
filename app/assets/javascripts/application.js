@@ -18,13 +18,18 @@
 
 $(document).ready(function(){
 
-	$("#container-search , input").click(function () {
+	$("#container-search input").click(function () {
 	    var container = $('#container-content'),
 	        scrollTo = $('#container-search');
 
 	    container.animate({
 	        scrollTop: scrollTo.offset().top - container.offset().top + container.scrollTop()
 	    }, 1500, 'easeInSine', function () {});
+	});
+
+	$('#feedback-form').hide();
+	$('#feedback p').click(function(){
+		$('#feedback-form').fadeToggle();
 	});
 
 

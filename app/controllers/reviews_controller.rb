@@ -28,7 +28,7 @@ class ReviewsController < ApplicationController
 
     respond_to do |format|
       if @review.save
-        format.html { redirect_to root_path }
+        format.html { redirect_to reviews_path }
         format.json { render action: 'show', status: :created, location: @review }
       else
         format.html { render action: 'new' }
