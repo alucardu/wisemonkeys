@@ -1,4 +1,6 @@
 Wisemonkeys::Application.routes.draw do
+  resources :reviews
+
   get "users/new"
   resources :competitions
   resources :users 
