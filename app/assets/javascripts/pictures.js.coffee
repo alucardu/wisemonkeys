@@ -56,4 +56,12 @@ $(document).ready ->
     $("#bg-overlay").stop().fadeToggle(350)
   return
 
+
+  $("#container-search , input").click ->
+    container = $("#container-content")
+    scrollTo = $("#container-search")
+    container.animate scrollTop: scrollTo.offset().top - container.offset().top + container.scrollTop()
+  return
+
+
 return

@@ -15,3 +15,16 @@
 //= require jquery.turbolinks
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+
+	$("#container-search , input").click(function () {
+	    var container = $('#container-content'),
+	        scrollTo = $('#container-search');
+
+	    container.animate({
+	        scrollTop: scrollTo.offset().top - container.offset().top + container.scrollTop()
+	    }, 1500);
+	});
+
+});

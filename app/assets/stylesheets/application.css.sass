@@ -75,13 +75,14 @@ h1
 body,html
   font-family: 'Muli', sans-serif
   background: $beige
+  height: 100%
+  padding-top: 30px
+  overflow-y: hidden
 
 div, input, textarea
   border: none
 
-#container-content
-  padding: 30px 90px
-  margin-top: 70px
+
 
 .item
   width: 19%
@@ -135,7 +136,7 @@ div, input, textarea
   border-bottom: 1px solid $dark-grey
   display: inline-block
   width: 100%
-  height: 70px
+  height: 60px
   @include box-shadow($grey 0px 1px 0px)
   padding: 0px 90px
   &>div
@@ -484,9 +485,17 @@ div, input, textarea
     margin: 50px 0 0 400px
     padding: 0 0 0 20px
 
-#container-winners
+#container-content
+  padding: 30px
+  height: 100%
   float: left
-  width: 70%
+  overflow: auto
+  width: 100%
+
+#container-winners
+  margin-right: 5%
+  float: left
+  width: 65%
   margin-right: 5%
   #view
     img
@@ -578,9 +587,11 @@ div, input, textarea
       position: absolute
       border-left: 1px solid $grey
 
+
 #container-newmatch
   padding: 2%
   width: 25%
+  height: 100%
   float: left
   background-color: $white
   img
@@ -614,13 +625,14 @@ div, input, textarea
     float: right
 
 #container-search
-  text-align: center
-  margin-top: 50px
-  float: left
+  height: 100%
   width: 100%
+  float: left
+  text-align: center
   background-color: $white
   padding: 1%
   margin-bottom: 30px
+  margin-top: -155px
   p
     display: inline-block
     font-family: Calibri
@@ -647,6 +659,9 @@ div, input, textarea
     border: none
 
 #search-results
+  height: 100%
+  width: 100%
+  float: left
   position: relative
   width: 100%
   float: left
@@ -654,6 +669,7 @@ div, input, textarea
     float: left
     width: 10%
     margin-right: 5%
+    margin-top: 1%
     img
       margin-top: 10px
       max-width: 100%
@@ -666,4 +682,3 @@ div, input, textarea
       width: 19%
       img
         width: 100%
-
