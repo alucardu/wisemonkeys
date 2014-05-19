@@ -8,19 +8,29 @@
       %th Prize
       %th Deadline
       %th Eigenaar
+      %th Opties
 
     - @competitions.each do |competition|
       %tr
-        %td= link_to competition.title, competition
-        %td= competition.description
-        %td= competition.prize
-        %td= competition.prize_2
-        %td= competition.prize_3
-        %td= competition.deadline.strftime('%e %B %Y')
-        %td= competition.user.name
+        %td#title
+          = link_to competition.title, competition
+        %td#description
+          = competition.description
+        %td#prize
+          = competition.prize
+          %br
+          = competition.prize_2
+          %br
+          = competition.prize_3
+        %td#deadline
+          = competition.deadline.strftime('%e %B %Y')
+        %td#username
+          = competition.user.name
         - if current_user == competition.user 
-          %td= link_to 'Edit', edit_competition_path(competition)
-          %td= link_to 'Destroy', competition, :method => :delete, :data => { :confirm => 'Are you sure?' }
+          %td#edit
+            = link_to 'Edit', edit_competition_path(competition)
+          %td#destroy
+            = link_to 'Destroy', competition, :method => :delete, :data => { :confirm => 'Are you sure?' }
   %br
   - if signed_in?
     = link_to 'Nieuwe wedstrijd aanmaken', new_competition_path
