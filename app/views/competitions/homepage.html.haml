@@ -11,10 +11,10 @@
         =image_tag("profile.png")
         %p
           %span
-            Bart Hoekstra
+            = link_to User.first.name, current_user
           %span
             Paint artist
-        %a{:href => "/"}Portfolio
+        = link_to 'portfolio', current_user
 
       #container-painting
         %p

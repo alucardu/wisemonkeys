@@ -14,10 +14,10 @@
       = @competition.prize_3
     %p
       %b Deadline:
-      = @competition.deadline
+      = @competition.deadline.strftime('%e %B %Y')
     %p
       %b Deadline:
-      = @competition.deadline_signin  
+      = @competition.deadline_signin.strftime('%e %B %Y')  
 
   #btn-vote
     Breng je stem uit!

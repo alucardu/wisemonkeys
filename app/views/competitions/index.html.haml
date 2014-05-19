@@ -16,7 +16,7 @@
         %td= competition.prize
         %td= competition.prize_2
         %td= competition.prize_3
-        %td= competition.deadline
+        %td= competition.deadline.strftime('%e %B %Y')
         %td= competition.user.name
         - if current_user == competition.user 
           %td= link_to 'Edit', edit_competition_path(competition)
