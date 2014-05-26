@@ -41,9 +41,9 @@
           %span +
         %ul
           %li 
-            %a{:href => "/"}Join appSYNTH
+            = link_to 'Join appSYNT', new_user_path
           %li 
-            = link_to 'Nieuwe wedstrijd', new_competition_path
+            = link_to 'Wedstrijden', competitions_path
           %li 
             %a{:href => "/"}Sponsoren
           %li 
