@@ -1,6 +1,7 @@
 - provide(:title, @user.name)
 %h1
-  Gallerij van #{@user.name} 
+  Gallerij van #{@user.name}
+  = @user.authentication_token 
 #container.js-masonry
   - @user.pictures.each do |picture|
     .item

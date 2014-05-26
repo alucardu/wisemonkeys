@@ -3,7 +3,7 @@
 	<body>
 		<h1>Hallo <%= @user.name %> </h1>
 		<p>
-			Hier is uw verificatiecode<br />
+			Hier is uw verificatiecode<br /> <%= @user.authentication_token %>
 		</p>
 	</body>
 </html>

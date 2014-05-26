@@ -16,6 +16,8 @@
 
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation %>
+      
+      <%= f.hidden_field :authentication_token, :value => SecureRandom.urlsafe_base64 %>
 
       <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
     <% end %>

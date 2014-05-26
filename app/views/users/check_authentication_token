@@ -1,0 +1,6 @@
+Vul hier je activatiecode in
+<%= form_for(:user, url: users_path) do |f| %>
+	<%= f.text_field :authentication_token %>
+
+<%= f.submit "Activate", class: "btn btn-large btn-primary" %>
+<% end %>
