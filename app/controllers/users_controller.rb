@@ -22,7 +22,7 @@ before_action :change, :only => [:destroy, :index]
   end
 
   def index
-    @user = User.all
+    @user = (current_user.blank? ? User.all : User.find(:all, :conditions => ["id != ?", current_user.id]))
   end
 
   def destroy
