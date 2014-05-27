@@ -26,11 +26,12 @@
           = competition.deadline.strftime('%e %B %Y')
         %td#username
           = competition.user.name
-        - if current_user == competition.user || current_user.administrator?
-          %td#edit
-            = link_to 'Edit', edit_competition_path(competition)
-          %td#destroy
-            = link_to 'Destroy', competition, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        - if signed_in?
+          - if current_user == competition.user || current_user.administrator?
+            %td#edit
+              = link_to 'Edit', edit_competition_path(competition)
+            %td#destroy
+              = link_to 'Destroy', competition, :method => :delete, :data => { :confirm => 'Are you sure?' }
   %br
   - if signed_in?
     = link_to 'Nieuwe wedstrijd aanmaken', new_competition_path

@@ -32,7 +32,11 @@ before_action :change, :only => [:destroy, :index]
 
   private
      def change
-      unless current_user.administrator?
+      if signed_in?
+        unless current_user.administrator?
+          redirect_to root_path, notice: 'U bent niet gemachtigd'
+        end
+      else
         redirect_to root_path, notice: 'U bent niet gemachtigd'
       end
     end
