@@ -80,7 +80,7 @@ class CompetitionsController < ApplicationController
     end
 
     def change
-      unless current_user == @competition.user
+      unless current_user == @competition.user || current_user.administrator?
         redirect_to @competition, notice: 'U bent niet gemachtigd'
       end
     end

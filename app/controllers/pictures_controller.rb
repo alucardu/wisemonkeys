@@ -66,7 +66,7 @@ class PicturesController < ApplicationController
     end
 
     def change
-      unless current_user == @picture.user
+      unless current_user == @picture.user || current_user.administrator?
         redirect_to @picture, notice: 'U bent niet gemachtigd'
       end
     end
