@@ -10,6 +10,8 @@ class UsersController < ApplicationController
   end
 
   def check_authentication_token
+    user = User.find_by(authentication_token: params[:authentication_token])
+    redirect_to competitions_path
   end
 
   def create
