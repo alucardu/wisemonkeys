@@ -8,7 +8,7 @@
 @import "companimation/preset/bounce/bounceIn"
 @import "companimation/preset/filters/blurInDown"
 
-// Stuf
+// Stuff
 div, a
   @include box-sizing(border-box)
 
@@ -25,13 +25,184 @@ div, a
 $black:         #000000
 $white:         #FFFFFF
 $beige:         #f9f9f9
-$darkest-grey:  #999999
-$dark-grey:     #D0D0D0
+$darkest-grey:  #2d2d2d
+$dark-grey:     #626262
 $light-grey:    #F7F7F7
 $grey:          #E9E9E9
 $lime-green:    #67F784
 $dark-green:    #38EA6D
-$blue:          #84d0f0
+$blue:          #51a4c7
+$orange:        #ff6602
+
+// ========== //
+// Html, Body // 
+// ========== //
+
+body,html
+  font-family: 'Muli', sans-serif
+  background: $beige
+  height: 100%
+  overflow-y: hidden
+
+// ====== //
+// Header // 
+// ====== //
+
+#header
+  z-index: 2
+  font-size: 0.9em
+  width: 100%
+  height: 60px
+  padding: 25px 5%
+  background-color: $white
+  &>div
+    padding-right: 5%
+    float: left
+  a
+    color: $black
+    text-decoration: none
+
+  // Menu //
+  #menu
+    &>a
+      display: inline-block
+      span
+        display: inline-block
+        background-color: $blue
+        border-radius: 50%
+        padding: 5px 9px
+        color: $white
+        font-size: 1.3em
+        margin: -7px 0 0 10px
+    ul
+      position: absolute
+      width: 330px
+      z-index: 2
+      margin-left: -260px
+      background-color: $white
+      padding: 0px 20px
+      @include box-sizing(border-box)
+      li
+        border-bottom: 1px solid $grey
+        width: 100%
+        float: left
+        a
+          display: inline-block
+          width: 100%
+          padding: 30px 0px
+          &:hover
+            color: $lime-green 
+        &:last-child
+          background: url(icon-close.png) no-repeat 275px 32px
+
+  #login, #register
+    float: right
+    span
+      display: inline-block
+      padding: 15px
+      float: left
+      border-radius: 50%
+      margin: -8px 10px 0 0    
+
+  #register
+    padding: 0%!important
+    .icon
+      background: url(icon-register.png) $blue no-repeat 7px 6px
+
+  #login
+    .icon
+      background: url(icon-login.png) $blue no-repeat 7px 6px
+    button
+      padding: 20px
+      background: $darkest-grey
+      float: right
+      color: $white
+      border: none
+      margin-top: -15px
+    &>a
+      height: 46px
+      display: inline-block
+    input
+      font-style: italic
+      padding: 20px
+      margin-bottom: 30px
+      margin-top: 15px
+      width: 100%
+      @include box-sizing(border-box)
+    ul
+      @include box-sizing(border-box)
+      background: $white
+      width: 350px
+      z-index: 2
+      padding: 20px
+      position: absolute
+
+  #search
+    width: 330px 
+    margin: 0 auto
+    float: none
+    @include box-sizing(border-box)
+    input
+      margin: -8px 0px
+      background-color: $dark-grey
+      color: $white
+      padding: 7px 15px
+      font-family: Calibri
+      font-style: italic
+      border-radius: 15px 0 0 15px
+      width: 179px
+      float: left
+    button
+      float: left
+      margin: -8px 0px
+      background: url(icon-search.png) $orange no-repeat 7px 6px
+      border: none
+      padding: 15px 17px
+      border-radius: 0 15px 15px 0
+
+// ======== //
+// Homepage // 
+// ======== //
+
+#container-content
+  padding: 0 5%
+  height: 100%
+  float: left
+  overflow: auto
+  width: 100%
+
+#container-slider
+  float: left
+  width: 112%
+  margin-left: -6%
+  margin-bottom: 30px
+  img
+    max-width: 100%
+
+#container-match-overview
+  .container
+    float: left
+    width: 30%
+    margin-right: 3%
+    height: 80px
+    display: inline-block
+    color: $white
+    &>p,h2
+      padding: 15px 0px 0px 75px
+  .active 
+    background: url(icon-brush.png) $darkest-grey no-repeat 20px 20px
+  .vote
+    background: url(icon-check.png) $darkest-grey no-repeat 20px 20px
+  .winner
+    background: url(icon-star.png) $darkest-grey no-repeat 20px 20px
+  .container-information
+    margin-top: 20px
+    background-color: $white
+    color: $black
+    img
+      float: right
+    span
+      float: left
 
 // General stuff
 
@@ -88,12 +259,6 @@ h1
   font-weight: 400
   line-height: 0.933
 
-body,html
-  font-family: 'Muli', sans-serif
-  background: $beige
-  height: 100%
-  overflow-y: hidden
-
 div, input, textarea
   border: none
 
@@ -142,101 +307,8 @@ div, input, textarea
   width: 100%
   height: 100%
 
-#header
-  z-index: 2
-  top: 0
-  font-size: 0.9em
-  background: $white
-  border-bottom: 1px solid $dark-grey
-  display: inline-block
-  width: 100%
-  height: 60px
-  @include box-shadow($grey 0px 1px 0px)
-  padding: 0px 90px
-  &>div
-    height: 50px
-    min-width: 55px
-    padding: 25px 20px
-    position: relative
-  a
-    color: $black
-    text-decoration: none
-  #logo
-    padding-left: 0px
-    float: left
-    margin-right: 120px
-  #menu
-    float: left
-    border-left: 1px solid $grey
-    border-right: 1px solid $grey
-    &>a
-      display: inline-block
-      height: 46px
-      span
-        display: inline-block
-        background-color: #84d0f0
-        border-radius: 50%
-        padding: 2px 5px
-        color: $white
-        font-size: 1.3em
-        margin: -10px 0 0 10px
-    ul
-      position: absolute
-      width: 330px
-      z-index: 2
-      margin-left: -260px
-      background-color: $white
-      padding: 0px 20px
-      @include box-sizing(border-box)
-      li
-        border-bottom: 1px solid $grey
-        width: 100%
-        float: left
-        a
-          display: inline-block
-          width: 100%
-          padding: 30px 0px
-          &:hover
-            color: $lime-green 
-        &:last-child
-          background: url(icon-close.png) no-repeat 275px 32px
-  #login, #register, #facebook, #twitter
-    float: right
-  #register
-    padding-right: 0px
-  #login
-    border-right: 1px solid $grey
-    background: url(icon-login.png) no-repeat 15px 22px
-    button
-      padding: 20px
-      background: $darkest-grey
-      float: right
-      color: $white
-      border: none
-      margin-top: -15px
-    &>a
-      height: 46px
-      display: inline-block
-      padding-left: 37px
-    input
-      font-style: italic
-      border: 1px solid $grey
-      padding: 20px
-      margin-bottom: 30px
-      margin-top: 15px
-      width: 100%
-      @include box-sizing(border-box)
-    ul
-      @include box-sizing(border-box)
-      background: $white
-      width: 350px
-      z-index: 2
-      padding: 20px
-      position: absolute
-  #facebook
-    border-right: 1px solid $grey
-  #twitter
-    border-right: 1px solid $grey
+
+ 
 
 #attend-match
   margin-top: 20px
@@ -319,12 +391,12 @@ div, input, textarea
   border: 5px solid $dark-green
   cursor: pointer
 
-.vote
-  float: left
-  clear: both
-  margin: 30px
-  padding: 20px
-  background-color: $light-grey
+  .vote
+    float: left
+    clear: both
+    margin: 30px
+    padding: 20px
+    background-color: $light-grey
  
 /* The ghost, nudged to maintain perfect centering */
 #container-art-bg:before
@@ -500,12 +572,6 @@ div, input, textarea
     margin: 50px 0 0 400px
     padding: 0 0 0 20px
 
-#container-content
-  padding: 30px
-  height: 100%
-  float: left
-  overflow: auto
-  width: 100%
 
 #container-winners
   margin-right: 5%
@@ -646,7 +712,6 @@ div, input, textarea
   background-color: $white
   padding: 1%
   margin-bottom: 30px
-  margin-top: -155px
   p
     display: inline-block
     font-family: Calibri
@@ -669,7 +734,7 @@ div, input, textarea
     display: inline-block
     font-size: 14px
     background-color: #84d0f0
-    border-radius: 15px
+    border-radius : 15px
     padding: 5px 20px
     color: $white
     margin-left: 20px

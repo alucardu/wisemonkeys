@@ -52,22 +52,27 @@
             %a{:href => "/"}Contact opnemen
           %li 
             %a{:href => "/"}Menu sluiten
+
+      
       #register
         - if signed_in? 
           = link_to current_user.name, current_user
         - else
+          %span.icon
           = link_to 'Registreren', new_user_path
-      #twitter
-        = image_tag 'icon-twitter.png'
-      #facebook
-        = image_tag 'icon-facebook.png'
+
       #login
         - if signed_in? 
           = link_to "Uitloggen", signout_path, method: "delete" 
         - else
+          %span.icon
           = link_to "Inloggen", signin_path
           %ul
             = render :partial => 'sessions/form'
+      #search
+        %input{:name => "search", :value => "Zoeken op kunst of kunstenaar" }
+        %button{:name => "Zoeken", :value => "Zoeken"}
+
 
     #container-content
       = yield
