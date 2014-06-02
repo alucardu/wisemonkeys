@@ -46,11 +46,14 @@
       = link_to picture.title, picture, :class => "art-name"
       Door:
       = picture.user.name
-      -# = pluralize(picture.votes.count, "vote" )
-      -# %span
-        -# %div
-          -# %p
-            -# \ #{pluralize(picture.votes.count, "" )}
+      - if signed_in?
+        - if current_user == @competition.user || current_user.administrator? 
+          \ #{pluralize(picture.votes.count, "" )}
+          -# = pluralize(picture.votes.count, "vote" )
+          -# %span
+            -# %div
+              -# %p
+                -# \ #{pluralize(picture.votes.count, "" )}
 - if signed_in?
   - if current_user == @competition.user || current_user.administrator?          
     = link_to 'Edit', edit_competition_path(@competition)
