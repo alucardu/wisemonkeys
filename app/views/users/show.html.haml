@@ -1,6 +1,18 @@
 - provide(:title, @user.name)
 %h1
-  Gallerij van #{@user.name} 
+  Gallerij van #{@user.name}
+%h1
+  Competities:
+- @user.competitions.each do |competition|
+  %h1
+    = link_to competition.title, competition
+  - if signed_in?
+    - if current_user == competition.user || current_user.administrator? 
+      %ul 
+        - competition.pictures.each do |picture| 
+          %li
+            = link_to picture.title, picture 
+            &#45; #{pluralize(picture.votes.count, "" )} punten
 #container.js-masonry
   - @user.pictures.each do |picture|
     .item

@@ -4,6 +4,7 @@ before_action :change, :only => [:destroy, :index]
   def show
     @user = User.find(params[:id])
     @pictures = @user.pictures
+    @competitions = @user.competitions
   end
 
   def new

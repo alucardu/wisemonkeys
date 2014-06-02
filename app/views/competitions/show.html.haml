@@ -48,7 +48,7 @@
       = picture.user.name
       - if signed_in?
         - if current_user == @competition.user || current_user.administrator? 
-          \ #{pluralize(picture.votes.count, "" )}
+           #{pluralize(picture.votes.count, "" )}
           -# = pluralize(picture.votes.count, "vote" )
           -# %span
             -# %div
