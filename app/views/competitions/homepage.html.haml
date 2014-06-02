@@ -2,29 +2,50 @@
   =image_tag("slider-1.png")
 
 #container-match-overview
-  .container.active
-    %h2
-      Actieve kunstwedstrijden
-    %p
-      deelnemen aan de wedstrijd
+  .container
+    .container-top.active
+      %h2
+        Actieve kunstwedstrijden
+      %p
+        deelnemen aan de wedstrijd
     .container-information
-      %span
-        Wedstrijd:
-      %h3
-        Naam
-      %p
-        Sponsor naam
-      %p
-        Einde inschrijving: 14-08-2014
+      .content
+        %span
+          Wedstrijd:
+        %h3
+          Naam
+        %p
+          Sponsor naam
+        %p
+          Einde inschrijving: 14-08-2014
       =image_tag("logo-drents.png")
+      %a{:href => "/", :class => "more-info"}Meer weten
+      %a{:href => "/", :class => "participate"}Deelnemen aan de wedstrijd
 
-  .container.vote
-    %h2
-      Stembare kunstwedstrijden
-    %p
-      deelnemen aan de wedstrijd
-  .container.winner
-    %h2
-      Recente winnaars
-    %p
-      deelnemen aan de wedstrijd
+    .container-information
+      .content
+        %span
+          Wedstrijd:
+        %h3
+          Naam
+        %p
+          Sponsor naam
+        %p
+          Einde inschrijving: 14-08-2014
+      =image_tag("logo-drents.png")
+      %a{:href => "/", :class => "more-info"}Meer weten
+      %a{:href => "/", :class => "participate"}Deelnemen aan de wedstrijd
+
+  .container
+    .container-top.vote
+      %h2
+        Stembare kunstwedstrijden
+      %p
+        deelnemen aan de wedstrijd
+
+  .container
+    .container-top.winner
+      %h2
+        Recente winnaars
+      %p
+        deelnemen aan de wedstrijd

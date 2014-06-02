@@ -50,6 +50,7 @@ body,html
 
 #header
   z-index: 2
+  position: fixed
   font-size: 0.9em
   width: 100%
   height: 60px
@@ -170,6 +171,7 @@ body,html
   float: left
   overflow: auto
   width: 100%
+  overflow-x: hidden
 
 #container-slider
   float: left
@@ -180,29 +182,50 @@ body,html
     max-width: 100%
 
 #container-match-overview
+  float: left
   .container
     float: left
     width: 30%
     margin-right: 3%
-    height: 80px
-    display: inline-block
     color: $white
-    &>p,h2
+    .container-top
+      float: left
+      width: 100%
+      &>p,h2
       padding: 15px 0px 0px 75px
-  .active 
-    background: url(icon-brush.png) $darkest-grey no-repeat 20px 20px
-  .vote
-    background: url(icon-check.png) $darkest-grey no-repeat 20px 20px
-  .winner
-    background: url(icon-star.png) $darkest-grey no-repeat 20px 20px
+      height: 80px
+    .active 
+      background: url(icon-brush.png) $darkest-grey no-repeat 20px 20px
+    .vote
+      background: url(icon-check.png) $darkest-grey no-repeat 20px 20px
+    .winner
+      background: url(icon-star.png) $darkest-grey no-repeat 20px 20px
   .container-information
     margin-top: 20px
+    padding: 20px
     background-color: $white
     color: $black
-    img
-      float: right
-    span
+    float: left
+    width: 100%
+    .content
+      width: 80%
       float: left
+    img
+      width: 20%
+      float: left
+    a
+      padding: 10px 15px
+      color: $white
+      border-radius: 30px
+      text-decoration: none
+      float: left
+
+    .more-info
+      background-color: $orange
+      margin-right: 20px
+
+    .participate
+      background-color: $blue
 
 // General stuff
 
