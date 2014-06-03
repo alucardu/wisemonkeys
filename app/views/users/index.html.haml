@@ -9,7 +9,7 @@
 		- @user.each do |user|
 			%tr
 				%td#title
-					= user.name
+					= link_to user.name, user
 				%td#description
 					= user.email
 				%td#destroy
