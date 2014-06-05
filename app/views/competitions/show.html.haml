@@ -18,7 +18,13 @@
     %p
       %b Deadline:
       = @competition.deadline_signin.strftime('%e %B %Y')  
-
+- if signed_in?
+  - if current_user == @competition.user || current_user.administrator?          
+    = link_to 'Edit', edit_competition_path(@competition)
+    \|
+  = link_to 'Back', competitions_path
+  - if signed_in?
+    = link_to 'Klik om mee te doen!', new_picture_path(:competition_id => @competition)
   #btn-vote
     Breng je stem uit!
 
@@ -54,10 +60,4 @@
             -# %div
               -# %p
                 -# \ #{pluralize(picture.votes.count, "" )}
-- if signed_in?
-  - if current_user == @competition.user || current_user.administrator?          
-    = link_to 'Edit', edit_competition_path(@competition)
-    \|
-  = link_to 'Back', competitions_path
-  - if signed_in?
-    = link_to 'Klik om mee te doen!', new_picture_path(:competition_id => @competition)
+
