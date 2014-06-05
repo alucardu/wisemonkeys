@@ -1,6 +1,7 @@
 class BusinessrequestsController < ApplicationController
   before_action :set_businessrequest, only: [:show, :edit, :update, :destroy]
   before_action :signedin, :only => [:edit, :update, :destroy, :create]
+  before_action :change, :only => [:index]
 
   # GET /businessrequests
   # GET /businessrequests.json
@@ -65,6 +66,15 @@ class BusinessrequestsController < ApplicationController
     def signedin
       unless signed_in?
         redirect_to :back, notice: 'U bent niet gemachtigd'
+      end
+    end
+    def change
+      if signed_in?
+        unless current_user.administrator?
+          redirect_to root_path, notice: 'U bent niet gemachtigd'
+        end
+      else
+        redirect_to root_path, notice: 'U bent niet gemachtigd'
       end
     end
 end
