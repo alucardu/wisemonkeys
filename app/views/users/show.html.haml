@@ -1,6 +1,7 @@
 - provide(:title, @user.name)
 %h1
   Gallerij van #{@user.name} 
+  = link_to 'Edit', edit_user_path(@user)
 #container.js-masonry
   - @user.pictures.each do |picture|
     .item

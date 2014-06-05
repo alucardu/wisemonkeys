@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-before_action :set_user, only: [:destroy]
+before_action :set_user, only: [:destroy, :edit, :show, :update]
 before_action :change, :only => [:destroy, :index]
   def show
     @user = User.find(params[:id])
@@ -19,6 +19,18 @@ before_action :change, :only => [:destroy, :index]
       redirect_to @user
     else
       render 'new'
+    end
+  end
+
+  def edit
+
+  end
+
+  def update
+    if @user.update(user_params)
+      redirect_to @user, notice: 'User was successfully updated.' 
+    else
+      render action: 'edit' 
     end
   end
 
@@ -45,7 +57,7 @@ before_action :change, :only => [:destroy, :index]
       @user=User.find(params[:id])
     end
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :administrator)
     end
 
 end
