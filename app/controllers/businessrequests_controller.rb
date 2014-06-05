@@ -6,7 +6,6 @@ class BusinessrequestsController < ApplicationController
   # GET /businessrequests.json
   def index
     @businessrequests = Businessrequest.all
-    @user = User.all
   end
 
   # GET /businessrequests/1

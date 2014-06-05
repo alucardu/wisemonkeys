@@ -15,7 +15,7 @@
     - @businessrequests.each do |businessrequest|
       %tr
         %td#title
-          = link_to businessrequest.user.name, users_path
+          = link_to businessrequest.user.name
         %td= businessrequest.user.email
         %td= businessrequest.kvk
         %td= businessrequest.company
