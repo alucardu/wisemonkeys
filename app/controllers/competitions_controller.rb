@@ -32,29 +32,20 @@ class CompetitionsController < ApplicationController
   def create
     @competition = Competition.new(competition_params)
     @competition.user = current_user
-
-    respond_to do |format|
-      if @competition.save
-        format.html { redirect_to @competition, notice: 'Competition was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @competition }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @competition.errors, status: :unprocessable_entity }
-      end
+    if @competition.save
+      redirect_to @competition, notice: 'Competition was successfully created.'
+    else
+      render action: 'new' 
     end
   end
 
   # PATCH/PUT /competitions/1
   # PATCH/PUT /competitions/1.json
   def update
-    respond_to do |format|
-      if @competition.update(competition_params)
-        format.html { redirect_to @competition, notice: 'Competition was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @competition.errors, status: :unprocessable_entity }
-      end
+    if @competition.update(competition_params)
+      redirect_to @competition, notice: 'Competition was successfully updated.' 
+    else
+      render action: 'edit' 
     end
   end
 
@@ -63,8 +54,7 @@ class CompetitionsController < ApplicationController
   def destroy
     @competition.destroy
     respond_to do |format|
-      format.html { redirect_to competitions_url }
-      format.json { head :no_content }
+      redirect_to competitions_url 
     end
   end
 

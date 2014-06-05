@@ -1,4 +1,6 @@
 Wisemonkeys::Application.routes.draw do
+  resources :businessrequests
+
   resources :reviews
 
   get "users/new"
