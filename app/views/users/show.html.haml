@@ -1,6 +1,9 @@
 - provide(:title, @user.name)
 %h1
-  Gallerij van #{@user.name} 
+  Gallerij van #{@user.name}
+  &#45;
+  - if @user.administrator?
+    administrator 
   = link_to 'Edit', edit_user_path(@user)
 #container.js-masonry
   - @user.pictures.each do |picture|

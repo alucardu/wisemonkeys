@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 before_action :set_user, only: [:destroy, :edit, :show, :update]
-before_action :change, :only => [:destroy, :index]
+before_action :change, :only => [:destroy, :index, :edit, :update]
   def show
     @user = User.find(params[:id])
     @pictures = @user.pictures
