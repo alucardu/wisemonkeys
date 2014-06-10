@@ -57,7 +57,7 @@ before_action :change, :only => [:destroy, :index, :edit, :update]
       @user=User.find(params[:id])
     end
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation, :administrator)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :administrator, :b_account)
     end
 
 end

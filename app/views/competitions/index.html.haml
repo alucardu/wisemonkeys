@@ -34,6 +34,7 @@
               = link_to 'Destroy', competition, :method => :delete, :data => { :confirm => 'Are you sure?' }
   %br
   - if signed_in?
-    = link_to 'Nieuwe wedstrijd aanmaken', new_competition_path
+    - if current_user.b_account || current_user.administrator?
+      = link_to 'Nieuwe wedstrijd aanmaken', new_competition_path
 
   

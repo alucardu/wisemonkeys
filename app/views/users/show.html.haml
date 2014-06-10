@@ -2,8 +2,8 @@
 %h1
   Gallerij van #{@user.name}
   &#45;
-  - if @user.administrator?
-    administrator 
+  - if @user.b_account?
+    Ondernemer
   = link_to 'Edit', edit_user_path(@user)
 #container.js-masonry
   - @user.pictures.each do |picture|
