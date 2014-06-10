@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140526122056) do
+ActiveRecord::Schema.define(version: 20140605140438) do
+
+  create_table "businessrequests", force: true do |t|
+    t.string   "kvk"
+    t.string   "company"
+    t.string   "phone"
+    t.text     "request"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
 
   create_table "competitions", force: true do |t|
     t.string   "title"
@@ -37,6 +47,13 @@ ActiveRecord::Schema.define(version: 20140526122056) do
     t.integer  "user_id"
   end
 
+  create_table "reviews", force: true do |t|
+    t.string   "name"
+    t.text     "feedback"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "email"
@@ -44,7 +61,7 @@ ActiveRecord::Schema.define(version: 20140526122056) do
     t.datetime "updated_at"
     t.string   "password_digest"
     t.string   "remember_token"
-    t.boolean  "activated",            default: false
+    t.boolean  "administrator",        default: false
     t.string   "authentication_token"
   end
 
