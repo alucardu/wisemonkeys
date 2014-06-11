@@ -6,7 +6,7 @@
 			Hier is uw verificatiecode<br /> <%= @user.authentication_token %>
 		</p>
 		<p>
-			<a href="localhost:3000/checktoken">Klik hier om uw token in te voeren</a>
+			<a href="localhost:3000/checktoken?authentication_token=<%= @user.authentication_token %>">Klik hier om uw token in te voeren</a>
 		</p>
 	</body>
 </html>

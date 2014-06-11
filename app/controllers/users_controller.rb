@@ -9,13 +9,11 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def checktoken
-  end
 
-  def check_authentication_token
-    user = User.find_by(authentication_token: params[:user][:authentication_token])
+  def checktoken
+    user = User.find_by(authentication_token: params[:authentication_token])
     if user.present?
-      redirect_to user
+      redirect_to pictures_path
     else
       redirect_to competitions_path
     end
