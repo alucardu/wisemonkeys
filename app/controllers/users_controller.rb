@@ -14,7 +14,6 @@ class UsersController < ApplicationController
     user = User.find_by(authentication_token: params[:authentication_token])
     if user.present?
       user.activated = true
-      user.save
       redirect_to pictures_path
     else
       redirect_to competitions_path

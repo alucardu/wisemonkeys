@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20140611094929) do
     t.string   "password_digest"
     t.string   "remember_token"
     t.string   "authentication_token", default: "f"
-    t.boolean  "activated"
+    t.boolean  "activated",            default: false
   end
 
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"
