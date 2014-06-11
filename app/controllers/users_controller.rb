@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   def checktoken
     user = User.find_by(authentication_token: params[:authentication_token])
     if user.present?
-      user.activated = true
+      user.update_attribute(:activated, true)
       redirect_to pictures_path
     else
       redirect_to competitions_path
