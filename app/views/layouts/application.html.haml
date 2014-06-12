@@ -63,7 +63,7 @@
         = image_tag 'icon-facebook.png'
       #login
         - if signed_in?
-          - unless current_user.administrator?
+          - unless current_user.administrator? || current_user.b_account?
             = link_to "Ondernemersaccount aanvragen", new_businessrequest_path
         - if signed_in? && current_user.administrator?
           = link_to "administrator tools", users_path
