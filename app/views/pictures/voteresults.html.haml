@@ -5,7 +5,4 @@
       = link_to picture do
         = image_tag(picture.image_url)
       = link_to picture.title, picture, :class => "art-name"
-      %span
-        %div
-          %p
-            \ #{pluralize(picture.votes.count, "" )}
+     

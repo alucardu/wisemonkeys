@@ -25,7 +25,7 @@
   = link_to 'Back', competitions_path
   - if signed_in?
     = link_to 'Klik om mee te doen!', new_picture_path(:competition_id => @competition)
-  = if Time.now.in_time_zone("Amsterdam") >= @competition.deadline_signin && Time.now.in_time_zone("Amsterdam") <= @competition.deadline
+  - if Time.now.in_time_zone("Amsterdam") >= @competition.deadline_signin && Time.now.in_time_zone("Amsterdam") <= @competition.deadline
     #btn-vote
       Breng je stem uit!
 
@@ -55,7 +55,7 @@
         Door:
         = picture.user.name
         - if signed_in?
-          - if current_user == @competition.user || current_user.administrator? || Time.now.in_time_zone("Amsterdam") >= @competition.deadline
+          - if current_user == @competition.user || current_user.administrator? || Time.now.in_time_zone("Amsterdam") <= @competition.deadline
             #{pluralize(picture.votes.count, "" )}
             -# = pluralize(picture.votes.count, "vote" )
             -# %span
