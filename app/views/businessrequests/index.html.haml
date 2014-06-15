@@ -1,0 +1,34 @@
+%h1 Ondernemers Verzoeken
+%h2
+  = link_to 'Gebruikers', users_path 
+  &#8722;
+  = link_to 'Ondernemer Verzoeken', businessrequests_path
+.start-match
+  %table
+    %tr
+      %th Name
+      %th Email
+      %th Kvk
+      %th Company
+      %th Phone
+      %th Request
+      %th
+      %th
+      %th
+
+    - @businessrequests.each do |businessrequest|
+      %tr
+        %td#title
+          = link_to businessrequest.user.name, businessrequest.user
+        %td= businessrequest.user.email
+        %td= businessrequest.kvk
+        %td= businessrequest.company
+        %td= businessrequest.phone
+        %td= businessrequest.request
+        %td= link_to 'Show', businessrequest
+        %td= link_to 'Edit', edit_businessrequest_path(businessrequest)
+        %td= link_to 'Destroy', businessrequest, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Businessrequest', new_businessrequest_path

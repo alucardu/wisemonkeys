@@ -1,7 +1,8 @@
 class CompetitionsController < ApplicationController
   before_action :set_competition, only: [:show, :edit, :update, :destroy]
   before_action :change, :only => [:edit, :update, :destroy]
-  before_action :signedin, :only => [:edit, :update, :destroy, :create]
+  before_action :signedin, :only => [:edit, :update, :destroy, :create, :new]
+  before_action :b_accountcheck, :only => [:edit, :update, :destroy, :create, :new]
 
 
   # GET /competitions
@@ -32,29 +33,20 @@ class CompetitionsController < ApplicationController
   def create
     @competition = Competition.new(competition_params)
     @competition.user = current_user
-
-    respond_to do |format|
-      if @competition.save
-        format.html { redirect_to @competition, notice: 'Competition was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @competition }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @competition.errors, status: :unprocessable_entity }
-      end
+    if @competition.save
+      redirect_to @competition, notice: 'Competition was successfully created.'
+    else
+      render action: 'new' 
     end
   end
 
   # PATCH/PUT /competitions/1
   # PATCH/PUT /competitions/1.json
   def update
-    respond_to do |format|
-      if @competition.update(competition_params)
-        format.html { redirect_to @competition, notice: 'Competition was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @competition.errors, status: :unprocessable_entity }
-      end
+    if @competition.update(competition_params)
+      redirect_to @competition, notice: 'Competition was successfully updated.' 
+    else
+      render action: 'edit' 
     end
   end
 
@@ -63,8 +55,7 @@ class CompetitionsController < ApplicationController
   def destroy
     @competition.destroy
     respond_to do |format|
-      format.html { redirect_to competitions_url }
-      format.json { head :no_content }
+      redirect_to competitions_url 
     end
   end
 
@@ -80,7 +71,7 @@ class CompetitionsController < ApplicationController
     end
 
     def change
-      unless current_user == @competition.user
+      unless current_user == @competition.user || current_user.administrator?
         redirect_to @competition, notice: 'U bent niet gemachtigd'
       end
     end
@@ -88,6 +79,12 @@ class CompetitionsController < ApplicationController
     def signedin
       unless signed_in?
         redirect_to :back, notice: 'U bent niet gemachtigd'
+      end
+    end
+
+    def b_accountcheck
+      unless current_user.b_account? || current_user.administrator?
+        redirect_to competitions_path, notice: 'U bent niet gemachtigd'
       end
     end
 end

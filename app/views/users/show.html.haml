@@ -1,9 +1,32 @@
 - provide(:title, @user.name)
 %h1
   Gallerij van #{@user.name} 
+  - if @user.b_account?
+    &#45; Ondernemer
+  - if signed_in?
+    - if current_user.administrator?
+      = link_to 'Edit', edit_user_path(@user)
 #container.js-masonry
   - @user.pictures.each do |picture|
     .item
       = link_to picture do
         = image_tag(picture.image_url)
       = link_to picture.title, picture, :class => "art-name"
+%h1
+  Competities:
+- @user.competitions.each do |competition|
+  %h1
+    = link_to competition.title, competition
+    - if signed_in?
+      - if current_user == competition.user || current_user.administrator?
+        .start-match
+          %table
+            %tr
+              %th Titel
+              %th Punten
+            - competition.pictures.each do |picture| 
+              %tr
+                %td#title
+                  = link_to picture.title, picture 
+                %td#description
+                  = picture.votes.count

@@ -28,7 +28,6 @@ class PicturesController < ApplicationController
   def create
       @picture = Picture.new(picture_params)
       @picture.user = current_user
-
        if @picture.save
          redirect_to @picture.competition, notice: 'Picture was successfully created.'   
        else
@@ -66,7 +65,7 @@ class PicturesController < ApplicationController
     end
 
     def change
-      unless current_user == @picture.user
+      unless current_user == @picture.user || current_user.administrator?
         redirect_to @picture, notice: 'U bent niet gemachtigd'
       end
     end

@@ -1,0 +1,22 @@
+= form_for @businessrequest do |f|
+  - if @businessrequest.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@businessrequest.errors.count, "error")} prohibited this businessrequest from being saved:"
+      %ul
+        - @businessrequest.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :kvk
+    = f.text_field :kvk
+  .field
+    = f.label :company
+    = f.text_field :company
+  .field
+    = f.label :phone
+    = f.text_field :phone
+  .field
+    = f.label :request
+    = f.text_area :request
+  .actions
+    = f.submit 'Save'
