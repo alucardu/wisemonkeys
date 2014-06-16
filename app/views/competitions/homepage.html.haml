@@ -18,7 +18,7 @@
           Sponsor naam
         %p
           Einde inschrijving: 14-08-2014
-      =image_tag("logo-drents.png")
+      =image_tag  "logo-drents.png", :class => "logo"
       %a{:href => "/", :class => "more-info"}Meer weten
       %a{:href => "/", :class => "participate"}Deelnemen aan de wedstrijd
 
@@ -32,7 +32,7 @@
           Sponsor naam
         %p
           Einde inschrijving: 14-08-2014
-      =image_tag("logo-drents.png")
+      =image_tag  "logo-drents.png", :class => "logo"
       %a{:href => "/", :class => "more-info"}Meer weten
       %a{:href => "/", :class => "participate"}Deelnemen aan de wedstrijd
 
@@ -42,6 +42,28 @@
         Stembare kunstwedstrijden
       %p
         deelnemen aan de wedstrijd
+    .container-information
+      %span
+        Wedstrijd:
+      %h3
+        Naam
+      =image_tag("dali-1.png") 
+      %p
+        Einde stemronde: 14-07-2014
+      %a{:href => "/", :class => "more-info"}Ingezonden kunst
+      %a{:href => "/", :class => "participate"}Breng je stem uit
+
+    .container-information
+      %span
+        Wedstrijd:
+      %h3
+        Naam
+      =image_tag("dali-1.png") 
+      %p
+        Einde stemronde: 14-07-2014
+      %a{:href => "/", :class => "more-info"}Ingezonden kunst
+      %a{:href => "/", :class => "participate"}Breng je stem uit
+
 
   .container
     .container-top.winner
@@ -49,3 +71,12 @@
         Recente winnaars
       %p
         deelnemen aan de wedstrijd
+    .container-information
+      %span
+        Wedstrijd:
+      %h3
+        Naam
+      =image_tag("winner.png") 
+      %a{:href => "/", :class => "more-info"}Kunstwerk bekijken
+      %a{:href => "/", :class => "participate"}Portfolio bekijken
+      
