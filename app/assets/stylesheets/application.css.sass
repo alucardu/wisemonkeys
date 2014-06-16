@@ -13,8 +13,21 @@ div, a
   @include box-sizing(border-box)
 
 // Mixins
-@mixin border5px
-  border-radius: 5px
+@mixin menu-icon
+  display: inline-block
+  padding: 15px
+  float: left
+  border-radius: 50%
+  margin: -8px 10px 0 0
+
+@mixin prize
+  display: inline-block
+  background-color: $orange
+  padding: 5px 10px
+  float: left
+  border-radius: 50%
+  color: $white
+  font-size: 1.3em
 
 @mixin field_with_errors
   @extend %fadeIn
@@ -44,6 +57,16 @@ body,html
   height: 100%
   overflow-y: hidden
 
+// ======= //
+// General // 
+// ======= //
+
+#container-content
+  padding: 0 5%
+  height: 100%
+  overflow: auto
+  overflow-x: hidden
+
 // ====== //
 // Header // 
 // ====== //
@@ -63,7 +86,10 @@ body,html
     color: $black
     text-decoration: none
 
-  // Menu //
+  @each $icon in register, login
+    ##{$icon} span 
+      background: url('icon-#{$icon}.png') $blue no-repeat 7px 7px
+
   #menu
     &>a
       display: inline-block
@@ -77,9 +103,9 @@ body,html
         margin: -7px 0 0 10px
     ul
       position: absolute
-      width: 330px
+      width: 245px
       z-index: 2
-      margin-left: -260px
+      margin-left: -165px
       background-color: $white
       padding: 0px 20px
       @include box-sizing(border-box)
@@ -94,25 +120,17 @@ body,html
           &:hover
             color: $lime-green 
         &:last-child
-          background: url(icon-close.png) no-repeat 275px 32px
+          background: url(icon-close.png) no-repeat 175px 32px
 
   #login, #register
     float: right
     span
-      display: inline-block
-      padding: 15px
-      float: left
-      border-radius: 50%
-      margin: -8px 10px 0 0    
+      @include menu-icon
 
   #register
-    padding: 0%!important
-    .icon
-      background: url(icon-register.png) $blue no-repeat 7px 6px
+    padding: 0%
 
   #login
-    .icon
-      background: url(icon-login.png) $blue no-repeat 7px 6px
     button
       padding: 20px
       background: $darkest-grey
@@ -139,11 +157,12 @@ body,html
       position: absolute
 
   #search
-    width: 330px 
+    width: 40% 
     margin: 0 auto
     float: none
     @include box-sizing(border-box)
     input
+      text-align: center
       margin: -8px 0px
       background-color: $dark-grey
       color: $white
@@ -151,7 +170,7 @@ body,html
       font-family: Calibri
       font-style: italic
       border-radius: 15px 0 0 15px
-      width: 179px
+      width: 78%
       float: left
     button
       float: left
@@ -165,16 +184,7 @@ body,html
 // Homepage // 
 // ======== //
 
-#container-content
-  padding: 0 5%
-  height: 100%
-  float: left
-  overflow: auto
-  width: 100%
-  overflow-x: hidden
-
 #container-slider
-  float: left
   width: 112%
   margin-left: -6%
   margin-bottom: 30px
@@ -182,29 +192,61 @@ body,html
     max-width: 100%
 
 #container-match-overview
-  float: left
-  .container
+  position: relative
+  div:first-child
+    .content
+      width: 80%
+    img
+      width: 20%
+
+  .content
+    img
+      width: 100% 
+  div
+    width: 100%
     float: left
-    width: 30%
+  .container
+    width: 31%
     margin-right: 3%
     color: $white
     .container-top
-      float: left
-      width: 100%
-      &>p,h2
       padding: 15px 0px 0px 75px
       height: 80px
-    .active 
-      background: url(icon-brush.png) $darkest-grey no-repeat 20px 20px
-    .vote
-      background: url(icon-check.png) $darkest-grey no-repeat 20px 20px
-    .winner
-      background: url(icon-star.png) $darkest-grey no-repeat 20px 20px
+    @each $icon in brush, check, star
+      .#{$icon}
+        background: url('icon-#{$icon}.png') $darkest-grey no-repeat 20px 20px
+  .active
+    .container-overlay
+      position: absolute
+      background-color: $white
+      width: 100%
+      left: 0
+      top: 100px
+      color: $black
+      padding: 20px
+      .content
+        width: 40%
+        #prize 
+          li
+            float: left
+            clear: both
+            width: 100%
+          span
+            @include prize
+
+  .vote
+    .container-overlay
+
+  .winner
+    margin: 0
+    .container-overlay
+
   .container-information
     margin-top: 20px
     padding: 20px
     background-color: $white
     color: $black
+<<<<<<< HEAD
     float: left
     width: 100%
     .content
@@ -220,6 +262,8 @@ body,html
     span
       font-style: italic
       float: left
+=======
+>>>>>>> 35af406071125bc7868fcb225f28e79adc1b9d9d
     a
       margin-top: 15px
       padding: 10px 15px
@@ -227,6 +271,12 @@ body,html
       border-radius: 30px
       text-decoration: none
       float: left
+    span
+      margin-right: 5px
+      float: left
+    .content
+      img
+        width: 100%
 
     .more-info
       background-color: $orange
@@ -234,6 +284,7 @@ body,html
 
     .participate
       background-color: $blue
+    
 
 // General stuff
 
@@ -381,7 +432,6 @@ div, input, textarea
         margin: -2px
         @include field_with_errors
       img
-        @include border5px
         position: absolute
         z-index: 1
         top: 0

@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Kvk:
+  = @businessrequest.kvk
+%p
+  %b Company:
+  = @businessrequest.company
+%p
+  %b Phone:
+  = @businessrequest.phone
+%p
+  %b Request:
+  = @businessrequest.request
+
+= link_to 'Edit', edit_businessrequest_path(@businessrequest)
+\|
+= link_to 'Back', businessrequests_path

@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140515092657) do
+ActiveRecord::Schema.define(version: 20140610092026) do
+
+  create_table "businessrequests", force: true do |t|
+    t.string   "kvk"
+    t.string   "company"
+    t.string   "phone"
+    t.text     "request"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
 
   create_table "competitions", force: true do |t|
     t.string   "title"
@@ -51,6 +61,8 @@ ActiveRecord::Schema.define(version: 20140515092657) do
     t.datetime "updated_at"
     t.string   "password_digest"
     t.string   "remember_token"
+    t.boolean  "administrator",   default: false
+    t.boolean  "b_account",       default: false
   end
 
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"

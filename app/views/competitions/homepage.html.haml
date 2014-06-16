@@ -2,8 +2,9 @@
   =image_tag("slider-1.png")
 
 #container-match-overview
-  .container
-    .container-top.active
+  // Start active matches
+  .container.active
+    .container-top.brush
       %h2
         Actieve kunstwedstrijden
       %p
@@ -21,6 +22,35 @@
       =image_tag  "logo-drents.png", :class => "logo"
       %a{:href => "/", :class => "more-info"}Meer weten
       %a{:href => "/", :class => "participate"}Deelnemen aan de wedstrijd
+    .container-overlay
+      .content
+        %span
+          Wedstrijd:
+        %h3
+          Naam
+        %span
+          Omschrijving van de wedstrijd
+        %p
+          De Dali sunset wedstrijd wordt georganiseerd door het drents museum, we willen graag een interpertatie van een zon’s opgang. Met als inspiratie Dali. Doe mee en win een expositie ruimte
+        %p
+          Einde inschrijving: 14-08-2014
+        %ul#prize
+          %li
+            %span
+              1
+            %p
+              1 jaar lang expositie in het drents museum 
+          %li
+            %span
+              2
+            %p
+              6 maanden expositie in het drents museum
+          %li
+            %span
+              3
+            %p
+              1 maand expositie in het drents museum
+
 
     .container-information
       .content
@@ -35,12 +65,15 @@
       =image_tag  "logo-drents.png", :class => "logo"
       %a{:href => "/", :class => "more-info"}Meer weten
       %a{:href => "/", :class => "participate"}Deelnemen aan de wedstrijd
+  // End active matches
 
-  .container
-    .container-top.vote
+  // Start vote matches
+  .container.vote
+    .container-top.check
       %h2
         Stembare kunstwedstrijden
       %p
+<<<<<<< HEAD
         deelnemen aan de wedstrijd
     .container-information
       %span
@@ -64,12 +97,42 @@
       %a{:href => "/", :class => "more-info"}Ingezonden kunst
       %a{:href => "/", :class => "participate"}Breng je stem uit
 
+=======
+        Stemmen op kunst
 
-  .container
-    .container-top.winner
+    .container-information
+      .content
+        %span
+          Wedstrijd:
+        %h3
+          Naam
+        =image_tag("dali-sunset.png")
+        %p
+          Einde stemronde: 14-08-2014
+      %a{:href => "/", :class => "more-info"}Ingezonden kunst
+      %a{:href => "/", :class => "participate"}Breng je stem uit
+>>>>>>> 35af406071125bc7868fcb225f28e79adc1b9d9d
+
+    .container-information
+      .content
+        %span
+          Wedstrijd:
+        %h3
+          Naam
+        =image_tag("dali-sunset.png")
+        %p
+          Einde stemronde: 14-08-2014
+      %a{:href => "/", :class => "more-info"}Ingezonden kunst
+      %a{:href => "/", :class => "participate"}Breng je stem uit
+  // End vote matches
+
+  // Start art winner
+  .container.winner
+    .container-top.star
       %h2
         Recente winnaars
       %p
+<<<<<<< HEAD
         deelnemen aan de wedstrijd
     .container-information
       %span
@@ -80,3 +143,18 @@
       %a{:href => "/", :class => "more-info"}Kunstwerk bekijken
       %a{:href => "/", :class => "participate"}Portfolio bekijken
       
+=======
+        Gewonnen kunstwerken
+
+    .container-information
+      .content
+        %span
+          Kunstenaar:
+        %h3
+          Naam
+        =image_tag("winner-art.png")
+        %p
+          Einde stemronde: 14-08-2014
+      %a{:href => "/", :class => "more-info"}Kunstwerk bekijken
+      %a{:href => "/", :class => "participate"}Portfolio bekijken
+>>>>>>> 35af406071125bc7868fcb225f28e79adc1b9d9d

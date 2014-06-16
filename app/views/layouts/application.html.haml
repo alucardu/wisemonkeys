@@ -35,6 +35,7 @@
       #logo
         %a{:href => "/"}
           = image_tag 'logo.png'
+
       #menu
         %a{:href => "/"}
           Menu
@@ -53,22 +54,27 @@
           %li 
             %a{:href => "/"}Menu sluiten
 
-      
       #register
         - if signed_in? 
           = link_to current_user.name, current_user
         - else
-          %span.icon
+          %span
           = link_to 'Registreren', new_user_path
 
       #login
+        - if signed_in?
+          - unless current_user.administrator?
+            = link_to "Ondernemersaccount aanvragen", new_businessrequest_path
+        - if signed_in? && current_user.administrator?
+          = link_to "administrator tools", users_path
         - if signed_in? 
           = link_to "Uitloggen", signout_path, method: "delete" 
         - else
-          %span.icon
+          %span
           = link_to "Inloggen", signin_path
           %ul
             = render :partial => 'sessions/form'
+
       #search
         %input{:name => "search", :value => "Zoeken op kunst of kunstenaar" }
         %button{:name => "Zoeken", :value => "Zoeken"}
