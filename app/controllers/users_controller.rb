@@ -23,6 +23,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.authentication_token = SecureRandom.urlsafe_base64
     if @user.save
       RegistrationMailer.new_registration_email(@user).deliver
       sign_in @user
