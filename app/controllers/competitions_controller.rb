@@ -37,7 +37,7 @@ class CompetitionsController < ApplicationController
     if @competition.save
       redirect_to @competition, notice: 'Competition was successfully created.'
     else
-      render action: 'new' 
+      render 'new'
     end
   end
 
@@ -45,9 +45,9 @@ class CompetitionsController < ApplicationController
   # PATCH/PUT /competitions/1.json
   def update
     if @competition.update(competition_params)
-      redirect_to @competition, notice: 'Competition was successfully updated.' 
+      redirect_to @competition, notice: 'Competition was successfully updated.'
     else
-      render action: 'edit' 
+      render 'edit'
     end
   end
 
@@ -56,7 +56,7 @@ class CompetitionsController < ApplicationController
   def destroy
     @competition.destroy
     respond_to do |format|
-      redirect_to competitions_url 
+      redirect_to competitions_url
     end
   end
 

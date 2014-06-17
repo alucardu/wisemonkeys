@@ -9,7 +9,7 @@ class PicturesController < ApplicationController
   end
 
   def show
-  	 
+
   end
 
   def voteresults
@@ -30,21 +30,21 @@ class PicturesController < ApplicationController
       @picture = Picture.new(picture_params)
       @picture.user = current_user
        if @picture.save
-         redirect_to @picture.competition, notice: 'Picture was successfully created.'   
+         redirect_to @picture.competition, notice: 'Picture was successfully created.'
        else
-         render "new" 
+         render "new"
        end
    end
 
    def edit
-    
+
    end
 
     def update
       if @picture.update(picture_params)
-        redirect_to @picture, notice: 'Picture was successfully updated.' 
+        redirect_to @picture, notice: 'Picture was successfully updated.'
       else
-        render action: 'edit' 
+        render action: 'edit'
       end
   end
 
@@ -70,7 +70,7 @@ class PicturesController < ApplicationController
         redirect_to @picture, notice: 'U bent niet gemachtigd'
       end
     end
-    
+
     def signedin
       unless signed_in?
         redirect_to :back, notice: 'U bent niet gemachtigd'
