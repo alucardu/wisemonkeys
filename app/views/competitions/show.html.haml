@@ -51,7 +51,7 @@
         = image_tag(picture.image_url)
       = link_to picture.title, picture, :class => "art-name"
       Door:
-      = picture.user.name
+      = picture.user_name
       - if signed_in?
         - if current_user == @competition.user || current_user.administrator? 
           #{pluralize(picture.votes.count, "" )}

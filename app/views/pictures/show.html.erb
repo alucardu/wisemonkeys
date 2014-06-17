@@ -2,7 +2,7 @@
 
 	<%= @picture.title  %>
 	<%= @picture.description %>
-	<%= @picture.user.name %>
+	<%= @picture.user_name %>
 	<%= image_tag(@picture.image_url, :width => 200) if @picture.image.present? %>
 	<% if signed_in? %>
 		<% if current_user == @picture.user || current_user.administrator? %>

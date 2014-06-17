@@ -30,6 +30,8 @@ gem 'quiet_assets'
 
 gem 'jquery-turbolinks'
 
+gem "rails_best_practices"
+
 group :development do
 	gem 'sqlite3'
 	gem 'capistrano'
