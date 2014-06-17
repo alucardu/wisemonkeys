@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140610092026) do
+ActiveRecord::Schema.define(version: 20140611094929) do
 
   create_table "businessrequests", force: true do |t|
     t.string   "kvk"
@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 20140610092026) do
     t.string   "password_digest"
     t.string   "remember_token"
     t.boolean  "administrator",        default: false
-    t.string   "authentication_token"
+    t.string   "authentication_token", default: "f"
     t.boolean  "b_account",            default: false
     t.boolean  "activated",            default: false
   end

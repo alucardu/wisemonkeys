@@ -85,6 +85,7 @@ class CompetitionsController < ApplicationController
     def b_accountcheck
       unless current_user.b_account? || current_user.administrator?
         redirect_to competitions_path, notice: 'U bent niet gemachtigd'
+      end
     end
     def activated
       unless current_user.activated?
