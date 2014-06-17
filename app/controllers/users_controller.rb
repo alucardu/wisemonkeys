@@ -11,9 +11,23 @@ before_action :change, :only => [:destroy, :index, :edit, :update]
     @user = User.new
   end
 
+
+  def checktoken
+    user = User.find_by(authentication_token: params[:authentication_token])
+    if user.present?
+      user.update_attribute(:activated, true)
+      redirect_to pictures_path
+    else
+      redirect_to competitions_path
+    end
+  end
+
+
   def create
     @user = User.new(user_params)
+    @user.authentication_token = SecureRandom.urlsafe_base64
     if @user.save
+      RegistrationMailer.new_registration_email(@user).deliver
       sign_in @user
       flash[:success] = "Welcome to the Sample App!"
       redirect_to @user

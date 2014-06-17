@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<h1>Hallo <%= @user.name %> </h1>
+		<p>
+			<a href="localhost:3000/checktoken?authentication_token=<%= @user.authentication_token %>">Klik hier om uw account te activeren</a>
+		</p>
+	</body>
+</html>

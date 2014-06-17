@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 20140610092026) do
     t.boolean  "administrator",        default: false
     t.string   "authentication_token"
     t.boolean  "b_account",            default: false
+    t.boolean  "activated",            default: false
   end
 
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"

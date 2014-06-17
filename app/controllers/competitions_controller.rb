@@ -3,6 +3,7 @@ class CompetitionsController < ApplicationController
   before_action :change, :only => [:edit, :update, :destroy]
   before_action :signedin, :only => [:edit, :update, :destroy, :create, :new]
   before_action :b_accountcheck, :only => [:edit, :update, :destroy, :create, :new]
+  before_action :activated, :only => [:edit, :update, :destroy, :create, :new]
 
 
   # GET /competitions
@@ -81,10 +82,13 @@ class CompetitionsController < ApplicationController
         redirect_to :back, notice: 'U bent niet gemachtigd'
       end
     end
-
     def b_accountcheck
       unless current_user.b_account? || current_user.administrator?
         redirect_to competitions_path, notice: 'U bent niet gemachtigd'
+    end
+    def activated
+      unless current_user.activated?
+        redirect_to :back, notice: 'Uw account is nog niet geactiveerd!'
       end
     end
 end

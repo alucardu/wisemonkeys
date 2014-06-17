@@ -18,6 +18,8 @@ Wisemonkeys::Application.routes.draw do
   get '/voteresults' => 'pictures#voteresults'
   root 'competitions#homepage'
   resources :sessions, only: [:new, :create, :destroy]
+  match '/check_authentication_token',  to: 'users#check_authentication_token', via: 'get'
+  match '/checktoken',  to: 'users#checktoken', via: 'get'
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'

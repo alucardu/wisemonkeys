@@ -38,6 +38,7 @@ group :development do
 	gem 'capistrano-rbenv', github: 'capistrano/rbenv'
 	gem 'guard-rspec'
 	gem 'guard-livereload', require: false
+	gem "letter_opener"
 end
 
 group :development, :test do
