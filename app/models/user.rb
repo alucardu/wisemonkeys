@@ -9,7 +9,6 @@ class User < ActiveRecord::Base
   has_many :pictures, :dependent => :destroy
   has_many :competitions, :dependent => :destroy
   has_many :businessrequest, dependent: :destroy
-  delegate :name, :email, :to => :user, :prefix => true
 
   def User.new_remember_token
     SecureRandom.urlsafe_base64

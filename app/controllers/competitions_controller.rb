@@ -55,9 +55,7 @@ class CompetitionsController < ApplicationController
   # DELETE /competitions/1.json
   def destroy
     @competition.destroy
-    respond_to do |format|
-      redirect_to competitions_url
-    end
+    redirect_to competitions_url
   end
 
   private
