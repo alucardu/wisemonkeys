@@ -22,17 +22,25 @@
       =image_tag("logo-drents.png")
       %a{:href => "/", :class => "more-info"}Meer weten
       %a{:href => "/", :class => "participate"}Deelnemen aan de wedstrijd
-    .container-overlay
-      .content
+    
+    .container-overlay-contest
+      .close
+        X
+      .content-left
         %span
-          Wedstrijd:
+          Wedstrijd: 
         %h3
-          Naam
+          Dali Sunset
+        %br
         %span
-          Omschrijving van de wedstrijd
+          Omschrijving van de wedstrijd:
         %p
-          De Dali sunset wedstrijd wordt georganiseerd door het drents museum, we willen graag een interpertatie van een zon’s opgang. Met als inspiratie Dali. Doe mee en win een expositie ruimte
+          De Dali sunset wedstrijd wordt georganiseerd door het drents museum, we willen graag een interpertatie van een zon’s opgang. Met als inspiratie Dali.
+          %br
+          %br
+          Doe mee en win een expositie ruimte
         %p
+          %br
           Einde inschrijving: 14-08-2014
         %ul#prize
           %li
@@ -50,7 +58,74 @@
               3
             %p
               1 maand expositie in het drents museum
+      .content-middle
+        %h2
+          Kunstwerk uploaden
+        %span
+          Upload hier je kunstwerk om mee te doen
+          %br
+        %button
+        %br
+        %span
+          Alleen deze bestandtypes: jpg, png, jpeg of pdf
+          %br
+          Formaat: max 2mb
+      .content-right
+        %h2
+          Titel en omschrijving
+        %span
+          Kies voor een duidelijk omschrijving en titel
+        %br
+        %br
+        %label 
+          Titel
+        %input{:type=>"text", :required => true , :placeholder => 'Kunstwerk titel'}
+        %label
+          Omschrijving
+        %textarea{:required => true , :placeholder => 'Kunstwerk omschrijving'}
+        %a{:href => "/", :class => "add"}Deelnemen aan de wedstrijd
 
+    .container-overlay-info
+      .close
+        X
+      .content-left
+        %span
+          Wedstrijd: 
+        %h3
+          Dali Sunset
+        %br
+        %span
+          Omschrijving van de wedstrijd:
+        %p
+          De Dali sunset wedstrijd wordt georganiseerd door het drents museum, we willen graag een interpertatie van een zon’s opgang. Met als inspiratie Dali.
+          %br
+          %br
+          Doe mee en win een expositie ruimte
+        %p
+          %br
+          Einde inschrijving: 14-08-2014
+        %ul#prize
+          %li
+            %span
+              1
+            %p
+              1 jaar lang expositie in het drents museum 
+          %li
+            %span
+              2
+            %p
+              6 maanden expositie in het drents museum
+          %li
+            %span
+              3
+            %p
+              1 maand expositie in het drents museum
+      .content-middle
+        %span
+          Mogelijk gemaakt door: 
+        %h2
+          Drents Museum
+        =image_tag("logo-drente.png")
 
     .container-information
       .content
@@ -117,5 +192,23 @@
         =image_tag("winner-art.png")
         %p
           Einde stemronde: 14-08-2014
-      %a{:href => "/", :class => "more-info"}Kunstwerk bekijken
+      %a{:href => "/", :class => "check-art"}Kunstwerk bekijken
       %a{:href => "/", :class => "participate"}Portfolio bekijken
+
+    .container-overlay-picture
+      .close
+        X
+      .content-left
+        =image_tag("winner-art.png")
+      .content-right
+        %span
+          Kunstenaar:
+        %h3
+          Bart Hakstra
+        %br
+        %span
+          Omschrijving:
+        %p
+          Dit kunstwerk is ontstaan tijdens het rondreizen in Frankrijk, met de graan velden in de achtergrond en het eindeloze zicht op de horizon. 
+
+          Kwam het gene wat ik als kunstnaar in stap in de geschiedenis van Vincent Van Gogh noem. Zijn visie op de wereld en zijn tallent verwerkt in dit veel zeggende kunstwerk.

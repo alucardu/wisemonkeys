@@ -23,11 +23,12 @@ div, a
 @mixin prize
   display: inline-block
   background-color: $orange
-  padding: 5px 10px
+  padding: 10px 15px
   float: left
   border-radius: 50%
   color: $white
-  font-size: 1.3em
+  font-size: 1em
+  font-style: none
 
 @mixin field_with_errors
   @extend %fadeIn
@@ -215,31 +216,211 @@ body,html
     @each $icon in brush, check, star
       .#{$icon}
         background: url('icon-#{$icon}.png') $darkest-grey no-repeat 20px 20px
+  
   .active
-    .container-overlay
+
+    .container-overlay-info
+      z-index: 2
       position: absolute
       background-color: $white
-      width: 100%
+      width: 65%
       left: 0
       top: 100px
       color: $black
-      padding: 20px
-      .content
-        width: 40%
-        #prize 
+      div
+        float: left
+      .close
+        position: absolute
+        right: 0
+        margin-right: -40px
+        padding: 13px
+        height: 40px
+        width: 40px
+        background-color: $white
+        cursor: pointer
+
+      .content-left
+        width: 48%
+        margin-right: 4%
+        padding: 20px
+        span
+          font-style: italic
+          margin-right: 5px
+          float: left
+        h3
+        p
+          clear: both
+
+        #prize
+          margin-top: 20px
           li
             float: left
             clear: both
             width: 100%
+            margin-bottom: 10px
+            p
+              clear: none
+              padding: 10px 50px
           span
             @include prize
+
+      .content-middle
+        padding: 20px
+        width: 48%
+        h2
+          margin-bottom: 15px
+          font-size: 22px
+        span
+          padding-top: 5px
+          margin-right: 5px
+          font-style: italic
+          float: left
+        img
+          width: 60%
+          margin: 0 auto
+
+    .container-overlay-contest
+      z-index: 2
+      position: absolute
+      background-color: $white
+      width: 99%
+      left: 0
+      top: 100px
+      color: $black
+      div
+        float: left
+      .close
+        position: absolute
+        right: 0
+        margin-right: -40px
+        padding: 13px
+        height: 40px
+        width: 40px
+        background-color: $white
+        cursor: pointer
+
+      .content-left
+        width: 31%
+        margin-right: 3%
+        padding: 20px
+        span
+          font-style: italic
+          margin-right: 5px
+          float: left
+        h3
+        p
+          clear: both
+
+        #prize
+          margin-top: 20px
+          li
+            float: left
+            clear: both
+            width: 100%
+            margin-bottom: 10px
+            p
+              clear: none
+              padding: 10px 50px
+          span
+            @include prize
+
+      .content-middle
+        padding: 20px
+        text-align: center
+        width: 31%
+        margin-right: 3%
+        h2
+          margin-bottom: 15px
+          font-size: 1.3em
+        span
+          font-style: italic
+        button
+          border: none
+          margin: 20px
+          background-image: url(btn-upload.jpg)
+          height: 296px
+          width: 255px
+          clear:  both
+
+      .content-right
+        padding: 20px
+        width: 31%
+        text-align: center
+        h2
+          margin-bottom: 15px
+          font-size: 1.3em
+        span
+          font-style: italic
+        label
+          float: left
+        input
+          @include box-sizing(border-box)
+          width: 100%
+          padding: 20px
+          background-color: $darkest-grey
+          color: $white
+          margin-bottom: 20px
+        textarea
+          @include box-sizing(border-box)
+          width: 100%
+          padding: 20px
+          background-color: $darkest-grey
+          color: $white
+          height: 200px
+        .add
+          margin-top: 20px
+          background-color: $blue
+          padding: 10px 15px
+          color: $white
+          border-radius: 30px
+          text-decoration: none
+          float: right
 
   .vote
     .container-overlay
 
   .winner
     margin: 0
-    .container-overlay
+    .check-art
+      background-color: $orange
+      margin-right: 20px
+      padding: 10px 15px
+      color: $white
+      border-radius: 30px
+      text-decoration: none
+    .container-overlay-picture
+      z-index: 2
+      padding: 20px
+      margin-top: 100px
+      position: absolute
+      background-color: $white
+      color: $black
+      width: 65%
+      margin-right: 1%
+      right: 0
+      .close
+        position: absolute
+        right: 0
+        top: 0
+        margin-right: -40px
+        padding: 13px
+        height: 40px
+        width: 40px
+        background-color: $white
+        cursor: pointer
+      .content-left
+        width: 40%
+        margin-right: 5%
+        img
+          width: 100%
+      .content-right
+        width: 55%
+        span
+          float: left
+          font-style: italic
+          margin-right: 5px
+        p
+          clear: both
 
   .container-information
     margin-top: 20px
@@ -367,7 +548,7 @@ div, input, textarea
   margin-top: 60px
   left: 0
   z-index: 1
-  width: 100%
+  width: 99.2%
   height: 100%
 
 
