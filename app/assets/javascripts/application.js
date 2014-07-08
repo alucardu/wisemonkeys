@@ -59,6 +59,25 @@ $(document).ready(function(){
     $('.container-overlay-picture').fadeIn();
     $('#bg-overlay').fadeIn();
   });
+
+  $("#header ul , #bg-overlay").hide();
+  $("#header #menu").hover(function(e){
+    e.preventDefault();
+    $(this).find("ul").stop().fadeToggle(350);
+    $("#bg-overlay").stop().fadeToggle(350);
+  });
+
+  $("#header ul , #bg-overlay").hide();
+  $("#login a").click(function(e){
+    e.preventDefault();
+    $("#form").fadeIn(350);
+    $("#bg-overlay").stop().fadeIn(350);
+  });
+
+  $('.close').click(function(){
+    $('body').find("#form").fadeOut(350);
+    $('body').find("#bg-overlay").stop().fadeOut(350);
+  });
     
 
 });

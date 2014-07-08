@@ -1,14 +1,18 @@
-<div class="row">
-  <div class="span6 offset3">
-    <%= form_for(:session, url: sessions_path) do |f| %>
+<div id="login-form">
+	<h1>Log in</h1>
+	<p>Log in met je e-mail adres en wachtwoord</p>
+	<div class="row">
+	  <div class="span6 offset3">
+	    <%= form_for(:session, url: sessions_path) do |f| %>
 
-      <%= f.label :email %>
-      <%= f.text_field :email %>
+	      <%= f.label :email %>
+	      <%= f.text_field :email %>
 
-      <%= f.label :password %>
-      <%= f.password_field :password %>
+	      <%= f.label :password %>
+	      <%= f.password_field :password %>
 
-      <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
-    <% end %>
-  </div>
+	      <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
+	    <% end %>
+	  </div>
+	</div>
 </div>

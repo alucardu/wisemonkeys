@@ -72,7 +72,9 @@
         - else
           %span
           = link_to "Inloggen", signin_path
-          %ul
+          %ul#form
+            .close
+              X
             = render :partial => 'sessions/form'
 
       #search

@@ -63,7 +63,7 @@ body,html
 // ======= //
 
 #container-content
-  padding: 0 5%
+  padding: 60px 5%
   height: 100%
   overflow: auto
   overflow-x: hidden
@@ -148,6 +148,7 @@ body,html
       margin-bottom: 30px
       margin-top: 15px
       width: 100%
+      color: $white
       @include box-sizing(border-box)
     ul
       @include box-sizing(border-box)
@@ -156,6 +157,40 @@ body,html
       z-index: 2
       padding: 20px
       position: absolute
+      margin-left: -40%
+      margin-top: 10%
+    .close
+      position: absolute
+      right: 0
+      margin-right: -40px
+      padding: 13px
+      height: 40px
+      width: 40px
+      background-color: white
+      cursor: pointer
+    #login-form
+      h1
+        width: 100%
+        text-align: center
+        font-family: 'Muli', sans-serif
+        font-weight: 800
+        font-size: 20px
+        color: $black
+      p
+        width: 100%
+        text-align: center
+        font-weight: 400
+        margin-bottom: 15px
+      input
+        background-color: $darkest-grey
+      .btn-primary
+        background-color: $blue
+        padding: 10px 15px
+        color: white
+        border-radius: 30px
+        text-decoration: none
+        float: left
+
 
   #search
     width: 40% 
@@ -1039,3 +1074,51 @@ div, input, textarea
       padding: 10px
     .btn
       width: 200px
+
+.ingezonden-kunst
+  margin-right: 20px
+  background-color: $orange
+  padding: 10px 15px
+  color: white
+  border-radius: 30px
+  text-decoration: none
+
+.stemmen
+  background-color: $blue
+  padding: 10px 15px
+  color: white
+  border-radius: 30px
+  text-decoration: none
+  float: left
+
+.check-portfolio
+  background-color: $blue
+  padding: 10px 15px
+  color: white
+  border-radius: 30px
+  text-decoration: none
+  float: left
+
+#registreren
+  padding-top: 40px
+  width: 515px
+  margin: 0 auto
+  h1 
+    width: 100%
+    text-align: center
+  label
+    width: 125px
+    line-height: 59px
+    float: left
+    display: inline-block
+  input
+    padding: 20px
+    width: 350px
+    margin-bottom: 20px
+  .btn-primary
+    float: right
+    background-color: #51a4c7
+    width: 390px
+    color: white
+    border-radius: 30px
+    text-decoration: none
