@@ -50,13 +50,6 @@ $(document).ready ->
     $("#container-art, #container-art-bg").fadeOut()
     return
 
-  $("#header ul , #bg-overlay").hide()
-  $("#header div").hover ->
-    $(this).find("ul").stop().slideToggle(350)
-    $("#bg-overlay").stop().fadeToggle(350)
-  return
-
-
   $("#container-search , input").click ->
     container = $("#container-content")
     scrollTo = $("#container-search")

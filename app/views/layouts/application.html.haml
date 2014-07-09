@@ -72,13 +72,14 @@
         - else
           %span
           = link_to "Inloggen", signin_path
-          %ul
+          %ul#form
+            .close
+              X
             = render :partial => 'sessions/form'
 
       #search
         %input{:name => "search", :value => "Zoeken op kunst of kunstenaar" }
         %button{:name => "Zoeken", :value => "Zoeken"}
-
 
     #container-content
       = yield
