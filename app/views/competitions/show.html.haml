@@ -1,37 +1,7 @@
 #content
   %p#notice= notice
   #container-art-bg
-    #container-art
-      #overlay-booth
-        #container-content
-          #close
-            Close
-          #container-image
-          %p
-            Uitleg etc
-      #drop
-        %h1
-          Sleep hier jouw 5 favoriete kunstwerken in.
-        .vote
-        .vote
-        .vote
-        .vote
-        .vote
-        %a{:href => "/", :class => "buttons orange"}Verzenden
-        %a{:href => "/", :class => "buttons blue"}Sluiten
-
-      #drag
-        #divider
-        #container.js-masonry
-          - @competition.pictures.shuffle.each do |picture|
-            .painting.item
-              = link_to picture do
-                = image_tag(picture.image_url)
-              .overlay
-                Yolo
-              .message
-                klik om te verwijderen
-
+    
   #container.js-masonry
     .item
       #match-info
@@ -63,7 +33,8 @@
               = link_to 'Klik om mee te doen!', new_picture_path(:competition_id => @competition)
             %br
           - if Time.now.in_time_zone("Amsterdam") >= @competition.deadline_signin && Time.now.in_time_zone("Amsterdam") <= @competition.deadline
-            = link_to 'Breng je stem uit!', vote_competitions_path, :class => "buttons"           
+            // deze link moet verwijzen naar de vote page van deze competitie
+            = link_to 'Breng je stem uit!', edit_competition_path(@competition), :class => "buttons"           
 
     - if Time.now.in_time_zone("Amsterdam") >= @competition.deadline_signin
       - @competition.pictures.shuffle.each do |picture|
