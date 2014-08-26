@@ -16,6 +16,7 @@ Wisemonkeys::Application.routes.draw do
   get '/mypictures' => 'pictures#mypictures'
   get '/homepage' => 'competitions#homepage'
   get '/voteresults' => 'pictures#voteresults'
+  get '/vote' => 'competitions#vote'
   root 'competitions#homepage'
   resources :sessions, only: [:new, :create, :destroy]
   match '/signup',  to: 'users#new',            via: 'get'

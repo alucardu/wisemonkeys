@@ -47,6 +47,7 @@ $lime-green:    #67F784
 $dark-green:    #38EA6D
 $blue:          #51a4c7
 $orange:        #ff6602
+$grey-bg:       #E2E2E2
 
 // ========== //
 // Html, Body // 
@@ -54,7 +55,7 @@ $orange:        #ff6602
 
 body,html
   font-family: 'Muli', sans-serif
-  background: $beige
+  background: $grey-bg
   height: 100%
   overflow-y: hidden
 
@@ -63,7 +64,7 @@ body,html
 // ======= //
 
 #container-content
-  padding: 60px 5%
+  padding: 80px 5%
   height: 100%
   overflow: auto
   overflow-x: hidden
@@ -224,16 +225,19 @@ body,html
   width: 112%
   margin-left: -6%
   margin-bottom: 30px
+  text-align: center
+  height: 655px
+  margin-top: -20px
   img
     max-width: 100%
+  .overlay
+    margin-top: -550px
 
 #container-match-overview
   position: relative
   div:first-child
     .content
-      width: 80%
-    img
-      width: 20%
+      width: 100%
 
   .content
     img
@@ -246,11 +250,16 @@ body,html
     margin-right: 3%
     color: $white
     .container-top
-      padding: 15px 0px 0px 75px
+      padding: 15px 0px 0px 85px
       height: 80px
     @each $icon in brush, check, star
       .#{$icon}
         background: url('icon-#{$icon}.png') $darkest-grey no-repeat 20px 20px
+      h2
+        margin-bottom: 10px
+      p
+        font-style: italic
+        font-size: 14px
   
   .active
 
@@ -310,15 +319,21 @@ body,html
           margin-right: 5px
           font-style: italic
           float: left
+        p
+          float: left
+          width: 45%
+          margin-right: 5%
+          clear: both
+          text-align: justify
         img
-          width: 60%
-          margin: 0 auto
+          float: right
+          width: 50%
 
     .container-overlay-contest
       z-index: 2
       position: absolute
       background-color: $white
-      width: 99%
+      width: 65%
       left: 0
       top: 100px
       color: $black
@@ -335,7 +350,7 @@ body,html
         cursor: pointer
 
       .content-left
-        width: 31%
+        width: 47%
         margin-right: 3%
         padding: 20px
         span
@@ -362,7 +377,7 @@ body,html
       .content-middle
         padding: 20px
         text-align: center
-        width: 31%
+        width: 47%
         margin-right: 3%
         h2
           margin-bottom: 15px
@@ -376,10 +391,13 @@ body,html
           height: 296px
           width: 255px
           clear:  both
+        a
+          float: none
+          margin-top: 10px
 
       .content-right
         padding: 20px
-        width: 31%
+        width: 48%
         text-align: center
         h2
           margin-bottom: 15px
@@ -462,18 +480,37 @@ body,html
     padding: 20px
     background-color: $white
     color: $black
-    a
+    .buttons
       padding: 10px 15px
+      background-color: $orange
       color: $white
       border-radius: 30px
       text-decoration: none
       float: left
+      margin-right: 20px
     span
       margin-right: 5px
       float: left
     .content
+      #images
+        height: 50%
+        img:first-child
+          display: block
+        img
+          display: none
+
+      span
+        font-style: italic
+      h3,span
+        margin-bottom: 20px
       img
         width: 100%
+        margin-bottom: 20px
+      p
+        margin-bottom: 20px
+      .sponsor
+        width: 20%
+        float: right
 
     .more-info
       background-color: $orange
@@ -489,14 +526,20 @@ body,html
   margin-bottom: 30px
   width: 100%
   display: inline-block
+  p
+    margin-bottom: 10px
+    width: 100%
   div:first-child
     float: left
+    width: 100%
 
 #btn-vote
-  float: right
-  padding: 30px
-  background: $lime-green
-  color: $white
+  padding: 10px 15px
+  background-color: $blue
+  color: white
+  border-radius: 30px
+  text-decoration: none
+  float: left
   cursor: pointer
 
 .start-match
@@ -505,8 +548,7 @@ body,html
     margin-right: 30px
     width: 15%
   td
-    background: $grey
-    border-left: 1px solid $lime-green
+    border-left: 2px solid $blue
     padding: 10px
   #title
     width: 10%
@@ -531,12 +573,14 @@ body,html
 
 h1
   font-size: 2em
-  padding-bottom: 30px
-  font-family: Calibri
-  color:  rgba(0, 0, 0, 0.4)
+  padding-bottom: 10px
+  margin-bottom: 15px
+  font-family: "Muli", sans-serif
+  color: $black
   font-size: 30px
   font-weight: 400
   line-height: 0.933
+  border-bottom: 2px solid $orange
 
 div, input, textarea
   border: none
@@ -548,6 +592,14 @@ div, input, textarea
   margin: 1% 1% 0% 0%
   border-right: 1px solid $dark-grey
   border-bottom: 1px solid $dark-grey
+  .content
+    padding: 20px
+  p
+    width: 50%
+    float: left
+  p.vote
+    float: right
+    text-align: right
   a img
     width: 100%
   .art-name
@@ -557,7 +609,7 @@ div, input, textarea
     padding: 30px 20px
     text-decoration: none
     color: $black
-    width: 80%
+    width: 100%
     &:hover
       color: $lime-green
   span
@@ -677,12 +729,7 @@ div, input, textarea
     background-color: $light-grey
  
 /* The ghost, nudged to maintain perfect centering */
-#container-art-bg:before
-  content: ''
-  display: inline-block
-  height: 100%
-  vertical-align: middle
-  margin-right: -0.25em /* Adjusts for spacing */
+
 
 /* The element to be centered, can
    also be of any width and height */ 
@@ -706,7 +753,7 @@ div, input, textarea
     z-index: 2
     padding: 20px
     background-color: $white
-    height: 600px 
+    height: 100% 
     overflow: hidden
     display: inline-block
     vertical-align: middle
@@ -739,8 +786,28 @@ div, input, textarea
 
 #wrapper
   width: 700px
-  margin: auto
-  margin-top: 100px
+  form
+    display: inline-block
+    width: 700px
+  #btn
+    input
+      background-color: $blue
+      color: white
+      border-radius: 30px
+      text-decoration: none
+      padding: 20px
+      margin: 20px 0 0 100px
+      width: 300px
+  form
+    input,textarea
+      border: none
+      background-color: $dark-grey
+      color: $white
+      
+#buttons
+  padding-top: 10px
+  width: 100%
+  text-align: center
 
 #content-left 
   width: 300px
@@ -839,17 +906,6 @@ div, input, textarea
     margin: 10px 0 0 10px
     text-align: center
     cursor: pointer
-
-
-#btn
-  width: 700px
-  clear: both
-  input
-    width: 280px
-    height: 50px
-    margin: 50px 0 0 400px
-    padding: 0 0 0 20px
-
 
 #container-winners
   margin-right: 5%
@@ -1043,6 +1099,26 @@ div, input, textarea
       img
         width: 100%
 
+.js-masonry
+  #match-info
+    margin-bottom: 0px
+    .content
+      padding-right: 20px
+      padding-left: 0px
+  .participate
+    margin-top: 10px
+    margin-bottom: 10px
+  .buttons
+    margin-top: 10px
+    margin-bottom: 10px
+    padding: 10px 15px
+    background-color: $blue
+    color: white!important
+    border-radius: 30px
+    text-decoration: none
+    float: left
+    cursor: pointer
+
 #feedback
   margin-right: 13px
   position: absolute
@@ -1100,28 +1176,39 @@ div, input, textarea
   float: left
 
 #registreren
+  background-color: $white
   padding-top: 40px
   width: 515px
   margin: 0 auto
+  padding: 20px
+  @include box-sizing(border-box)
   h1 
+    font-family: "Muli", sans-serif
     width: 100%
+    color: $black
     text-align: center
   label
     width: 125px
-    line-height: 59px
+    line-height: 74px
     float: left
     display: inline-block
   input
     padding: 20px
-    width: 350px
-    margin-bottom: 20px
-  .btn-primary
     float: right
+    width: 70%
+    margin-bottom: 20px
+    background-color: $dark-grey
+    color: $white
+    @include box-sizing(border-box)
+  .btn-primary
     background-color: #51a4c7
-    width: 390px
+    width: 100%
     color: white
     border-radius: 30px
     text-decoration: none
+  .row
+    display: inline-block
+    width: 100%
 
 #container-content #login-form
   padding-top: 40px
@@ -1148,3 +1235,138 @@ div, input, textarea
     color: white
     border-radius: 30px
     text-decoration: none
+
+#container-content
+  #content
+    padding: 20px
+    background-color: $white
+  a
+    color: $orange
+    text-decoration: none
+
+  #container-art-bg
+  #container-art
+    width: 90%
+    padding: 0px
+    margin-top: 60px
+
+    .buttons
+      padding: 10px 15px
+      color: $white
+      border-radius: 30px
+      text-decoration: none
+      float: left
+      margin-right: 20px
+
+    .orange
+      background-color: $orange
+    .blue
+      background-color: $blue
+    
+    #drop
+      position: fixed
+      z-index: 20
+      float: left
+      box-sizing: border-box
+      padding: 20px
+      width: 90%
+      height: auto
+      border: 3px solid black
+
+    .vote
+      position: relative
+      float: left
+      width: 10%
+      height: 200px!important
+      border-left: 1px solid black
+      border-top: 1px solid black
+      border-right: 1px solid black
+      margin-right: 3%
+      padding: 10px
+      .overlay
+        display: none!important
+      .painting
+        position: initial!important
+        width: 100%
+        float: left
+        img
+          width: 100%
+    button
+      width: 20%
+      height: 100px
+      background-color: #84d0f0
+      border: 1px solid grey
+      color: #fff
+      float: right
+      top: 0
+
+    .overlay
+      width: 100%
+      color: #fff
+      padding: 5%
+      box-sizing: border-box
+      background-color: rgba(0, 0, 0, 0.45)
+      position: absolute
+      bottom: 0
+      height: 100%
+
+    .overlay
+      display: none
+
+    #drag
+      height: 70%
+      margin-top: 300px
+      width: 100%
+      float: left
+      #divider
+        z-index: 10
+        position: fixed
+        height: 360px
+        width: 90%
+        top: 0
+        background-color: #e4e4e4
+      .message
+        display: none!important
+      .painting
+        width: 12%
+        float: left
+        margin: 2%
+        img
+          width: 100% 
+
+    #overlay-booth
+      height: 100%
+      width: 100%
+      position: fixed
+      left: 0
+      top: 0
+      box-sizing: border-box
+      background-color: rgba(0, 0, 0, 0.45)
+      display: none
+      z-index: 30
+      #container-content
+        box-sizing: border-box
+        padding: 2.5%
+        margin-left: 20%
+        margin-top: 10%
+        width: 60%
+        height: 60%
+        background-color: white
+        position: absolute
+        #close
+          position: absolute
+          right: 0
+          padding: 10px
+          margin-right: -62px
+          background-color: #fff
+        #container-image
+          float: left
+          width: 60%
+          height: 100%
+          margin-right: 10%
+          img
+            float: left
+            width: 100%
+            margin-right: 5%
+          p
+            float: left

@@ -17,6 +17,7 @@ class CompetitionsController < ApplicationController
   end
 
   def homepage
+    @competitions = Competition.all
   end
 
   # GET /competitions/new
