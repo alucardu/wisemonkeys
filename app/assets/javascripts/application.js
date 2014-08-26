@@ -136,7 +136,7 @@ $(document).ready(function(){
 
   $('.participate').click(function(e){
     e.preventDefault();
-    $('.container-overlay-contest').fadeIn();
+    $(this).parent().find('.container-overlay-contest').fadeIn();
     $('#bg-overlay').fadeIn();
   });
 

@@ -38,7 +38,7 @@ div, a
 // Variables
 $black:         #000000
 $white:         #FFFFFF
-$beige:         #f9f9f9
+$beige:         #FFECEC
 $darkest-grey:  #2d2d2d
 $dark-grey:     #626262
 $light-grey:    #F7F7F7
@@ -376,6 +376,66 @@ body,html
 
       .content-middle
         padding: 20px
+        width: 48%
+        h2
+          margin-bottom: 15px
+          font-size: 22px
+        span
+          padding-top: 5px
+          margin-right: 5px
+          font-style: italic
+          float: left
+        img
+          width: 60%
+          margin: 0 auto
+
+    .container-overlay-contest
+      z-index: 2
+      position: absolute
+      background-color: $white
+      width: 99%
+      left: 0
+      top: 100px
+      color: $black
+      div
+        float: left
+      .close
+        position: absolute
+        right: 0
+        margin-right: -40px
+        padding: 13px
+        height: 40px
+        width: 40px
+        background-color: $white
+        cursor: pointer
+
+      .content-left
+        width: 31%
+        margin-right: 3%
+        padding: 20px
+        span
+          font-style: italic
+          margin-right: 5px
+          float: left
+        h3
+        p
+          clear: both
+
+        #prize
+          margin-top: 20px
+          li
+            float: left
+            clear: both
+            width: 100%
+            margin-bottom: 10px
+            p
+              clear: none
+              padding: 10px 50px
+          span
+            @include prize
+
+      .content-middle
+        padding: 20px
         text-align: center
         width: 47%
         margin-right: 3%
@@ -481,6 +541,23 @@ body,html
     background-color: $white
     color: $black
     .buttons
+    float: left
+    width: 100%
+    .content
+      width: 80%
+      float: left
+    img
+      width: 100%
+      padding: 10px 0
+    .logo
+      padding: 0px 
+      width: 20%
+      float: left
+    span
+      font-style: italic
+      float: left
+    a.buttons
+      margin-top: 15px
       padding: 10px 15px
       background-color: $orange
       color: $white
@@ -516,8 +593,8 @@ body,html
       background-color: $orange
       margin-right: 20px
 
-    .participate
-      background-color: $blue
+.participate, .check-portfolio
+  background-color: $blue!important
     
 
 // General stuff
