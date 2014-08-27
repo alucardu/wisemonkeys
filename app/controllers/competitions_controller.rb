@@ -1,5 +1,5 @@
 class CompetitionsController < ApplicationController
-  before_action :set_competition, only: [:show, :edit, :update, :destroy]
+  before_action :set_competition, only: [:vote, :show, :edit, :update, :destroy]
   before_action :change, :only => [:edit, :update, :destroy]
   before_action :signedin, :only => [:edit, :update, :destroy, :create, :new]
   before_action :b_accountcheck, :only => [:edit, :update, :destroy, :create, :new]
@@ -16,9 +16,18 @@ class CompetitionsController < ApplicationController
   def show
   end
 
+   # GET /competitions/1
+  # GET /competitions/1.json
+
+  def votepage
+    @competition = Competition.find(params[:id])
+  end
+
+
   def homepage
     @competitions = Competition.all
   end
+
 
   # GET /competitions/new
   def new

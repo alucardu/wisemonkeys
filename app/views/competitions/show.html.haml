@@ -13,9 +13,13 @@
               %b Description:
               = @competition.description
             %p
-              %b Prize:
+              1e prijs:
               = @competition.prize
+              %br
+              2e prijs:
               = @competition.prize_2
+              %br
+              3e prijs:
               = @competition.prize_3
             %p
               %b Deadline:
@@ -24,7 +28,7 @@
               %b Deadline:
               = @competition.deadline_signin.strftime('%e %B %Y')  
         - if signed_in?
-          - if current_user == @competition.user || current_user.administrator?          
+          - if current_user == @competition.user || current_user.administrator?
             = link_to 'Edit', edit_competition_path(@competition)
             \|
           = link_to 'Back', competitions_path
@@ -34,7 +38,7 @@
             %br
           - if Time.now.in_time_zone("Amsterdam") >= @competition.deadline_signin && Time.now.in_time_zone("Amsterdam") <= @competition.deadline
             // deze link moet verwijzen naar de vote page van deze competitie
-            = link_to 'Breng je stem uit!', edit_competition_path(@competition), :class => "buttons"           
+            = link_to 'Breng je stem uit!', votepage_competition_path, class: "buttons"
 
     - if Time.now.in_time_zone("Amsterdam") >= @competition.deadline_signin
       - @competition.pictures.shuffle.each do |picture|

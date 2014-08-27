@@ -37,11 +37,6 @@ $(document).ready ->
       $(this).remove()
       return
 
-  $("#container-art, #container-art-bg, .the-one").hide()
-  $(".art").hover ->
-    $(this).find("img").stop().toggleClass "the-one"
-    return
-
   $("#btn-vote").click ->
     $("#container-art, #container-art-bg").fadeIn()
     return

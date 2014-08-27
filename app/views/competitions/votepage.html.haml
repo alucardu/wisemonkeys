@@ -1,0 +1,30 @@
+#content
+  #container-art
+    #overlay-booth
+      #container-content
+        #close
+          Close
+        #container-image
+        %p
+          Uitleg etc
+    #drop
+      %h1
+        Sleep hier jouw 5 favoriete kunstwerken in.
+      .vote
+      .vote
+      .vote
+      .vote
+      .vote
+      %a{:href => "/", :class => "buttons orange"}Verzenden
+      %a{:href => "/", :class => "buttons blue"}Sluiten
+
+    #drag
+      #divider
+      #container.js-masonry
+        - @competition.pictures.shuffle.each do |picture|
+          .painting.item
+            = image_tag(picture.image_url)
+            .overlay
+              Yolo
+            .message
+              klik om te verwijderen
