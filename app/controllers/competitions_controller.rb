@@ -1,10 +1,9 @@
 class CompetitionsController < ApplicationController
-  before_action :set_competition, only: [:show, :edit, :update, :destroy]
+  before_action :set_competition, only: [:vote, :show, :edit, :update, :destroy]
   before_action :change, :only => [:edit, :update, :destroy]
   before_action :signedin, :only => [:edit, :update, :destroy, :create, :new]
   before_action :b_accountcheck, :only => [:edit, :update, :destroy, :create, :new]
   before_action :activated, :only => [:edit, :update, :destroy, :create, :new]
-
 
   # GET /competitions
   # GET /competitions.json
@@ -17,8 +16,18 @@ class CompetitionsController < ApplicationController
   def show
   end
 
-  def homepage
+   # GET /competitions/1
+  # GET /competitions/1.json
+
+  def votepage
+    @competition = Competition.find(params[:id])
   end
+
+
+  def homepage
+    @competitions = Competition.all
+  end
+
 
   # GET /competitions/new
   def new
@@ -80,14 +89,17 @@ class CompetitionsController < ApplicationController
         redirect_to :back, notice: 'U bent niet gemachtigd'
       end
     end
+
     def b_accountcheck
       unless current_user.b_account? || current_user.administrator?
         redirect_to competitions_path, notice: 'U bent niet gemachtigd'
       end
     end
+
     def activated
       unless current_user.activated?
         redirect_to :back, notice: 'Uw account is nog niet geactiveerd!'
       end
     end
 end
+

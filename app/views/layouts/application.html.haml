@@ -4,8 +4,6 @@
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = stylesheet_link_tag     "//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"
     // %link{href: "http://fonts.googleapis.com/css?family=Muli:400,300italic", rel: "stylesheet", type: "text/css"}/
-    = javascript_include_tag "masonry.pkgd.js", "data-turbolinks-track" => true
-    = javascript_include_tag "imagesloaded.pkgd.js", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"
     = csrf_meta_tags
@@ -34,6 +32,7 @@
       #logo
         %a{:href => "/"}
           = image_tag 'logo.png'
+
       #menu
         %a{:href => "/"}
           Menu
@@ -50,7 +49,12 @@
           %li 
             %a{:href => "/"}Contact opnemen
           %li 
-            %a{:href => "/"}Menu sluiten
+            - if signed_in?
+              - unless current_user.administrator?
+                = link_to "Ondernemers", new_businessrequest_path
+            - if signed_in? && current_user.administrator?
+              = link_to "administrator tools", users_path
+
       #register
         - if signed_in? 
           = link_to current_user.name, current_user
@@ -59,11 +63,9 @@
           - else
             nog niet geactiveerd
         - else
+          %span
           = link_to 'Registreren', new_user_path
-      #twitter
-        = image_tag 'icon-twitter.png'
-      #facebook
-        = image_tag 'icon-facebook.png'
+          
       #login
         - if signed_in?
           - unless current_user.administrator? || current_user.b_account?
@@ -73,9 +75,16 @@
         - if signed_in? 
           = link_to "Uitloggen", signout_path, method: "delete" 
         - else
+          %span
           = link_to "Inloggen", signin_path
-          %ul
+          %ul#form
+            .close
+              X
             = render :partial => 'sessions/form'
+
+      #search
+        %input{:name => "search", :value => "Zoeken op kunst of kunstenaar" }
+        %button{:name => "Zoeken", :value => "Zoeken"}
 
     #container-content
       = yield

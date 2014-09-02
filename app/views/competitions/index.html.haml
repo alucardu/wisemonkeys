@@ -1,40 +1,44 @@
-%h1 Wedstrijden
+#content
+  %h1 Wedstrijden
 
-.start-match
-  %table
-    %tr
-      %th Title
-      %th Description
-      %th Prize
-      %th Deadline
-      %th Eigenaar
-      %th Opties
-
-    - @competitions.each do |competition|
+  .start-match
+    %table
       %tr
-        %td#title
-          = link_to competition.title, competition
-        %td#description
-          = competition.description
-        %td#prize
-          = competition.prize
-          %br
-          = competition.prize_2
-          %br
-          = competition.prize_3
-        %td#deadline
-          = competition.deadline.strftime('%e %B %Y')
-        %td#username
-          = competition.user.name
-        - if signed_in?
-          - if current_user == competition.user || current_user.administrator?
-            %td#edit
-              = link_to 'Edit', edit_competition_path(competition)
-            %td#destroy
-              = link_to 'Destroy', competition, :method => :delete, :data => { :confirm => 'Are you sure?' }
-  %br
-  - if signed_in?
-    - if current_user.b_account || current_user.administrator?
-      = link_to 'Nieuwe wedstrijd aanmaken', new_competition_path
+        %th Title
+        %th Description
+        %th Prize
+        %th Deadline
+        %th Eigenaar
+        %th Opties
 
-  
+      - @competitions.each do |competition|
+        %tr
+          %td#title
+            = link_to competition.title, competition
+          %td#description
+            = competition.description
+          %td#prize
+            = competition.prize
+            %br
+            = competition.prize_2
+            %br
+            = competition.prize_3
+          %td#deadline
+            = competition.deadline_signin.strftime('%e %B %Y') 
+            %br
+            = competition.deadline.strftime('%e %B %Y')
+          %td#username
+            = competition.user.name
+          - if signed_in?
+            - if current_user == competition.user || current_user.administrator?
+              %td#edit
+                = link_to 'Edit', edit_competition_path(competition)
+              %td#destroy
+                = link_to 'Destroy', competition, :method => :delete, :data => { :confirm => 'Are you sure?' }
+  #buttons
+    - if signed_in?
+      - if current_user.b_account || current_user.administrator?
+        = link_to 'Nieuwe wedstrijd aanmaken', new_competition_path
+
+
+    

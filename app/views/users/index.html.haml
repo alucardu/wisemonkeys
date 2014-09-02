@@ -1,22 +1,23 @@
 %h1
-	Gebruikers
+  Gebruikers
 %h2
-	= link_to 'Gebruikers', users_path 
-	&#8722;
-	= link_to 'Ondernemer Verzoeken', businessrequests_path
+  = link_to 'Gebruikers', users_path
+  %br
+  = link_to 'Ondernemer Verzoeken', businessrequests_path
 .start-match
-	%table
-		%tr
-			%th	Naam
-			%th Email
-			%th Verwijderen
-		- @user.each do |user|
-			%tr
-				%td#title
-					= link_to user.name, user
-					- if user.b_account?
-						&#45; Ondernemer
-				%td#description
-					= user.email
-				%td#destroy
-					= link_to 'Destroy', user, :method => :delete, :data => { :confirm => 'Are you sure?' }
+  %table
+    %tr
+      %th Naam
+      %th Email
+      %th Verwijderen
+    - @user.each do |user|
+      %tr
+        %td#title
+          = link_to user.name, user
+          - if user.b_account?
+            &#45; Ondernemer
+        %td#description
+          = user.email
+        %td#destroy
+          = link_to 'Destroy', user, :method => :delete, :data => { :confirm => 'Are you sure?' }
+

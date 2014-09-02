@@ -1,80 +1,210 @@
-%h1
-  Online kunst wedstrijden app SYNT (BETA) 
-  
-#container-winners
-  #view
-    =image_tag("painting.jpg")
-  #container-elements
-    #prev
-    #container-bottom
-      #container-painter
-        =image_tag("profile.png")
-        %p
-          %span
-            = link_to User.first.name, current_user
-          %span
-            Paint artist
-        = link_to 'portfolio', current_user
+#container-slider
+  =image_tag("slider-1.png")
+  .overlay
+    =image_tag("banner-overlay.png")
 
-      #container-painting
-        %p
-          %span
-            Chaos op het doek
-          %span
-            de diepging vinden tussen...
-    #next
-
-#container-newmatch
-  %p
-    Nieuwe wedstrijd
-  %h2
-    Dali Sunsut
-  =image_tag("logo_drenthe.png")
-  %p
-    Einde inschrijving: 14-08-2014
-  %a{:href => "/"}Doe mee!
-
-#container-search
-  %p
-    Overzicht Wedstrijden
-  %input{:name => "search", :value => "Zoeken op kunst/kunstenaar" }
-  %button{:name => "Zoeken", :value => "Zoeken"}Zoeken
-
-  #search-results
-    #sponsor
+#container-match-overview
+  // Start active matches
+  .container.active
+    .container-top.brush
       %h2
-        Wedstrijd sponsor
-      =image_tag("friesmuseum.png")
-    #container.js-masonry
-      .item
-        =image_tag("painting.jpg")
-      .item
-        =image_tag("dali.jpg")
-      .item
-        =image_tag("fingerpaint.jpg")
-      .item
-        =image_tag("flowers.jpg")
-      .item
-        =image_tag("impresionisme.jpg")
-      .item
-        =image_tag("popart.jpg")
-      .item
-        =image_tag("vangogh.jpg")
-      .item
-        =image_tag("abstracter.jpg")
-      .item
-        =image_tag("painting.jpg")
-      .item
-        =image_tag("dali.jpg")
-      .item
-        =image_tag("fingerpaint.jpg")
-      .item
-        =image_tag("flowers.jpg")
-      .item
-        =image_tag("impresionisme.jpg")
-      .item
-        =image_tag("popart.jpg")
-      .item
-        =image_tag("vangogh.jpg")
-      .item
-        =image_tag("abstracter.jpg")
+        Aankomende kunstwedstrijden
+      %p
+        deelnemen aan de wedstrijd
+
+    - @competitions.each do |competition|
+      - if Time.now.in_time_zone("Amsterdam") <= competition.deadline_signin && Time.now.in_time_zone("Amsterdam") <= competition.deadline
+        .container-information
+          .content
+            =image_tag("logo-drents.png", :class => "sponsor")
+            %span
+              Wedstrijd:
+            %h3
+              = link_to competition.title, competition           
+            %p
+              Sponsor:
+              = competition.user.name
+            %p
+              Deadline inleveren:
+              = competition.deadline_signin.strftime('%e %B %Y') 
+
+            %a{:href => "/", :class => "more-info buttons"}Meer weten
+            %a{:href => "/", :class => "participate buttons"}Inschrijven
+
+            .container-overlay-info
+              .close
+                X
+              .content-left
+                %span
+                  Wedstrijd: 
+                %h3
+                  = link_to competition.title, competition
+                %br
+                %span
+                  Omschrijving van de wedstrijd:
+                %p
+                  = competition.description
+                %p
+                  Deadline inleveren:
+                  = competition.deadline_signin.strftime('%e %B %Y') 
+                %ul#prize
+                  %li
+                    %span
+                      1
+                    %p
+                      = competition.prize 
+                  %li
+                    %span
+                      2
+                    %p
+                      = competition.prize_2
+                  %li
+                    %span
+                      3
+                    %p
+                      = competition.prize_3
+              .content-middle
+                %span
+                  Mogelijk gemaakt door: 
+                %h2
+                  = competition.user.name
+                %p
+                  Hier staat informatie uit het profiel over de sponsor. Zoals een link naar de site, huidige kunstwerken die er nu hangen etc. Maar voor nu is het opvul
+                =image_tag("logo-drente.png")
+
+            .container-overlay-contest
+              .close
+                X
+              .content-left
+                %span
+                  Wedstrijd: 
+                %h3
+                  = link_to competition.title, competition
+                %br
+                %span
+                  Omschrijving van de wedstrijd:
+                %p
+                  = competition.description
+                %p
+                  Inschrijf deadline:
+                  = competition.deadline.strftime('%e %B %Y')
+                %ul#prize
+                  %li
+                    %span
+                      1
+                    %p
+                      = competition.prize 
+                  %li
+                    %span
+                      2
+                    %p
+                      = competition.prize_2
+                  %li
+                    %span
+                      3
+                    %p
+                      = competition.prize_3
+              .content-middle
+                %p
+                  Door je in te schrijven ga je akkoord met de spelregels van 
+                  %a{:href => "/"}Appsynt
+                  en de 
+                  %a{:href => "/"}sponsor.
+                  %br
+                  %br
+                  Je wordt via de mail op de hoogte gebracht wanneer jouw kunstwerk verstuurd moet worden.
+                %a{:href => "/", :class => "participate buttons"}Inschrijven
+
+            -# .content-middle
+            -#   %h2
+            -#     Kunstwerk uploaden
+            -#   %span
+            -#     Upload hier je kunstwerk om mee te doen
+            -#     %br
+            -#   %button
+            -#   %br
+            -#   %span
+            -#     Alleen deze bestandtypes: jpg, png, jpeg of pdf
+            -#     %br
+            -#     Formaat: max 2mb
+            -# .content-right
+            -#   %h2
+            -#     Titel en omschrijving
+            -#   %span
+            -#     Kies voor een duidelijk omschrijving en titel
+            -#   %br
+            -#   %br
+            -#   %label 
+            -#     Titel
+            -#   %input{:type=>"text", :required => true , :placeholder => 'Kunstwerk titel'}
+            -#   %label
+            -#     Omschrijving
+            -#   %textarea{:required => true , :placeholder => 'Kunstwerk omschrijving'}
+            -#   %a{:href => "/", :class => "add"}Deelnemen aan de wedstrijd
+
+  // End active matches
+
+  // Start vote matches
+  .container.vote
+    .container-top.check
+      %h2
+        Actieve kunstwedstrijden
+      %p
+        Stemmen op kunst
+    
+    - @competitions.each do |competition|
+      - if Time.now.in_time_zone("Amsterdam") >= competition.deadline_signin && Time.now.in_time_zone("Amsterdam") <= competition.deadline
+        .container-information
+          .content
+            %span
+              Wedstrijd:
+            %h3
+              = link_to competition.title, competition
+            #images
+              = link_to competition do
+                - competition.pictures.shuffle.each do |picture|
+                  = image_tag(picture.image_url)
+            %p
+              Einde stemronde: 
+              = competition.deadline.strftime('%e %B %Y')
+          = link_to competition, :class => "buttons" do
+            Ingezonden kunst
+          %a{:href => "/", :class => "stemmen buttons participate"}Breng je stem uit
+
+  // End vote matches
+
+  // Start art winner
+  .container.winner
+    .container-top.star
+      %h2
+        Recente winnaars
+      %p
+        Gewonnen kunstwerken
+
+    .container-information
+      .content
+        %span
+          Kunstenaar:
+        %h3
+          Naam
+        =image_tag("winner-art.png")
+      %a{:href => "/", :class => "check-art buttons"}Kunstwerk bekijken
+      %a{:href => "/", :class => "check-portfolio buttons"}Portfolio bekijken
+
+    .container-overlay-picture
+      .close
+        X
+      .content-left
+        =image_tag("winner-art.png")
+      .content-right
+        %span
+          Kunstenaar:
+        %h3
+          Bart Hakstra
+        %br
+        %span
+          Omschrijving:
+        %p
+          Dit kunstwerk is ontstaan tijdens het rondreizen in Frankrijk, met de graan velden in de achtergrond en het eindeloze zicht op de horizon. 
+
+          Kwam het gene wat ik als kunstnaar in stap in de geschiedenis van Vincent Van Gogh noem. Zijn visie op de wereld en zijn tallent verwerkt in dit veel zeggende kunstwerk.

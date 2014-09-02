@@ -1,65 +1,64 @@
-%p#notice= notice
-
-#match-info
-  %div
-    %h1
-      = @competition.title
-    %p
-      %b Description:
-      = @competition.description
-    %p
-      %b Prize:
-      = @competition.prize
-      = @competition.prize_2
-      = @competition.prize_3
-    %p
-      %b Deadline:
-      = @competition.deadline.strftime('%e %B %Y')
-    %p
-      %b Deadline:
-      = @competition.deadline_signin.strftime('%e %B %Y')  
-- if signed_in?
-  - if current_user == @competition.user || current_user.administrator?          
-    = link_to 'Edit', edit_competition_path(@competition)
-    \|
-  = link_to 'Back', competitions_path
-  - if signed_in?
-    = link_to 'Klik om mee te doen!', new_picture_path(:competition_id => @competition)
-  - if Time.now.in_time_zone("Amsterdam") >= @competition.deadline_signin && Time.now.in_time_zone("Amsterdam") <= @competition.deadline
-    #btn-vote
-      Breng je stem uit!
-
-#container-art-bg
-  #container-art
-    %h1 Kies één
-    - @competition.pictures.shuffle.each do |picture|
-      .art
-        = link_to picture.title, picture, :class => "art-name"
-        = link_to upvote_picture_path(picture), :remote => true, "data-type" => :json do
-          = image_tag(picture.image_url)
-        -# = pluralize(picture.votes.count, "vote" )
-        -# %span
-          -# %div
-            -# %p
-              -# \ #{pluralize(picture.votes.count, "" )}
-    #container-thanks
-      %p Bedankt voor het stemmen, klik hier om te sluiten
-  
-#container.js-masonry
-  - if Time.now.in_time_zone("Amsterdam") >= @competition.deadline_signin
-    - @competition.pictures.shuffle.each do |picture|
-      .item
-        = link_to picture do
-          = image_tag(picture.image_url)
-        = link_to picture.title, picture, :class => "art-name"
-        Door:
-        = picture.user.name
+#content
+  %p#notice= notice
+  #container-art-bg
+    
+  #container.js-masonry
+    .item
+      #match-info
+        .content
+          %div
+            %h1
+              = @competition.title
+            %p
+              %b Description:
+              = @competition.description
+            %p
+              1e prijs:
+              = @competition.prize
+              %br
+              2e prijs:
+              = @competition.prize_2
+              %br
+              3e prijs:
+              = @competition.prize_3
+            %p
+              %b Deadline:
+              = @competition.deadline.strftime('%e %B %Y')
+            %p
+              %b Deadline:
+              = @competition.deadline_signin.strftime('%e %B %Y')  
         - if signed_in?
-          - if current_user == @competition.user || current_user.administrator? || Time.now.in_time_zone("Amsterdam") <= @competition.deadline
-            #{pluralize(picture.votes.count, "" )}
-            -# = pluralize(picture.votes.count, "vote" )
-            -# %span
-              -# %div
-                -# %p
-                  -# \ #{pluralize(picture.votes.count, "" )}
+          - if current_user == @competition.user || current_user.administrator?
+            = link_to 'Edit', edit_competition_path(@competition)
+            \|
+          = link_to 'Back', competitions_path
+          - if signed_in?
+            - if Time.now.in_time_zone("Amsterdam") <= @competition.deadline_signin
+              = link_to 'Klik om mee te doen!', new_picture_path(:competition_id => @competition)
+            %br
+          - if Time.now.in_time_zone("Amsterdam") >= @competition.deadline_signin && Time.now.in_time_zone("Amsterdam") <= @competition.deadline
+            // deze link moet verwijzen naar de vote page van deze competitie
+            = link_to 'Breng je stem uit!', votepage_competition_path, class: "buttons"
+
+    - if Time.now.in_time_zone("Amsterdam") >= @competition.deadline_signin
+      - @competition.pictures.shuffle.each do |picture|
+        .item
+          = link_to picture do
+            = image_tag(picture.image_url)
+          .content
+            %p
+              Door:
+              = picture.user.name
+
+            %p.vote
+              Votes
+              - if signed_in?
+                - if current_user == @competition.user || current_user.administrator? || Time.now.in_time_zone("Amsterdam") <= @competition.deadline
+                  #{pluralize(picture.votes.count, "" )}
+                  -# = pluralize(picture.votes.count, "vote" )
+                  -# %span
+                    -# %div
+                      -# %p
+                        -# \ #{pluralize(picture.votes.count, "" )}
+            = link_to picture.title, picture, :class => "art-name"
 

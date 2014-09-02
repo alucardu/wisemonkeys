@@ -12,6 +12,16 @@ class PicturesController < ApplicationController
 
   end
 
+  def vote
+     
+  end
+
+
+
+  def votepage
+    @pictures = Picture.all
+  end
+
   def voteresults
       @pictures = Picture.all
   end

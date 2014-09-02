@@ -37,11 +37,6 @@ $(document).ready ->
       $(this).remove()
       return
 
-  $("#container-art, #container-art-bg, .the-one").hide()
-  $(".art").hover ->
-    $(this).find("img").stop().toggleClass "the-one"
-    return
-
   $("#btn-vote").click ->
     $("#container-art, #container-art-bg").fadeIn()
     return
@@ -49,13 +44,6 @@ $(document).ready ->
   $("#container-thanks").click ->
     $("#container-art, #container-art-bg").fadeOut()
     return
-
-  $("#header ul , #bg-overlay").hide()
-  $("#header div").hover ->
-    $(this).find("ul").stop().slideToggle(350)
-    $("#bg-overlay").stop().fadeToggle(350)
-  return
-
 
   $("#container-search , input").click ->
     container = $("#container-content")

@@ -13,8 +13,22 @@ div, a
   @include box-sizing(border-box)
 
 // Mixins
-@mixin border5px
-  border-radius: 5px
+@mixin menu-icon
+  display: inline-block
+  padding: 15px
+  float: left
+  border-radius: 50%
+  margin: -8px 10px 0 0
+
+@mixin prize
+  display: inline-block
+  background-color: $orange
+  padding: 10px 15px
+  float: left
+  border-radius: 50%
+  color: $white
+  font-size: 1em
+  font-style: none
 
 @mixin field_with_errors
   @extend %fadeIn
@@ -24,14 +38,564 @@ div, a
 // Variables
 $black:         #000000
 $white:         #FFFFFF
-$beige:         #f9f9f9
-$darkest-grey:  #999999
-$dark-grey:     #D0D0D0
+$beige:         #FFECEC
+$darkest-grey:  #2d2d2d
+$dark-grey:     #626262
 $light-grey:    #F7F7F7
 $grey:          #E9E9E9
 $lime-green:    #67F784
 $dark-green:    #38EA6D
-$blue:          #84d0f0
+$blue:          #51a4c7
+$orange:        #ff6602
+$grey-bg:       #E2E2E2
+
+// ========== //
+// Html, Body // 
+// ========== //
+
+body,html
+  font-family: 'Muli', sans-serif
+  background: $grey-bg
+  height: 100%
+  overflow-y: hidden
+
+// ======= //
+// General // 
+// ======= //
+
+#container-content
+  padding: 80px 5%
+  height: 100%
+  overflow: auto
+  overflow-x: hidden
+
+// ====== //
+// Header // 
+// ====== //
+
+#header
+  z-index: 2
+  position: fixed
+  font-size: 0.9em
+  width: 100%
+  height: 60px
+  padding: 25px 5%
+  background-color: $white
+  &>div
+    padding-right: 5%
+    float: left
+  a
+    color: $black
+    text-decoration: none
+
+  @each $icon in register, login
+    ##{$icon} span 
+      background: url('icon-#{$icon}.png') $blue no-repeat 7px 7px
+
+  #menu
+    &>a
+      display: inline-block
+      span
+        display: inline-block
+        background-color: $blue
+        border-radius: 50%
+        padding: 5px 9px
+        color: $white
+        font-size: 1.3em
+        margin: -7px 0 0 10px
+    ul
+      position: absolute
+      width: 245px
+      z-index: 2
+      margin-left: -165px
+      background-color: $white
+      padding: 0px 20px
+      @include box-sizing(border-box)
+      li
+        border-bottom: 1px solid $grey
+        width: 100%
+        float: left
+        a
+          display: inline-block
+          width: 100%
+          padding: 30px 0px
+          &:hover
+            color: $lime-green 
+        &:last-child
+          background: url(icon-close.png) no-repeat 175px 32px
+
+  #login, #register
+    float: right
+    span
+      @include menu-icon
+
+  #register
+    padding: 0%
+
+  #login
+    button
+      padding: 20px
+      background: $darkest-grey
+      float: right
+      color: $white
+      border: none
+      margin-top: -15px
+    &>a
+      height: 46px
+      display: inline-block
+    input
+      font-style: italic
+      padding: 20px
+      margin-bottom: 30px
+      margin-top: 15px
+      width: 100%
+      color: $white
+      @include box-sizing(border-box)
+    ul
+      @include box-sizing(border-box)
+      background: $white
+      width: 350px
+      z-index: 2
+      padding: 20px
+      position: absolute
+      margin-left: -40%
+      margin-top: 10%
+    .close
+      position: absolute
+      right: 0
+      margin-right: -40px
+      padding: 13px
+      height: 40px
+      width: 40px
+      background-color: white
+      cursor: pointer
+    #login-form
+      h1
+        width: 100%
+        text-align: center
+        font-family: 'Muli', sans-serif
+        font-weight: 800
+        font-size: 20px
+        color: $black
+      p
+        width: 100%
+        text-align: center
+        font-weight: 400
+        margin-bottom: 15px
+      input
+        background-color: $darkest-grey
+      .btn-primary
+        background-color: $blue
+        padding: 10px 15px
+        color: white
+        border-radius: 30px
+        text-decoration: none
+        float: left
+
+
+  #search
+    width: 40% 
+    margin: 0 auto
+    float: none
+    @include box-sizing(border-box)
+    input
+      text-align: center
+      margin: -8px 0px
+      background-color: $dark-grey
+      color: $white
+      padding: 7px 15px
+      font-family: Calibri
+      font-style: italic
+      border-radius: 15px 0 0 15px
+      width: 78%
+      float: left
+    button
+      float: left
+      margin: -8px 0px
+      background: url(icon-search.png) $orange no-repeat 7px 6px
+      border: none
+      padding: 15px 17px
+      border-radius: 0 15px 15px 0
+
+// ======== //
+// Homepage // 
+// ======== //
+
+#container-slider
+  width: 112%
+  margin-left: -6%
+  margin-bottom: 30px
+  text-align: center
+  height: 655px
+  margin-top: -20px
+  img
+    max-width: 100%
+  .overlay
+    margin-top: -550px
+
+#container-match-overview
+  position: relative
+  div:first-child
+    .content
+      width: 100%
+
+  .content
+    img
+      width: 100% 
+  div
+    width: 100%
+    float: left
+  .container
+    width: 31%
+    margin-right: 3%
+    color: $white
+    .container-top
+      padding: 15px 0px 0px 85px
+      height: 80px
+    @each $icon in brush, check, star
+      .#{$icon}
+        background: url('icon-#{$icon}.png') $darkest-grey no-repeat 20px 20px
+      h2
+        margin-bottom: 10px
+      p
+        font-style: italic
+        font-size: 14px
+  
+  .active
+
+    .container-overlay-info
+      z-index: 2
+      position: absolute
+      background-color: $white
+      width: 65%
+      left: 0
+      top: 100px
+      color: $black
+      div
+        float: left
+      .close
+        position: absolute
+        right: 0
+        margin-right: -40px
+        padding: 13px
+        height: 40px
+        width: 40px
+        background-color: $white
+        cursor: pointer
+
+      .content-left
+        width: 48%
+        margin-right: 4%
+        padding: 20px
+        span
+          font-style: italic
+          margin-right: 5px
+          float: left
+        h3
+        p
+          clear: both
+
+        #prize
+          margin-top: 20px
+          li
+            float: left
+            clear: both
+            width: 100%
+            margin-bottom: 10px
+            p
+              clear: none
+              padding: 10px 50px
+          span
+            @include prize
+
+      .content-middle
+        padding: 20px
+        width: 48%
+        h2
+          margin-bottom: 15px
+          font-size: 22px
+        span
+          padding-top: 5px
+          margin-right: 5px
+          font-style: italic
+          float: left
+        p
+          float: left
+          width: 45%
+          margin-right: 5%
+          clear: both
+          text-align: justify
+        img
+          float: right
+          width: 50%
+
+    .container-overlay-contest
+      z-index: 2
+      position: absolute
+      background-color: $white
+      width: 65%
+      left: 0
+      top: 100px
+      color: $black
+      div
+        float: left
+      .close
+        position: absolute
+        right: 0
+        margin-right: -40px
+        padding: 13px
+        height: 40px
+        width: 40px
+        background-color: $white
+        cursor: pointer
+
+      .content-left
+        width: 47%
+        margin-right: 3%
+        padding: 20px
+        span
+          font-style: italic
+          margin-right: 5px
+          float: left
+        h3
+        p
+          clear: both
+
+        #prize
+          margin-top: 20px
+          li
+            float: left
+            clear: both
+            width: 100%
+            margin-bottom: 10px
+            p
+              clear: none
+              padding: 10px 50px
+          span
+            @include prize
+
+      .content-middle
+        padding: 20px
+        width: 48%
+        h2
+          margin-bottom: 15px
+          font-size: 22px
+        span
+          padding-top: 5px
+          margin-right: 5px
+          font-style: italic
+          float: left
+        img
+          width: 60%
+          margin: 0 auto
+
+    .container-overlay-contest
+      z-index: 2
+      position: absolute
+      background-color: $white
+      width: 99%
+      left: 0
+      top: 100px
+      color: $black
+      div
+        float: left
+      .close
+        position: absolute
+        right: 0
+        margin-right: -40px
+        padding: 13px
+        height: 40px
+        width: 40px
+        background-color: $white
+        cursor: pointer
+
+      .content-left
+        width: 31%
+        margin-right: 3%
+        padding: 20px
+        span
+          font-style: italic
+          margin-right: 5px
+          float: left
+        h3
+        p
+          clear: both
+
+        #prize
+          margin-top: 20px
+          li
+            float: left
+            clear: both
+            width: 100%
+            margin-bottom: 10px
+            p
+              clear: none
+              padding: 10px 50px
+          span
+            @include prize
+
+      .content-middle
+        padding: 20px
+        text-align: center
+        width: 47%
+        margin-right: 3%
+        h2
+          margin-bottom: 15px
+          font-size: 1.3em
+        span
+          font-style: italic
+        button
+          border: none
+          margin: 20px
+          background-image: url(btn-upload.jpg)
+          height: 296px
+          width: 255px
+          clear:  both
+        a
+          float: none
+          margin-top: 10px
+
+      .content-right
+        padding: 20px
+        width: 48%
+        text-align: center
+        h2
+          margin-bottom: 15px
+          font-size: 1.3em
+        span
+          font-style: italic
+        label
+          float: left
+        input
+          @include box-sizing(border-box)
+          width: 100%
+          padding: 20px
+          background-color: $darkest-grey
+          color: $white
+          margin-bottom: 20px
+        textarea
+          @include box-sizing(border-box)
+          width: 100%
+          padding: 20px
+          background-color: $darkest-grey
+          color: $white
+          height: 200px
+        .add
+          margin-top: 20px
+          background-color: $blue
+          padding: 10px 15px
+          color: $white
+          border-radius: 30px
+          text-decoration: none
+          float: right
+
+  .vote
+    .container-overlay
+
+  .winner
+    margin: 0
+    .check-art
+      background-color: $orange
+      margin-right: 20px
+      padding: 10px 15px
+      color: $white
+      border-radius: 30px
+      text-decoration: none
+    .container-overlay-picture
+      z-index: 2
+      padding: 20px
+      margin-top: 100px
+      position: absolute
+      background-color: $white
+      color: $black
+      width: 65%
+      margin-right: 1%
+      right: 0
+      .close
+        position: absolute
+        right: 0
+        top: 0
+        margin-right: -40px
+        padding: 13px
+        height: 40px
+        width: 40px
+        background-color: $white
+        cursor: pointer
+      .content-left
+        width: 40%
+        margin-right: 5%
+        img
+          width: 100%
+      .content-right
+        width: 55%
+        span
+          float: left
+          font-style: italic
+          margin-right: 5px
+        p
+          clear: both
+
+  .container-information
+    margin-top: 20px
+    padding: 20px
+    background-color: $white
+    color: $black
+    .buttons
+    float: left
+    width: 100%
+    .content
+      width: 80%
+      float: left
+    img
+      width: 100%
+      padding: 10px 0
+    .logo
+      padding: 0px 
+      width: 20%
+      float: left
+    span
+      font-style: italic
+      float: left
+    a.buttons
+      margin-top: 15px
+      padding: 10px 15px
+      background-color: $orange
+      color: $white
+      border-radius: 30px
+      text-decoration: none
+      float: left
+      margin-right: 20px
+    span
+      margin-right: 5px
+      float: left
+    .content
+      #images
+        height: 50%
+        img:first-child
+          display: block
+        img
+          display: none
+
+      span
+        font-style: italic
+      h3,span
+        margin-bottom: 20px
+      img
+        width: 100%
+        margin-bottom: 20px
+      p
+        margin-bottom: 20px
+      .sponsor
+        width: 20%
+        float: right
+
+    .more-info
+      background-color: $orange
+      margin-right: 20px
+
+.participate, .check-portfolio
+  background-color: $blue!important
+    
 
 // General stuff
 
@@ -39,14 +603,20 @@ $blue:          #84d0f0
   margin-bottom: 30px
   width: 100%
   display: inline-block
+  p
+    margin-bottom: 10px
+    width: 100%
   div:first-child
     float: left
+    width: 100%
 
 #btn-vote
-  float: right
-  padding: 30px
-  background: $lime-green
-  color: $white
+  padding: 10px 15px
+  background-color: $blue
+  color: white
+  border-radius: 30px
+  text-decoration: none
+  float: left
   cursor: pointer
 
 .start-match
@@ -55,8 +625,7 @@ $blue:          #84d0f0
     margin-right: 30px
     width: 15%
   td
-    background: $grey
-    border-left: 1px solid $lime-green
+    border-left: 2px solid $blue
     padding: 10px
   #title
     width: 10%
@@ -81,18 +650,14 @@ $blue:          #84d0f0
 
 h1
   font-size: 2em
-  padding-bottom: 30px
-  font-family: Calibri
-  color:  rgba(0, 0, 0, 0.4)
+  padding-bottom: 10px
+  margin-bottom: 15px
+  font-family: "Muli", sans-serif
+  color: $black
   font-size: 30px
   font-weight: 400
   line-height: 0.933
-
-body,html
-  font-family: 'Muli', sans-serif
-  background: $beige
-  height: 100%
-  overflow-y: hidden
+  border-bottom: 2px solid $orange
 
 div, input, textarea
   border: none
@@ -104,6 +669,14 @@ div, input, textarea
   margin: 1% 1% 0% 0%
   border-right: 1px solid $dark-grey
   border-bottom: 1px solid $dark-grey
+  .content
+    padding: 20px
+  p
+    width: 50%
+    float: left
+  p.vote
+    float: right
+    text-align: right
   a img
     width: 100%
   .art-name
@@ -113,7 +686,7 @@ div, input, textarea
     padding: 30px 20px
     text-decoration: none
     color: $black
-    width: 80%
+    width: 100%
     &:hover
       color: $lime-green
   span
@@ -139,104 +712,11 @@ div, input, textarea
   margin-top: 60px
   left: 0
   z-index: 1
-  width: 100%
+  width: 99.2%
   height: 100%
 
-#header
-  z-index: 2
-  top: 0
-  font-size: 0.9em
-  background: $white
-  border-bottom: 1px solid $dark-grey
-  display: inline-block
-  width: 100%
-  height: 60px
-  @include box-shadow($grey 0px 1px 0px)
-  padding: 0px 90px
-  &>div
-    height: 50px
-    min-width: 55px
-    padding: 25px 20px
-    position: relative
-  a
-    color: $black
-    text-decoration: none
-  #logo
-    padding-left: 0px
-    float: left
-    margin-right: 120px
-  #menu
-    float: left
-    border-left: 1px solid $grey
-    border-right: 1px solid $grey
-    &>a
-      display: inline-block
-      height: 46px
-      span
-        display: inline-block
-        background-color: #84d0f0
-        border-radius: 50%
-        padding: 2px 5px
-        color: $white
-        font-size: 1.3em
-        margin: -10px 0 0 10px
-    ul
-      position: absolute
-      width: 330px
-      z-index: 2
-      margin-left: -260px
-      background-color: $white
-      padding: 0px 20px
-      @include box-sizing(border-box)
-      li
-        border-bottom: 1px solid $grey
-        width: 100%
-        float: left
-        a
-          display: inline-block
-          width: 100%
-          padding: 30px 0px
-          &:hover
-            color: $lime-green 
-        &:last-child
-          background: url(icon-close.png) no-repeat 275px 32px
-  #login, #register, #facebook, #twitter
-    float: right
-  #register
-    padding-right: 0px
-  #login
-    border-right: 1px solid $grey
-    background: url(icon-login.png) no-repeat 15px 22px
-    button
-      padding: 20px
-      background: $darkest-grey
-      float: right
-      color: $white
-      border: none
-      margin-top: -15px
-    &>a
-      height: 46px
-      display: inline-block
-      padding-left: 37px
-    input
-      font-style: italic
-      border: 1px solid $grey
-      padding: 20px
-      margin-bottom: 30px
-      margin-top: 15px
-      width: 100%
-      @include box-sizing(border-box)
-    ul
-      @include box-sizing(border-box)
-      background: $white
-      width: 350px
-      z-index: 2
-      padding: 20px
-      position: absolute
-  #facebook
-    border-right: 1px solid $grey
-  #twitter
-    border-right: 1px solid $grey
+
+ 
 
 #attend-match
   margin-top: 20px
@@ -278,7 +758,6 @@ div, input, textarea
         margin: -2px
         @include field_with_errors
       img
-        @include border5px
         position: absolute
         z-index: 1
         top: 0
@@ -319,78 +798,81 @@ div, input, textarea
   border: 5px solid $dark-green
   cursor: pointer
 
-.vote
-  float: left
-  clear: both
-  margin: 30px
-  padding: 20px
-  background-color: $light-grey
+  .vote
+    float: left
+    clear: both
+    margin: 30px
+    padding: 20px
+    background-color: $light-grey
  
 /* The ghost, nudged to maintain perfect centering */
-#container-art-bg:before
-  content: ''
-  display: inline-block
-  height: 100%
-  vertical-align: middle
-  margin-right: -0.25em /* Adjusts for spacing */
+
 
 /* The element to be centered, can
    also be of any width and height */ 
 
-#container-art-bg
-  text-align: center
-  display: inline-block
-  position: fixed
-  z-index: 1
-  top: 0
-  left: 0
+#container-art
   width: 100%
-  height: 100%
-  background-color: rgba(0, 0, 0, 0.5)
-
-  #container-art
-    width: 95%
-    left: 0
-    right: 0
-    margin: 0 auto
-    z-index: 2
-    padding: 20px
-    background-color: $white
-    height: 600px 
-    overflow: hidden
-    display: inline-block
-    vertical-align: middle
-    h1
+  left: 0
+  right: 0
+  margin: 0 auto
+  z-index: 2
+  background-color: $white
+  height: 100% 
+  overflow: hidden
+  display: inline-block
+  vertical-align: middle
+  h1
+    width: 100%
+    text-align: center
+  .art
+    margin-right: 2%
+    margin-left: 2%
+    margin-bottom: 20%
+    position: relative
+    float: left
+    width: 29%
+    a
       width: 100%
       text-align: center
-    .art
-      margin-right: 2%
-      margin-left: 2%
-      margin-bottom: 20%
-      position: relative
+      display: inline-block
+      color: #fff
+      text-decoration: none
+    img
+      border: 5px solid $black
       float: left
-      width: 29%
-      a
-        width: 100%
-        text-align: center
-        display: inline-block
-        color: #fff
-        text-decoration: none
-      img
-        border: 5px solid $black
-        float: left
-        cursor: pointer
-        width: 100%
-    .the-one
-      float: left
-      border: 5px solid $lime-green!important
-    #container-thanks
-      clear: both
+      cursor: pointer
+      width: 100%
+  .the-one
+    float: left
+    border: 5px solid $lime-green!important
+  #container-thanks
+    clear: both
 
 #wrapper
   width: 700px
-  margin: auto
-  margin-top: 100px
+  form
+    display: inline-block
+    width: 700px
+  #btn
+    input
+      background-color: $blue
+      color: white
+      border-radius: 30px
+      text-decoration: none
+      padding: 20px
+      margin: 20px 0 0 100px
+      width: 300px
+  form
+    input,textarea
+      border: none
+      background-color: $dark-grey
+      color: $white
+      
+#buttons
+  padding-top: 10px
+  width: 100%
+  text-align: center
 
 #content-left 
   width: 300px
@@ -489,23 +971,6 @@ div, input, textarea
     margin: 10px 0 0 10px
     text-align: center
     cursor: pointer
-
-
-#btn
-  width: 700px
-  clear: both
-  input
-    width: 280px
-    height: 50px
-    margin: 50px 0 0 400px
-    padding: 0 0 0 20px
-
-#container-content
-  padding: 30px
-  height: 100%
-  float: left
-  overflow: auto
-  width: 100%
 
 #container-winners
   margin-right: 5%
@@ -646,7 +1111,6 @@ div, input, textarea
   background-color: $white
   padding: 1%
   margin-bottom: 30px
-  margin-top: -155px
   p
     display: inline-block
     font-family: Calibri
@@ -669,7 +1133,7 @@ div, input, textarea
     display: inline-block
     font-size: 14px
     background-color: #84d0f0
-    border-radius: 15px
+    border-radius : 15px
     padding: 5px 20px
     color: $white
     margin-left: 20px
@@ -699,6 +1163,26 @@ div, input, textarea
       width: 19%
       img
         width: 100%
+
+.js-masonry
+  #match-info
+    margin-bottom: 0px
+    .content
+      padding-right: 20px
+      padding-left: 0px
+  .participate
+    margin-top: 10px
+    margin-bottom: 10px
+  .buttons
+    margin-top: 10px
+    margin-bottom: 10px
+    padding: 10px 15px
+    background-color: $blue
+    color: white!important
+    border-radius: 30px
+    text-decoration: none
+    float: left
+    cursor: pointer
 
 #feedback
   margin-right: 13px
@@ -731,3 +1215,225 @@ div, input, textarea
       padding: 10px
     .btn
       width: 200px
+
+.ingezonden-kunst
+  margin-right: 20px
+  background-color: $orange
+  padding: 10px 15px
+  color: white
+  border-radius: 30px
+  text-decoration: none
+
+.stemmen
+  background-color: $blue
+  padding: 10px 15px
+  color: white
+  border-radius: 30px
+  text-decoration: none
+  float: left
+
+.check-portfolio
+  background-color: $blue
+  padding: 10px 15px
+  color: white
+  border-radius: 30px
+  text-decoration: none
+  float: left
+
+#registreren
+  background-color: $white
+  padding-top: 40px
+  width: 515px
+  margin: 0 auto
+  padding: 20px
+  @include box-sizing(border-box)
+  h1 
+    font-family: "Muli", sans-serif
+    width: 100%
+    color: $black
+    text-align: center
+  label
+    width: 125px
+    line-height: 74px
+    float: left
+    display: inline-block
+  input
+    padding: 20px
+    float: right
+    width: 70%
+    margin-bottom: 20px
+    background-color: $dark-grey
+    color: $white
+    @include box-sizing(border-box)
+  .btn-primary
+    background-color: #51a4c7
+    width: 100%
+    color: white
+    border-radius: 30px
+    text-decoration: none
+  .row
+    display: inline-block
+    width: 100%
+
+#container-content #login-form
+  padding-top: 40px
+  width: 515px
+  margin: 0 auto
+  h1 
+    width: 100%
+    text-align: center
+  p
+    margin-bottom: 20px
+  label
+    width: 125px
+    line-height: 59px
+    float: left
+    display: inline-block
+  input
+    padding: 20px
+    width: 350px
+    margin-bottom: 20px
+  .btn-primary
+    float: right
+    background-color: #51a4c7
+    width: 390px
+    color: white
+    border-radius: 30px
+    text-decoration: none
+
+#container-content
+  #content
+    padding: 20px
+    background-color: $white
+  a
+    color: $orange
+    text-decoration: none
+
+
+  #container-art
+    .buttons
+      padding: 10px 15px
+      color: $white
+      border-radius: 30px
+      text-decoration: none
+      float: left
+      margin-right: 20px
+
+    .orange
+      background-color: $orange
+    .blue
+      background-color: $blue
+    
+    #drop
+      position: fixed
+      z-index: 20
+      float: left
+      box-sizing: border-box
+      width: 85%
+      height: auto
+      padding-bottom: 20px
+      border-bottom: 2px solid black
+
+    .vote
+      position: relative
+      float: left
+      width: 10%
+      height: 200px!important
+      border-left: 1px solid black
+      border-top: 1px solid black
+      border-right: 1px solid black
+      margin-right: 3%
+      padding: 10px
+      .overlay
+        display: none!important
+      .painting
+        position: initial!important
+        width: 100%
+        float: left
+        img
+          width: 100%
+    button
+      width: 20%
+      height: 100px
+      background-color: #84d0f0
+      border: 1px solid grey
+      color: #fff
+      float: right
+      top: 0
+
+    .overlay
+      width: 100%
+      color: #fff
+      padding: 5%
+      box-sizing: border-box
+      background-color: rgba(0, 0, 0, 0.45)
+      position: absolute
+      bottom: 0
+      height: 100%
+
+    .overlay
+      display: none
+
+    #drag
+      height: 70%
+      margin-top: 300px
+      width: 100%
+      float: left
+      #divider
+        margin-left: -20px
+        z-index: 10
+        position: fixed
+        height: 320px
+        margin-top: 60px
+        width: 89.2%
+        top: 0
+        background-color: $white
+        #grey
+          height: 20px
+          width: 100%
+          background-color: #e2e2e2
+      .message
+        display: none!important
+      .painting
+        width: 12%
+        float: left
+        margin: 2%
+        img
+          width: 100% 
+
+    #overlay-booth
+      height: 100%
+      width: 100%
+      position: fixed
+      left: 0
+      top: 0
+      box-sizing: border-box
+      background-color: rgba(0, 0, 0, 0.45)
+      display: none
+      z-index: 30
+      #container-content
+        box-sizing: border-box
+        padding: 2.5%
+        margin-left: 20%
+        margin-top: 10%
+        width: 60%
+        height: 60%
+        background-color: white
+        position: absolute
+        #close
+          position: absolute
+          right: 0
+          padding: 10px
+          margin-right: -62px
+          background-color: #fff
+        #container-image
+          float: left
+          width: 60%
+          height: 100%
+          margin-right: 10%
+          img
+            float: left
+            width: 100%
+            margin-right: 5%
+          p
+            float: left
