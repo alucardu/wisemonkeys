@@ -1,7 +1,7 @@
 #container-slider
+  =image_tag("banner-overlay.png", :class => "overlay")
   =image_tag("slider-1.png")
-  .overlay
-    =image_tag("banner-overlay.png")
+  
 
 #container-match-overview
   // Start active matches
@@ -40,7 +40,7 @@
                 %h3
                   = link_to competition.title, competition
                 %br
-                %span
+                %span<
                   Omschrijving van de wedstrijd:
                 %p
                   = competition.description

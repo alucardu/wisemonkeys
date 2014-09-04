@@ -64,7 +64,7 @@ body,html
 // ======= //
 
 #container-content
-  padding: 80px 5%
+  padding: 80px 5% 0px 5%
   height: 100%
   overflow: auto
   overflow-x: hidden
@@ -224,14 +224,14 @@ body,html
 #container-slider
   width: 112%
   margin-left: -6%
-  margin-bottom: 30px
   text-align: center
-  height: 655px
   margin-top: -20px
+  position: relative
+  margin-bottom: 20px
   img
     max-width: 100%
   .overlay
-    margin-top: -550px
+    position: absolute
 
 #container-match-overview
   position: relative
@@ -1437,3 +1437,49 @@ div, input, textarea
             margin-right: 5%
           p
             float: left
+
+#footer
+  margin-top: 20px
+  margin-left: -6%
+  width: 112%
+  background-color: #362f2d
+  float: left
+  padding: 20px 80px
+  color: #acacac
+  .content
+    float: left
+    width: 30%
+    margin-right: 5%
+    line-height: 22px
+    h3
+      text-transform: uppercase
+      font-weight: 900
+      margin-bottom: 20px
+      color: $white
+  .twitter
+    margin-bottom: 10px
+    float: left
+    p
+      background-image: url(footer_icon-twitter.png)
+      background-repeat: no-repeat
+      padding-left: 40px
+      width: 60%
+      float: left
+    .avatar
+      float: right
+      width: 30%
+      img
+        max-width: 100%
+  .content:last-child
+    margin-right: 0%
+
+
+#copyright
+  background-color: #211f1e
+  width: 100%
+  float: left
+  margin-left: -6%
+  width: 112%
+  text-align: center
+  color: $white
+  padding: 25px
