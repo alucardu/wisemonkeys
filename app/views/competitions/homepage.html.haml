@@ -1,6 +1,49 @@
 #container-slider
-  =image_tag("banner-overlay.png", :class => "overlay")
-  =image_tag("slider-1.png")
+  #slider-content
+    .container-button-brush
+      .button.brush.active
+        %h3
+          Mee doen
+        %p
+          Deelnemen aan de wedstrijd
+      .toggle
+        =image_tag("mee_doen.png")
+        .meedoen
+          %h3
+            Mee doen
+          %a{:href => "= link_to 'Wedstrijden', competitions_path"} Bekijk de wedstrijden
+    .container-button-check
+      .button.check
+        %h3
+          Breng je stem uit
+        %p
+          Stemmen op kunst
+      .toggle
+        =image_tag("stemmen.png")
+        .meedoen
+          %h3
+            Mee doen
+          %a{:href => "= link_to 'Wedstrijden', competitions_path"} Bekijk de wedstrijden
+    
+    .container-button-star
+      .button.check
+        %h3
+          Recente winnaars
+        %p
+          Winnende kunstwerken
+      .toggle
+        =image_tag("winner_line.png")
+        .container-winner
+          %span
+            Kunstenaar:
+          %h3
+            Bart Hoekstra
+            
+          =image_tag("winner.png")
+          %a{:href => "/"} Bekijk profiel
+    
+
+  =image_tag("slider-1.png", :class => "background")
   
 
 #container-match-overview

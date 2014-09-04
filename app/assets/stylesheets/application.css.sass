@@ -224,14 +224,90 @@ body,html
 #container-slider
   width: 112%
   margin-left: -6%
-  text-align: center
   margin-top: -20px
-  position: relative
   margin-bottom: 20px
-  img
+  position: relative
+  .background
     max-width: 100%
-  .overlay
+  #slider-content
     position: absolute
+    padding: 5% 0%
+    font-weight: 900
+    left: 0
+    right: 0
+    margin: 0 auto
+    width: 1230px
+    .button
+      @include box-sizing(border-box)
+      padding: 20px 20px 20px 65px
+      cursor: pointer
+      height: 80px
+      width: 250px
+      margin-bottom: 40px
+      float: left
+      clear: both
+      text-align: left
+    @each $icon in brush, check, star
+      .#{$icon}
+        background: url('icon-#{$icon}.png') $darkest-grey no-repeat 10px 20px
+      h3
+        color: $white
+        margin-bottom: 10px
+      p
+        color: $white
+        font-size: 12px
+        font-style: italic
+      img
+        position: absolute
+    .meedoen
+      margin-top: 210px
+      padding: 15px
+      background-color: $blue
+      color: white
+      border-radius: 30px
+      text-decoration: none
+      text-align: center
+      right: 0
+      position: absolute
+      width: 160px
+      a
+        color: $white
+        text-decoration: none
+        font-size: 12px
+    .active
+      background-color: $orange
+    .container-button-star
+      img
+        position: relative
+        float: left
+        margin-top: -240px
+      .container-winner
+        background-color: $white
+        padding: 20px
+        margin-top: -240px
+        height: 380px
+        float: left
+        span
+          float: left
+          margin-right: 10px
+          font-size: 14px
+        h3
+          float: left
+          color: $black
+          font-size: 16px
+        img
+          clear: both
+          margin-top: 0px
+          margin-bottom: 20px
+        a
+          padding: 15px
+          background-color: $orange
+          color: white
+          border-radius: 30px
+          text-decoration: none
+          text-align: center
+          clear: both
+          float: left
 
 #container-match-overview
   position: relative
@@ -1448,7 +1524,7 @@ div, input, textarea
   color: #acacac
   .content
     float: left
-    width: 30%
+    width: 35%
     margin-right: 5%
     line-height: 22px
     h3
@@ -1463,13 +1539,15 @@ div, input, textarea
       background-image: url(footer_icon-twitter.png)
       background-repeat: no-repeat
       padding-left: 40px
-      width: 60%
+      width: 67%
       float: left
     .avatar
       float: right
-      width: 30%
+      width: 23%
       img
         max-width: 100%
+  .contact
+    width: 20%
   .content:last-child
     margin-right: 0%
 
@@ -1483,3 +1561,4 @@ div, input, textarea
   text-align: center
   color: $white
   padding: 25px
+

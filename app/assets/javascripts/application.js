@@ -178,6 +178,30 @@ $(document).ready(function(){
   $('.close').click(function(){
     $('body').find("#form").fadeOut(350);
     $('body').find("#bg-overlay").stop().fadeOut(350);
-  });  
+  });
+
+  $(".container-button-check .toggle").hide();
+  $(".container-button-star .toggle").hide();
+
+  $(".container-button-brush").click(function(){
+    $('body').find(".toggle").fadeOut(400);
+    $('body').find(".button").removeClass('active' , 500);
+    $(this).find(".toggle").fadeToggle(400);
+    $(this).find(".button").addClass('active' , 500);
+  });
+
+  $(".container-button-check").click(function(){
+    $('body').find(".toggle").fadeOut(400);
+    $('body').find(".button").removeClass('active' , 500);
+    $(this).find(".toggle").fadeToggle(400);
+    $(this).find(".button").addClass('active' , 500);
+  });
+
+  $(".container-button-star").click(function(){
+    $('body').find(".toggle").fadeOut(400);
+    $('body').find(".button").removeClass('active' , 500);
+    $(this).find(".toggle").fadeToggle(400);
+    $(this).find(".button").addClass('active' , 500);
+  });
 
 });
