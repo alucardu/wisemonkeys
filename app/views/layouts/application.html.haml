@@ -88,3 +88,48 @@
 
     #container-content
       = yield
+      #push
+
+    #footer
+      .content
+        %h3 
+          appsynt
+        %p 
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac eros eget mauris blandit aliquam. In ac purus neque. Praesent faucibus a mauris an ac purus neque. 
+          %br
+          %br
+          Praesent faucibus a mauris att Maecenas ac enim id turpis
+
+      .content.contact
+        %h3 
+          contact
+        %p 
+          info@appsynt.nl
+          %br
+          Ergensstraat 7b 8977DX Amsterdam
+          %br
+          T +32 132456789
+          %br
+          F +32 132465798
+
+      .content.twitter
+        %h3 
+          recente tweets
+        .twitter
+          %p 
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac eros eget mauris blandit aliquam.
+          .avatar
+            =image_tag("twitter_ava.png")
+        .twitter
+          %p 
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac eros eget mauris blandit aliquam. 
+          .avatar
+            =image_tag("twitter_ava.png")
+        .twitter
+          %p 
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac eros eget mauris blandit aliquam.
+          .avatar
+            =image_tag("twitter_ava.png")
+    
+      #copyright
+        © 2014 Appsynth. All rights reserved.
