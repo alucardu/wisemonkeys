@@ -57,7 +57,7 @@ body,html
   font-family: 'Muli', sans-serif
   background: $grey-bg
   height: 100%
-  overflow-y: hidden
+  overflow-x: hidden
 
 // ======= //
 // General // 
@@ -65,10 +65,9 @@ body,html
 
 #container-content
   padding: 80px 5% 0px 5%
-  height: 100%
-  overflow: auto
-  overflow-x: hidden
-
+  min-height: 100%
+  margin: 0 auto -402px
+  display: inline-block
 // ====== //
 // Header // 
 // ====== //
@@ -77,7 +76,7 @@ body,html
   z-index: 2
   position: fixed
   font-size: 0.9em
-  width: 100%
+  width: 99%
   height: 60px
   padding: 25px 5%
   background-color: $white
@@ -1379,8 +1378,11 @@ div, input, textarea
 
 #container-content
   #content
-    padding: 20px
+    padding: 20px 20px 20px 20px
     background-color: $white
+    min-height: 100%
+    float: left
+    width: 100%
   a
     color: $orange
     text-decoration: none
@@ -1514,13 +1516,19 @@ div, input, textarea
           p
             float: left
 
-#footer
-  margin-top: 20px
-  margin-left: -6%
-  width: 112%
-  background-color: #362f2d
+#push
+  height: 422px
   float: left
-  padding: 20px 80px
+  width: 100%
+  display: inline-block
+
+#footer
+  margin-top: -6px
+  height: 402px
+  width: 100%
+  display: inline-block
+  background-color: #362f2d
+  padding: 20px 5% 0 5%
   color: #acacac
   .content
     float: left
@@ -1532,6 +1540,9 @@ div, input, textarea
       font-weight: 900
       margin-bottom: 20px
       color: $white
+  .content.twitter
+    margin-right: 0%
+
   .twitter
     margin-bottom: 10px
     float: left
@@ -1548,17 +1559,15 @@ div, input, textarea
         max-width: 100%
   .contact
     width: 20%
-  .content:last-child
-    margin-right: 0%
 
 
 #copyright
   background-color: #211f1e
-  width: 100%
   float: left
-  margin-left: -6%
-  width: 112%
   text-align: center
   color: $white
   padding: 25px
+  margin-top: 6px
+  margin-left: -6%
+  width: 112%
 
