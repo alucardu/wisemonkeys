@@ -1,11 +1,7 @@
 = javascript_include_tag "application", "data-turbolinks-track" => true 
 #attend-match
-  %h1 Wedstrijden
-  
-    
   = form_for @picture, :html => {:multipart => true} do |f|
     #container-attend
-      %span Afbeelding
       #container-btn
         %img(id='prev_img' src='')
         = f.file_field :image

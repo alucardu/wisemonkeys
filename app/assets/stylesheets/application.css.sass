@@ -469,7 +469,7 @@ body,html
       z-index: 2
       position: absolute
       background-color: $white
-      width: 99%
+      width: 65%
       left: 0
       top: 100px
       color: $black
@@ -796,16 +796,14 @@ div, input, textarea
 #attend-match
   margin-top: 20px
   padding: 20px
-  border: 10px solid $dark-green
-  width: 30%
-  background-color: $light-grey
+  width: 40%
   margin: 0 auto
   & input[type="file"]
     position: relative
     z-index: 2
     -webkit-appearance: none 
-    height: 175px
-    width: 125px
+    height: 295px
+    width: 255px
     opacity: 0
     cursor: pointer
   h1
@@ -822,8 +820,9 @@ div, input, textarea
     float: left
     #container-btn
       float: left
-      width: 125px
-      background-image: url('add-art.png')
+      height: 295px
+      width: 255px
+      background-image: url('btn-upload.jpg')
       border: 2px solid $grey
       position: relative
       .field_with_errors
@@ -837,8 +836,8 @@ div, input, textarea
         z-index: 1
         top: 0
         left: 0
-        height: 175px
-        width: 125px
+        height: 295px
+        width: 255px
 
   .field
     float: left
@@ -852,15 +851,19 @@ div, input, textarea
       width: 100%
       padding: 10px
       margin-bottom: 25px
-      border: 2px solid $grey
+      border: none
+      background-color: #626262
+      color: white
       @include box-sizing(border-box)
-      &:focus
-        border: 2px solid $dark-green
-        outline: 0
+      font-family: "Muli", sans-serif
 
     #btn
-      background-color: $lime-green
-      border: 5px solid $dark-green
+      background-color: #51a4c7
+      color: white
+      border-radius: 30px
+      text-decoration: none
+      padding: 20px
+      width: 250px
 
     textarea
       height: 150px
@@ -1239,7 +1242,21 @@ div, input, textarea
       img
         width: 100%
 
+#show
+  img
+    width: auto
+    float: left
+    margin-bottom: 10px
+  p
+    clear: both
+
+  h3
+    font-size: 16px
+    font-weight: 900
+
+
 .js-masonry
+  margin-bottom: 20px
   #match-info
     margin-bottom: 0px
     .content
@@ -1258,6 +1275,19 @@ div, input, textarea
     text-decoration: none
     float: left
     cursor: pointer
+  .item
+    width: 19%
+    padding: 1%
+    h3
+      font-weight: 900
+      font-size: 16px
+      margin-bottom: 10px
+
+    p
+      width: 100%!important
+    img
+      width: 100%
+
 
 #feedback
   margin-right: 13px
