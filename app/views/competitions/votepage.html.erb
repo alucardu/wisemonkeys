@@ -17,9 +17,11 @@
       <%= flash[:notice] %>
       <table>
         <tr>
-          <td><h2>1</h2></td>
-          <td><h2>2</h2></td>
-          <td><h2>3</h2></td>
+          <% @count = 0 %>
+          <% @competition.pictures.each do %>
+            <% @count = @count + 1 %>
+            <td><h2><%= @count %> </h2></td>
+          <% end %>
         </tr>
       </table>
       <ul id="picturelist" data-update-url="<%= sort_pictures_url%>">
