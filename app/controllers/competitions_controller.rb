@@ -1,5 +1,5 @@
 class CompetitionsController < ApplicationController
-  before_action :set_competition, only: [:vote, :show, :edit, :update, :destroy]
+  before_action :set_competition, only: [:vote, :show, :edit, :update, :destroy, :submit_vote]
   before_action :change, :only => [:edit, :update, :destroy]
   before_action :signedin, :only => [:edit, :update, :destroy, :create, :new]
   before_action :b_accountcheck, :only => [:edit, :update, :destroy, :create, :new]
@@ -16,9 +16,6 @@ class CompetitionsController < ApplicationController
   def show
   end
 
-   # GET /competitions/1
-  # GET /competitions/1.json
-
   def votepage
     @competition = Competition.find(params[:id])
   end
@@ -27,6 +24,14 @@ class CompetitionsController < ApplicationController
     @competitions = Competition.all
   end
 
+  def submit_vote
+    total = (@competition.pictures.count + 1)
+    @competition.pictures.each do |picture|
+      picture.points = (picture.points + (total - picture.position))
+      picture.save!
+    end
+    redirect_to competition_path(@competition), notice: "Je hebt gestemd"
+  end
 
   # GET /competitions/new
   def new

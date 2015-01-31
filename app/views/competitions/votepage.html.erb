@@ -12,8 +12,9 @@
       </div>
     </div>
       <h1>
-        Sleep hier jouw 5 favoriete kunstwerken in.
+        Maak een top <%= @competition.pictures.count %> en stem
       </h1>
+      <%= flash[:notice] %>
       <table>
         <tr>
           <td><h2>1</h2></td>
@@ -27,7 +28,8 @@
             <%= image_tag(picture.image_url) %>
           <% end %>
         <% end %>
-      </div>
+        </u>
+        <div class="votebutton"><h1></h1><%= button_to "Stem", submit_vote_competition_path(@competition), disable_with: "Aan het stemmen" %></div>
     </div>
   </div>
 </div>

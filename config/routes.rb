@@ -5,6 +5,7 @@ Wisemonkeys::Application.routes.draw do
   get "users/new"
   resources :competitions do
     get :votepage, on: :member
+    post :submit_vote, on: :member
   end
   resources :users 
   get 'pictures/new'

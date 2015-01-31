@@ -54,7 +54,7 @@
               Votes
               - if signed_in?
                 - if current_user == @competition.user || current_user.administrator? || Time.now.in_time_zone("Amsterdam") <= @competition.deadline
-                  #{pluralize(picture.votes.count, "" )}
+                  = picture.points
                   -# = pluralize(picture.votes.count, "vote" )
                   -# %span
                     -# %div
