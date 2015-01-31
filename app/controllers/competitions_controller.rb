@@ -23,7 +23,6 @@ class CompetitionsController < ApplicationController
     @competition = Competition.find(params[:id])
   end
 
-
   def homepage
     @competitions = Competition.all
   end

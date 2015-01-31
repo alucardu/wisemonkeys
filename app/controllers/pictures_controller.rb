@@ -15,7 +15,12 @@ class PicturesController < ApplicationController
      
   end
 
-
+  def sort
+    params[:picture].each_with_index do |id, index|
+      Picture.update_all({position: index+1}, {id: id})
+    end
+    render nothing: true
+  end
 
   def votepage
     @pictures = Picture.all

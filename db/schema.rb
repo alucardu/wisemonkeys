@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140610092026) do
+ActiveRecord::Schema.define(version: 20150131123750) do
 
   create_table "businessrequests", force: true do |t|
     t.string   "kvk"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20140610092026) do
     t.string   "image_cache"
     t.integer  "competition_id"
     t.integer  "user_id"
+    t.integer  "position"
   end
 
   create_table "reviews", force: true do |t|
